@@ -7,6 +7,6 @@
     <title>Accueil - Sondage</title>
 </head>
 <body>
-    
+    <h1>oui</h1>
 </body>
 </html>
