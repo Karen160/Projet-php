@@ -5,11 +5,31 @@
 header{
     background-color: #D5E9EC;
     width: 100%;
+    position: relative;
 }
 header img{
     display: flex;
-    padding-top: 3px;
     justify-content: center;
     width: 8%;
     height: auto;
+}
+
+#user {
+    position: absolute;
+    right: 0;
+    top: 25%;
+    font-size: 45px;
+    width: 12%;
+    height: 50%;
+    margin-top: 1%;
+}
+#menu {
+    font-size: 45px;
+    position: absolute;
+    right: 0;
+    top: 25%;
+    height: 50%;
+    width: 8%;
+    margin-top: 1%;
+    text-align: center;
 }
