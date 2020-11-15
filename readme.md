@@ -1,4 +1,4 @@
 Projet rélaisé par:
 -Karen Azoulay
--Benjamin Burnstein
+-Benjamin Burstein
 -Alexandre Caramel
