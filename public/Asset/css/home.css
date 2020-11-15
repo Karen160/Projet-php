@@ -2,6 +2,8 @@
     margin: 0 auto;
 
 }
+
+/* //////////////////Header////////////////// */
 header{
     background-color: #D5E9EC;
     width: 100%;
@@ -22,6 +24,7 @@ header img{
     width: 12%;
     height: 50%;
     margin-top: 1%;
+    color: black;
 }
 #menu {
     font-size: 45px;
@@ -32,4 +35,21 @@ header img{
     width: 8%;
     margin-top: 1%;
     text-align: center;
+}
+#menu:hover {
+    cursor: pointer;
+}
+
+/* //////////////////Footer////////////////// */
+
+footer {
+    width: 100%;
+    background-color: #106B7E;
+}
+footer p {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    padding: 40px 0px;
 }
