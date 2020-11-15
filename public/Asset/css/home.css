@@ -1,3 +1,15 @@
 *{
     margin: 0 auto;
+
+}
+header{
+    background-color: #D5E9EC;
+    width: 100%;
+}
+header img{
+    display: flex;
+    padding-top: 3px;
+    justify-content: center;
+    width: 8%;
+    height: auto;
 }
