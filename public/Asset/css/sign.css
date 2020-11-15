@@ -1,19 +1,19 @@
 *{
-    margin: 0 auto;
-
+    margin: 0 ;
 }
 
-/* //////////////////Header////////////////// */
 header{
     background-color: #D5E9EC;
     width: 100%;
     position: relative;
+    
 }
 header img{
     display: flex;
     justify-content: center;
     width: 8%;
     height: auto;
+    margin: 0 auto ;
 }
 
 #user {
@@ -24,7 +24,6 @@ header img{
     width: 12%;
     height: 50%;
     margin-top: 1%;
-    color: black;
 }
 #menu {
     font-size: 45px;
@@ -36,20 +35,7 @@ header img{
     margin-top: 1%;
     text-align: center;
 }
-#menu:hover {
-    cursor: pointer;
-}
 
-/* //////////////////Footer////////////////// */
-
-footer {
-    width: 100%;
-    background-color: #106B7E;
-}
-footer p {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    color: white;
-    padding: 40px 0px;
+.card{
+    display: flex;
 }

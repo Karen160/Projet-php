@@ -9,12 +9,10 @@
     <title>Accueil - Sondage</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <img  src="..\..\Public\Asset\img\logo.png">
-        </nav>
-        
-    </header>
-    <h1>oui</h1>
+
+<?php include '../../inc/header.inc.php'; ?>
+<?php include '../../inc/footer.inc.php'; ?>
+
 </body>
+<?php include '../../inc/linkJS.inc.php'; ?>
 </html>
