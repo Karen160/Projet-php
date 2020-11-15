@@ -8,7 +8,12 @@
     <title>Accueil - Sondage</title>
 </head>
 <body>
-<?php include '../../inc/header.inc.php'; ?>
+    <header>
+        <nav>
+            <img  src="..\..\Public\Asset\img\logo.png">
+        </nav>
+        
+    </header>
     <h1>oui</h1>
 </body>
 </html>
