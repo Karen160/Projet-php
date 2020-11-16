@@ -1,66 +1,65 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: "Roboto";
-}
-
-@font-face{
-    font-family: 'Roboto'; 
-    src : url('font/robotoRegular.ttf') format('truetype'); 
-}
-
-h1{
+.conteneur p {
     text-align: center;
-    font-size: 3.5em;
+    padding: 20px 30px 0px;
+    color: black;
 }
 
-h2{
-    text-align: center;
-    font-size: 2.8em;
-}
-
-/* //////////////////Header////////////////// */
-header{
-    background-color: #D5E9EC;
-    width: 100%;
-    position: relative;
-}
-
-header nav{
-    display: flex;
-}
-
-header nav img{
+.conteneur span{
     display: block;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
+    text-align: center;
+    background-color:  #106B7E;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.9em;
 }
 
-header nav div{
+.conteneur{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.conteneur .boxsondage{
+    width: 400px;
+    background-color:#D5E9EC;
+    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.418);
+    border-radius: 15px;
+    margin: 35px 20px;
+}
+
+.conteneur .boxsondage img{
+    border-radius: 15px 15px 0 0;
+    width: 400px;
+}
+
+.fa-share{
     display: flex;
     float: right;
-    align-items: center;
-    padding-right: 20px;
-}
-
-header nav div .fas{
-    font-size: 30px;
-    color: black;
-    padding: 10px;
+    font-size: 20px;
     cursor: pointer;
+    color: #106B7E;
 }
 
-/* //////////////////Footer////////////////// */
-
-footer {
-    width: 100%;
-    background-color: #106B7E;
+.conteneur .boxsondage:hover{
+    box-shadow: none;
+    transition-duration: 0.2s;
+    transform: translate(0px, -10px);
+    transition-timing-function: linear;
 }
 
-footer p {
-    text-align: center;
-    color: white;
-    padding: 20px 0px;
+.conteneur .boxsondage a:hover{
+    text-decoration: none;
+}
+
+@media screen and (max-width:900px){
+    .conteneur .boxsondage{
+        width: 300px; 
+        margin-bottom: 0px;
+    }
+    
+    .conteneur .boxsondage img{
+        width: 300px;
+    }
+
 }
