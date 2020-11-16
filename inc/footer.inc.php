@@ -1,8 +1,7 @@
 <footer>
     <p>Site Web - crée dans le cadre d'un projet scolaire</p>
 </footer>
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/TweenMax.min.js"></script>
-<script src="js/monscript.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../public/Asset/js/main.js"></script>
 </body>
 </html>
