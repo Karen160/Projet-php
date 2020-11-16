@@ -18,9 +18,10 @@ include '../../inc/header.inc.php'; ?>
                         <span>12 points</span>
                             <br><br>
                             Je vais manger un hamburger
-                            <br>
+                            
                             <i class="fas fa-arrow-right"></i>
                         </p>
+                        <br>
                     </a>
                 </div>
                 <div class="boxsondage">
@@ -73,6 +74,7 @@ include '../../inc/header.inc.php'; ?>
                     </a>
                 </div>
             </div>
+            <button class="btn btn-info active">Voir plus</button>
 
             <h2>Mes sondages en cours</h2>
             <div class="conteneur">
