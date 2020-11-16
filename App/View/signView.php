@@ -20,14 +20,20 @@
     <main>
             <div class="row">
                 
-                <section class="col-sm-5 ml-5 mt-4" >
+                <section class="col-sm-4 ml-5 mt-4" >
                     <div class="card" >
                         <div class="card-body">
                             <h2 class="card-title">Inscription</h2>
                             <div class="row">
-                                 <div class="col-sm">
+                                 <div class="col-sm-12 row">
+                                    <div class="col-sm-6">
+                                    <label for="form_name ">Nom</label>
+                                    <input id="form_name" type="text" name="nom" class="form-control" placeholder="Entrez votre nom" required="required" data-error="Le nom est requis.">
+                                    </div>
+                                    <div class="col-sm-6"> 
                                     <label for="form_name ">Name *</label>
                                     <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your name" required="required" data-error="name is required.">
+                                    </div>
                                  </div>
                                  <div class="col-sm-4">
 
