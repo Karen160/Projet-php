@@ -1,9 +1,12 @@
 <?php 
 include '../../inc/head.inc.php'; 
 include '../../inc/header.inc.php'; ?>
-<main>
+<main id="profil">
+    <button class="btn btn-info active" style="float:right; margin-right:40px">Modifier mon profil</button><br><br>
+    <button class="btn btn-info active" style="float:right; margin-right:70px">Mes amis</button>
+
     <section>
-        <img scr="https://get.wallhere.com/photo/fortnite-PC-gaming-game-logo-1438687.jpg">
+        <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
         <div class="info">
             <div>
                 <p>Nom :</p>
