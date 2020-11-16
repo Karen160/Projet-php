@@ -7,12 +7,16 @@
 
 h2{
     text-align: center;
-    font-size: 2.8em;
+    font-size: 2em;
 }
 
 a, p{
     text-decoration: none;
     margin: 0;
+}
+
+main{
+    margin-top: 120px;
 }
 
 /* //////////////////Header////////////////// */
@@ -49,7 +53,50 @@ header div .fas{
 }
 
 nav{
-    display: none;
+    display: block;
+    width: 100%;
+    height: 100vh;
+    background-color:  #106B7e;
+    opacity: 0.95;
+    position: fixed;
+    z-index: 100;
+}
+
+nav div{
+    display: block;
+    padding: 0;
+}
+
+nav #menu{
+    margin: 50px auto;
+}
+
+nav #menu a{
+    margin: 7vh auto;
+    font-size: 1.8em;
+    text-align: center;
+    cursor: pointer;
+    color: white!important;
+}
+
+
+nav div hr{
+    background-color: white;
+    width: 250px;
+    margin: 0 auto;
+}
+
+nav div .fas{
+    color: white;
+    font-size: 50px;
+    display: flex;
+    float: right;
+    cursor: pointer;
+    padding: 20px;
+}
+
+nav div a:hover, nav div .fas:hover{
+    color: #7e1010!important;
 }
 
 /* //////////////////Footer////////////////// */

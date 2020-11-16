@@ -31,4 +31,5 @@ include '../../inc/header.inc.php'; ?>
         </div>
     </section>
 </main>
+
 <?php include '../../inc/footer.inc.php'; ?>

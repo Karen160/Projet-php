@@ -5,14 +5,19 @@
     <img  src="..\..\Public\Asset\img\logo.png">
     <div>
         <a href="profil.php"><i class="fas fa-user"></i></a>
-        <i class="fas fa-bars" id="menu"></i>
+        <i class="fas fa-bars"></i>
     </div>
     
     <nav>
-        <div class="boutonFermer"><p>X</p></div>
-        <a>Sondage</a>
-        <a>Nouveau sondage</a>
-        <a>Résultat</a>
-        <a>Amis</a>
+        <div><i class="fas fa-times"></i></div>
+        <div id="menu">
+            <a>Sondage</a>
+            <hr>
+            <a>Nouveau sondage</a>
+            <hr>
+            <a>Résultat</a>
+            <hr>
+            <a>Amis</a>
+        </div>
     </nav>
 </header>
