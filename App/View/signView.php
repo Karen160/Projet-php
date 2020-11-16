@@ -8,7 +8,7 @@ include '../../inc/head.inc.php';
                 <div class="col-sm-1">
 
                 </div>
-                <section class="col-sm-5 mt-5" >
+                <section class="col-sm-5 " id="inscription" >
                     <div class="card" >
                         <div class="card-body">
                             <h2 class="card-title">Inscription</h2>
@@ -40,9 +40,9 @@ include '../../inc/head.inc.php';
                         </div>
                     </div>
                 </section>
-                <section class="col-sm-5 mx-auto mt-auto mb-5 pb-5  " >
+                <section class="col-sm-5 mx-auto mt-5"  >
                     <div class="card " >
-                        <div  class="card-body ">
+                        <div  class="card-body " id="connexion">
                             <h2 class="card-title ">Connexion</h2>
                             <div class="row">
                                 <div class="col-sm-12">
@@ -62,5 +62,4 @@ include '../../inc/head.inc.php';
                 </section>
             </div>
     </main>
-</body>
-</html>
+    <?php  include '../../inc/footer.inc.php';?>
