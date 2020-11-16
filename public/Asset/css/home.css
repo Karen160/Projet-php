@@ -1,6 +1,6 @@
 *{
-    margin: 0 auto;
-
+    margin: 0;
+    padding: 0;
 }
 
 /* //////////////////Header////////////////// */
@@ -9,34 +9,30 @@ header{
     width: 100%;
     position: relative;
 }
-header img{
+
+header nav{
     display: flex;
-    justify-content: center;
-    width: 8%;
-    height: auto;
 }
 
-#user {
-    position: absolute;
-    right: 0;
-    top: 25%;
-    font-size: 45px;
-    width: 12%;
-    height: 50%;
-    margin-top: 1%;
+header nav img{
+    display: block;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+}
+
+header nav div{
+    display: flex;
+    float: right;
+    align-items: center;
+    padding-right: 20px;
+}
+
+header nav div .fas{
+    font-size: 30px;
     color: black;
-}
-#menu {
-    font-size: 45px;
-    position: absolute;
-    right: 0;
-    top: 25%;
-    height: 50%;
-    width: 8%;
-    margin-top: 1%;
-    text-align: center;
-}
-#menu:hover {
+    padding: 10px;
     cursor: pointer;
 }
 
@@ -46,6 +42,7 @@ footer {
     width: 100%;
     background-color: #106B7E;
 }
+
 footer p {
     font-size: 18px;
     font-weight: bold;
