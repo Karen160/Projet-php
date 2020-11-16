@@ -1,6 +1,8 @@
 <?php 
 include '../../inc/head.inc.php'; 
-include '../../inc/header.inc.php'; ?>
+ ?>
+<body>
+    <?php  include '../../inc/header.inc.php';?>
     <main>
             <div class="row">
                 
@@ -9,18 +11,15 @@ include '../../inc/header.inc.php'; ?>
                         <div class="card-body">
                             <h2 class="card-title">Inscription</h2>
                             <div class="row">
-                                 <div class="col-sm-12 row">
+                                <div class="col-sm-12 row">
                                     <div class="col-sm-6">
                                     <label for="form_name ">Nom</label>
                                     <input id="form_name" type="text" name="nom" class="form-control" placeholder="Entrez votre nom" required="required" data-error="Le nom est requis.">
                                     </div>
                                     <div class="col-sm-6"> 
-                                    <label for="form_name ">Name *</label>
-                                    <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your name" required="required" data-error="name is required.">
+                                    <label for="form_name ">Prénom</label>
+                                    <input id="form_name" type="text" name="prenom" class="form-control" placeholder="Entrez votre prénom" required="required" data-error="Le prénom est requis.">
                                     </div>
-                                 </div>
-                                 <div class="col-sm-4">
-
                                  </div>
                             </div>
                         </div>
@@ -39,4 +38,5 @@ include '../../inc/header.inc.php'; ?>
                 </section>
             </div>
     </main>
-<?php include '../../inc/footer.inc.php'; ?>
+</body>
+</html>
