@@ -11,22 +11,26 @@ include '../../inc/header.inc.php'; ?>
             </svg>
         </button>
     </form>
-    <br>
+    <br><br>
     <h2>Mes amis</h2>
+    <br>
     <table>
-    <tr>
-        <th>Photo de profil</th>
-        <th>Pseudo</th>
-        <th>Statut</th>
-        <th>Modifier</th>
-    </tr>
-    <tr>
-        <td><img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+        <thead>
+            <tr>
+                <th class="pp">Photo de profil</th>
+                <th>Pseudo</th>
+                <th>Statut</th>
+                <th>Modifier</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="pp"><img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg"></td>
+                <td>Paul</td>
+                <td>Connecté</td>
+                <td><button>Supprimé</button></td>
+            </tr>
+        </tbody>
     </table>
-
 </main>
 <?php include '../../inc/footer.inc.php' ?>

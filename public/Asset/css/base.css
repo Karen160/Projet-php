@@ -20,13 +20,12 @@ main{
 }
 
 button{
-    color: #106B7E!important;
+    color: white!important;
     background-color: #106B7E!important;
     border-color: #106B7E!important;
 }
 
 button:hover{
-    background-color: #7e1010!important;
     background-color: #7e1010!important;
     border-color: #7e1010!important;
 }
