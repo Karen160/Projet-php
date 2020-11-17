@@ -1,0 +1,17 @@
+.form-inline .btn{
+    border-radius: 0px 0.25rem 0.25rem 0px;
+}
+
+.form-inline input{
+    padding: 10px;
+    width: 400px!important;
+}
+
+.form-control{
+    border-radius: 0.25rem 0px 0px 0.25rem ;
+}
+
+.form-inline{
+    margin: 0 auto!important;
+    width: 445px!important;
+}
