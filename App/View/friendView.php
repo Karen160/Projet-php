@@ -15,7 +15,16 @@ include '../../inc/header.inc.php'; ?>
     <h2>Mes amis</h2>
     <table>
     <tr>
-        <th></th>
+        <th>Photo de profil</th>
+        <th>Pseudo</th>
+        <th>Statut</th>
+        <th>Modifier</th>
+    </tr>
+    <tr>
+        <td><img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg"></td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
     </table>
 
