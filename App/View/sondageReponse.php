@@ -22,7 +22,7 @@ include '../../inc/header.inc.php'; ?>
         </div>
     </section>
     <br><br>
-    <section>
+    <section id="com">
         <h2>Commentaire</h2>
         <div class="msg">
             <div>
