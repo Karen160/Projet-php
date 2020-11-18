@@ -2,3 +2,9 @@
     background-color: #D5E9EC;
 }
 
+.card{
+    z-index: -1 ;
+}
+#signMain{
+    height: 75.7vh;
+}

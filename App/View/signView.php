@@ -1,7 +1,7 @@
 <?php 
 include '../../inc/head.inc.php'; 
 include '../../inc/header.inc.php';?>
-<main>
+<main id="signMain">
     <div class="row">
         <div class="col-sm-1">
 
