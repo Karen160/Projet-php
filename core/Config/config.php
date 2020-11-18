@@ -1,7 +1,8 @@
-<?php
+<?php 
+
 $dbConfig = [
     "host" => "localhost:3306",
     "dbname" => "projetphp",
-    "dbuser" =>"root",
+    "dbuser" => "root",
     "dbpass" => ""
 ];
