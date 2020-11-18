@@ -11,6 +11,7 @@ include '../../inc/header.inc.php'; ?>
             <button><h4>Non</h4></button>
         </div>
     </section>
+    <br>
     <section id="sondage">
         <h2>La question que tout le monde attend</h2>
         <br><br>
