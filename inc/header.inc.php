@@ -2,7 +2,7 @@
     <div style="width:100px">
 
     </div>
-       <img  src="..\..\Public\Asset\img\logo.png">
+        <img  src="..\..\Public\Asset\img\logo.png">
     <div>
         <a href="../../App/View/profilView.php"><i class="fas fa-user"></i></a>
         <i class="fas fa-bars"></i>
