@@ -17,10 +17,14 @@
     overflow-y: hidden;
   }
 
+  #sondage p{
+    padding: 5px 0px 5px 10px;
+  }
+
   .bar .percentage p{
     color:white;
     font-size: 0.8em;
-    padding-left: 10px;
+    padding: 0px 0px 0px 10px!important;
   }
 
   #sondage{
@@ -42,3 +46,5 @@
     display: block;
     
   }
+
+ 

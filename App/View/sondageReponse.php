@@ -21,6 +21,15 @@ include '../../inc/header.inc.php'; ?>
             <p>30 votes</p>
         </div>
     </section>
+    <br><br>
+    <section>
+        <h2>Commentaire</h2>
+        <div class="msg">
+            <div>
+                <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
+            </div>
+        </div>
+    </section>
 
 </main>
-<?php include '../../inc/footer.inc.php' ?>
+<?php include '../../inc/footer.inc.php'?>
