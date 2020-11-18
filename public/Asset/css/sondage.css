@@ -1,20 +1,26 @@
 .bar {
     /* font-size: 10px */
     width: 30em;
-    height: 1em;
+    height: 1.5em;
     border-radius: 0.5em;
     position: relative;
     background: #f2f2f2;
     box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
-    margin: auto;
   }
 
   .bar .percentage {
     position: relative;
-    font-size: 1em;
+    font-size: 1.5em;
     background: tomato;
     height: 1em;
     border-radius: 0.5em;
+    overflow-y: hidden;
+  }
+
+  .bar .percentage p{
+    color:white;
+    font-size: 0.8em;
+    padding-left: 10px;
   }
 
   #sondage{
@@ -25,7 +31,14 @@
     margin: auto;
   }
 
-  #sondage h3{
-    text-align: center;
+  #sondage h4{
     margin: 10px 0;
+    padding-left: 10px;
+  }
+
+  #sondage .sond{
+    width: 30em;
+    margin: 0 auto;
+    display: block;
+    
   }
