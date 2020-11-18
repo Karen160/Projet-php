@@ -7,10 +7,10 @@ include '../../inc/header.inc.php';?>
 
         </div>
         <section class="col-sm-5 " id="inscription" >
-            <div class="card" >
+            <div class="card position-static" >
                 <div class="card-body">
                     <h2 class="card-title">Inscription</h2>
-                    <div class="row">
+                    <div class="row ">
                             <div class="col-sm-6">
                                 <label for="form_name ">Nom</label>
                                 <input id="form_name" type="text" name="nom" class="form-control" placeholder="Entrez votre nom" required="required" data-error="Le nom est requis.">
@@ -39,7 +39,7 @@ include '../../inc/header.inc.php';?>
             </div>
         </section>
         <section class="col-sm-5 mx-auto mt-5"  >
-            <div class="card " >
+            <div class="card position-static" >
                 <div  class="card-body " id="connexion">
                     <h2 class="card-title ">Connexion</h2>
                     <div class="row">
