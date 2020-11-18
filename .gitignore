@@ -1,2 +1,2 @@
 #ignorer
-Core/*/config.php
+Core/Config/config.php
