@@ -2,10 +2,10 @@
 include '../../inc/head.inc.php'; 
 include '../../inc/header.inc.php'; ?>
 <main>
-<section class="col-sm-7 " id="formSondage" >
+<section class="col-sm-7 mx-auto" id="shareSondage" >
             <div class="card position-static" >
                 <div class="card-body">
-                    <h2 class="card-title">Créer un sondage</h2>
+                    <h2 class="card-title">Partager le sondage</h2>
                     <div class="row ">
                             <div class="col-sm-12 mt-4">
                                 <label for="form_name ">Nombre de personne</label>

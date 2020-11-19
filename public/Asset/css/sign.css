@@ -6,6 +6,11 @@ div .card{
     z-index: -1 ;
     position: static !important;
 }
+
 #signMain{
     height: 75.7vh;
 }
+
+/* #shareSondage, #newSondage{
+    margin: auto!important;
+} */

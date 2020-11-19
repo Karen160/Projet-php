@@ -2,8 +2,8 @@
 include '../../inc/head.inc.php'; 
 include '../../inc/header.inc.php'; ?>
 <main>
-<section class="col-sm-7 " id="formSondage" >
-            <div class="card position-static" >
+<section class="col-sm-7 mx-auto" id="newSondage">
+            <div class="card position-static">
                 <div class="card-body">
                     <h2 class="card-title">Créer un sondage</h2>
                     <div class="row ">
