@@ -27,6 +27,7 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) &&
       //rediriger au bout de x sec
       header("refresh:3;url=../../App/View/profilView.php");
   }
+}
 ?>
 <main id="signMain">
     <div class="row">
