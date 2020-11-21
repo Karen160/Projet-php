@@ -10,12 +10,12 @@
     
     <nav>
         <div><i class="fas fa-times"></i></div>
-        <a href="../../App/View/homeView.php">Sondage</a>
+        <a href="../../App/View/homeView.php">Accueil</a>
         <hr>
-        <a>Nouveau sondage</a>
+        <a href="../../App/View/newSondage.php">Nouveau sondage</a>
         <hr>
-        <a>Résultat</a>
+        <a href="../../App/View/#">Résultat</a>
         <hr>
-        <a>Amis</a>
+        <a href="../../App/View/friendView.php">Amis</a>
     </nav>
 </header>
