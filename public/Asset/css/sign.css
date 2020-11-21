@@ -3,6 +3,7 @@
 }
 .card{
     z-index: -1;
+    position: static;
 }
 #signMain{
     height: 75.7vh;

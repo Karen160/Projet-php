@@ -8,36 +8,39 @@ include '../../inc/header.inc.php';
 
         </div>
         <section class="col-sm-5 position-static" id="inscription" >
-            <div class="card " >
-                <div class="card-body">
-                    <h2 class="card-title">Inscription</h2>
-                    <div class="row ">
-                            <div class="col-sm-6">
-                                <label for="form_name ">Nom</label>
-                                <input id="form_name" type="text" name="nom" class="form-control" placeholder="Entrez votre nom" required="required" data-error="Le nom est requis.">
-                            </div>
-                            <div class="col-sm-6"> 
-                                <label for="form_name ">Prénom</label>
-                                <input id="form_name" type="text" name="prenom" class="form-control" placeholder="Entrez votre prénom" required="required" data-error="Le prénom est requis.">
-                            </div>
-                            <div class="col-sm-12 mt-4">
-                                <label for="form_name ">Pseudo</label>
-                                <input id="form_name" type="text" name="pseudo" class="form-control" placeholder="Choisissez un pseudo" required="required" data-error="Le pseudo est requis.">
-                            </div>
-                            <div class="col-sm-12 mt-4"> 
-                                <label for="form_name ">Mail</label>
-                                <input id="form_name" type="text" name="Mail" class="form-control" placeholder="Entrez votre email" required="required" data-error="Le mail est requis.">
-                            </div>
-                            <div class="col-sm-12 mt-4"> 
-                                <label for="form_name ">Password</label>
-                                <input id="form_name" type="password" name="Password" class="form-control" placeholder="Entrez votre mot de passe" required="required" data-error="Le mot de passe est requis.">
-                            </div>
-                            <div class="col-sm-12 mt-4 offset-ms-4"> 
-                                <button class="btn btn-info btn-block active" >Envoyez</button>
-                            </div>
+            <form>
+                <div class="card" >
+                    <div class="card-body">
+                        <h2 class="card-title">Inscription</h2>
+                        <div class="row ">
+                                <div class="col-sm-6">
+                                    <label for="form_name ">Nom</label>
+                                    <input id="form_name" type="text" name="nom" class="form-control" placeholder="Entrez votre nom" required="required" data-error="Le nom est requis.">
+                                </div>
+                                <div class="col-sm-6"> 
+                                    <label for="form_name ">Prénom</label>
+                                    <input id="form_name" type="text" name="prenom" class="form-control" placeholder="Entrez votre prénom" required="required" data-error="Le prénom est requis.">
+                                </div>
+                                <div class="col-sm-12 mt-4">
+                                    <label for="form_name ">Pseudo</label>
+                                    <input id="form_name" type="text" name="pseudo" class="form-control" placeholder="Choisissez un pseudo" required="required" data-error="Le pseudo est requis.">
+                                </div>
+                                <div class="col-sm-12 mt-4"> 
+                                    <label for="form_name ">Mail</label>
+                                    <input id="form_name" type="text" name="Mail" class="form-control" placeholder="Entrez votre email" required="required" data-error="Le mail est requis.">
+                                </div>
+                                <div class="col-sm-12 mt-4"> 
+                                    <label for="form_name ">Password</label>
+                                    <input id="form_name" type="password" name="Password" class="form-control" placeholder="Entrez votre mot de passe" required="required" data-error="Le mot de passe est requis.">
+                                </div>
+                                <div class="col-sm-12 mt-4 offset-ms-4"> 
+                                    <button id="form_name" type="submit" class="btn btn-info btn-block active" >Envoyez</button>
+                                </div>
+                            
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </section>
         <section class="col-sm-5 mx-auto mt-5 position-static"  >
             <div class="card " >
@@ -53,7 +56,7 @@ include '../../inc/header.inc.php';
                             <input id="form_name" type="password" name="Password" class="form-control" placeholder="Entrez votre mot de passe" required="required" data-error="Le mot de passe est requis.">
                         </div>
                         <div class="col-sm-12 mt-4 offset-ms-4"> 
-                            <button class="btn btn-info btn-block active" >Envoyez</button>
+                            <button type="submit" action="signView.php" class="btn btn-info btn-block active" >Envoyez</button>
                         </div>
                     </div>
                 </div>
