@@ -10,3 +10,13 @@ $('nav i').click(function(){ //Appuie sur la croix
 $('nav a').click(function(){ //Appuie sur le menu
     $('nav').hide("slow");
 });
+
+
+
+//Pop up partage
+$(".share").click(function(){
+    $("#shareSondage").show();
+})
+
+
+//Nombre de reponse / email

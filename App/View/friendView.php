@@ -2,7 +2,7 @@
 include '../../inc/head.inc.php'; 
 include '../../inc/header.inc.php'; ?>
 <main>
-    <button class="btn btn-info active" style="float:right; margin-right:40px">Ajouter de nouveaux amis</button><br><br>
+    <button onclick="window.location.href = 'newFriend.php'" class="btn btn-info active" style="float:right; margin-right:40px">Ajouter de nouveaux amis</button><br><br>
     <form class="form-inline">
         <input class="form-control mr-sm-0" type="search" placeholder="Rechercher" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0 active" type="submit">
