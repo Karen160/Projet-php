@@ -2,6 +2,8 @@
 include '../../inc/head.inc.php'; 
 include '../../inc/header.inc.php'; ?>
 <main>
+<button class="btn btn-info active" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
+
 <section id="sondage">
         <h2>La question que tout le monde attend</h2>
         <br><br>

@@ -2,7 +2,7 @@
 include '../../inc/head.inc.php'; 
 include '../../inc/header.inc.php'; ?>
 <main>
-    <button class="btn btn-info active" style="float:right; margin-right:40px">Ajouter de nouveaux amis</button><br><br>
+    <button class="btn btn-info active" style="float:right; margin-right:40px">Voir mes amis</button><br><br>
     <form class="form-inline">
         <input class="form-control mr-sm-0" type="search" placeholder="Rechercher" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0 active" type="submit">
@@ -13,7 +13,7 @@ include '../../inc/header.inc.php'; ?>
         </button>
     </form>
     <br><br>
-    <h2>Mes amis</h2>
+    <h2>Les membres</h2>
     <br>
     <table>
         <thead>
@@ -29,7 +29,7 @@ include '../../inc/header.inc.php'; ?>
                 <td class="pp"><img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg"></td>
                 <td>Paul</td>
                 <td>Connecté</td>
-                <td><button>Supprimé</button></td>
+                <td><button>Ajouter</button></td>
             </tr>
         </tbody>
     </table>
