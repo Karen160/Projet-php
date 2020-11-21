@@ -26,19 +26,17 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) &&
       $enregistrement->execute();
       //rediriger au bout de x sec
       header("refresh:3;url=../../App/View/profilView.php");
-  }
-}
+  }}
 ?>
 <main id="signMain">
     <div class="row">
         <div class="col-sm-1">
-
         </div>
         <section class="col-sm-5 position-static" id="inscription" >
             <div class="card " >
                 <div class="card-body">
                     <h2 class="card-title">Inscription</h2>
-                    <div class="row ">
+                    <form class="row ">
                             <div class="col-sm-6">
                                 <label for="form_name ">Nom</label>
                                 <input id="form_name" type="text" name="nom" class="form-control" placeholder="Entrez votre nom" required="required" data-error="Le nom est requis.">
@@ -62,7 +60,7 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) &&
                             <div class="col-sm-12 mt-4 offset-ms-4"> 
                                 <button type="submit" class="btn btn-info btn-block active" >Envoyez</button>
                             </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -70,7 +68,7 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) &&
             <div class="card " >
                 <div  class="card-body  position-static " id="connexion">
                     <h2 class="card-title ">Connexion</h2>
-                    <div class="row">
+                    <form class="row">
                         <div class="col-sm-12">
                             <label for="form_name ">Pseudo</label>
                             <input id="form_name" type="text" name="pseudo" class="form-control" placeholder="Entrez votre nom" required="required" data-error="Le Pseudo est requis.">
@@ -82,7 +80,7 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) &&
                         <div class="col-sm-12 mt-4 offset-ms-4"> 
                             <button class="btn btn-info btn-block active" >Envoyez</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </section>
