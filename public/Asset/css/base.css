@@ -75,6 +75,7 @@ nav{
 nav div{
     display: block;
     margin: 20px;
+    z-index: 2000 !important;
 }
 
 nav a{

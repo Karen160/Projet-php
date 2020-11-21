@@ -1,12 +1,9 @@
 .card-body{
     background-color: #D5E9EC;
 }
-
-div .card{
-    z-index: -1 ;
-    position: static !important;
+.card{
+    z-index: -1;
 }
-
 #signMain{
     height: 75.7vh;
 }

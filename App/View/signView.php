@@ -7,8 +7,8 @@ include '../../inc/header.inc.php';
         <div class="col-sm-1">
 
         </div>
-        <section class="col-sm-5 " id="inscription" >
-            <div class="card position-static" >
+        <section class="col-sm-5 position-static" id="inscription" >
+            <div class="card " >
                 <div class="card-body">
                     <h2 class="card-title">Inscription</h2>
                     <div class="row ">
@@ -39,9 +39,9 @@ include '../../inc/header.inc.php';
                 </div>
             </div>
         </section>
-        <section class="col-sm-5 mx-auto mt-5"  >
-            <div class="card position-static" >
-                <div  class="card-body " id="connexion">
+        <section class="col-sm-5 mx-auto mt-5 position-static"  >
+            <div class="card " >
+                <div  class="card-body  position-static " id="connexion">
                     <h2 class="card-title ">Connexion</h2>
                     <div class="row">
                         <div class="col-sm-12">
