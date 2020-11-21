@@ -8,7 +8,7 @@ include '../../inc/header.inc.php'; ?>
             <div class="boxsondage">
                 <a href="">
                     <img src="https://i.ytimg.com/vi/w_1quQbOqpI/maxresdefault.jpg" alt="">
-                    <span>48 heures</span>
+                    <span>Benji <br>48 heures</span>
                     <p>Est ce que Tanjiro Kamado va devenir un démon ?</p>
                 </a>
                 <a href=""><i class="fas fa-share"></i></a>
