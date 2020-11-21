@@ -1,6 +1,17 @@
 <?php 
 include '../../inc/head.inc.php'; 
-include '../../inc/header.inc.php'; ?>
+include '../../inc/header.inc.php';
+
+if(empty($_SESSION['user'])) {
+// si c'est vide ou ça n'existe pas, alors l'utilisateur n'est pas connecté, on le redirige vers la page connexion
+header('location:../../App/View/signView.php');
+// si la personne est connecté alors elle est redirigé sur le profil
+} else {
+header('location:../../App/View/profilView.php');
+}
+
+
+?>
 <main id="profil">
     <button class="btn btn-info active" style="float:right; margin-right:40px">Modifier mon profil</button><br><br>
     <button class="btn btn-info active" style="float:right; margin-right:70px">Mes amis</button>
