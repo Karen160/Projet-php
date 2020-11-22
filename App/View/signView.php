@@ -1,8 +1,8 @@
 <?php 
 // connexion à la base de données via la classe PDO
-$host = 'mysql:host=localhost;dbname=projet_php';
+$host = 'mysql:host=localhost;dbname=projetphp';
 $login = 'root';
-$password = '';
+$password = 'root';
 $options = array(
     PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
@@ -64,7 +64,6 @@ if(isset($_POST['pseudoCo']) && isset($_POST['mdpCo'])) {
 
     // on vérifie le mdp avec un fetch
     $infos_membre = $recup_infosCo->fetch(PDO::FETCH_ASSOC);
-
     if(password_verify($mdpCo, $infos_membre['mdp'])) {
       // le mdp est bon
       // Pour la connexion, on place les informations de l'utilisateur sauf son mdp dans la session pour pouvoir intéroger la session par la suite.
@@ -76,7 +75,6 @@ if(isset($_POST['pseudoCo']) && isset($_POST['mdpCo'])) {
       $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Bienvenue <br> $pseudoCo </div>";
       //rediriger au bout de X sec
       header("refresh:2;url=profilView.php");
-
     } else {
       //mdp incorrect
       $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
