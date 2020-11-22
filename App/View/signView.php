@@ -1,6 +1,6 @@
 <?php 
 // connexion à la base de données via la classe PDO
-$host = 'mysql:host=localhost;dbname=sondage';
+$host = 'mysql:host=localhost;dbname=projetphp';
 $login = 'root';
 $password = 'root';
 $options = array(
@@ -11,17 +11,16 @@ $pdo = new PDO($host, $login, $password, $options);
 
 // ouverture d'une $_SESSION  pour la connexion utilisateur
 session_start();
-// include '../../Core/Database.php';
+
 include '../../inc/head.inc.php'; 
 include '../../inc/header.inc.php';
 
-
 if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['mdp'])) {
     $pseudo = trim($_POST['pseudo']);
-    $recup_infos = $pdo->query("SELECT * FROM user WHERE pseudo = '$pseudo'");
+    $recup_infos = $pdo->query("SELECT * FROM membre WHERE pseudo = '$pseudo'");
     // on vérifie si le pseudo n'existe pas dans la BDD
     $email = trim($_POST['email']);
-    $recup_infos = $pdo->query("SELECT * FROM user WHERE email = $email");
+    $recup_infos = $pdo->query("SELECT * FROM membre WHERE email = '$email'");
     // // on vérifie si l'email n'existe pas dans la BDD
     if($recup_infos->rowCount() < 1) {
       $mdp = trim($_POST['mdp']);
@@ -39,8 +38,10 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) &&
       $enregistrement->bindParam(':mdp', $mdp, PDO::PARAM_STR);
       $enregistrement->execute();
       //rediriger au bout de x sec
-    //   header("refresh:3;url=../../App/View/profilView.php");
-  }}
+      header("refresh:3;url=../../App/View/profilView.php");
+  }
+}
+
 ?>
 <main id="signMain">
     <div class="row">
