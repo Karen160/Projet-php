@@ -1,8 +1,8 @@
 <?php 
 // connexion à la base de données via la classe PDO
-$host = 'mysql:host=localhost;dbname=projetphp';
+$host = 'mysql:host=localhost;dbname=projet_php';
 $login = 'root';
-$password = 'root';
+$password = '';
 $options = array(
     PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
@@ -47,79 +47,47 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) &&
     }
 }
 
+$msgCo = "";
 
-$affichage = "";
+if(isset($_POST['pseudoCo']) && isset($_POST['mdpCo'])) {
 
-if(isset($_POST['pseudo']) && isset($_POST['mdp'])) {
-
-  $pseudo = $_POST['pseudo'];
-  $mdp = $_POST['mdp'];
+  $pseudoCo = $_POST['pseudoCo'];
+  $mdpCo = $_POST['mdpCo'];
 
   // on interroge la BDD pour récupérer les informations de l'utilisateur sur la base de son pseudo
-  $recup_infos = $pdo->query("SELECT * FROM membre WHERE pseudo = '$pseudo'");
+  $recup_infosCo = $pdo->query("SELECT * FROM membre WHERE pseudo = '$pseudoCo'");
 
 
   // on vérifie si on a récupéré une ligne.
-  if($recup_infos->rowCount() > 0) {
+  if($recup_infosCo->rowCount() > 0) {
     // le pseudo est bon
 
     // on vérifie le mdp avec un fetch
-    $infos_membre = $recup_infos->fetch(PDO::FETCH_ASSOC);
-    // echo '<pre>'; print_r($infos_membre); echo '</pre>';
-    if(password_verify($mdp, $infos_membre['mdp'])) {
+    $infos_membre = $recup_infosCo->fetch(PDO::FETCH_ASSOC);
+
+    if(password_verify($mdpCo, $infos_membre['mdpCo'])) {
       // le mdp est bon
       // Pour la connexion, on place les informations de l'utilisateur sauf son mdp dans la session pour pouvoir intéroger la session par la suite.
-      $_SESSION['membre']['id_membre'] = $infos_membre['id_membre'];
+      $_SESSION['membre']['id'] = $infos_membre['id'];
+      $_SESSION['membre']['nom'] = $infos_membre['nom'];
+      $_SESSION['membre']['prenom'] = $infos_membre['prenom'];
+      $_SESSION['membre']['email'] = $infos_membre['email'];
       $_SESSION['membre']['pseudo'] = $infos_membre['pseudo'];
-      $_SESSION['membre']['mail'] = $infos_membre['mail'];
-      $_SESSION['membre']['statut'] = $infos_membre['statut'];
-      $msg = "<div style='padding: 20px; background-color: green; color: white; text-align: center;'>Bienvenue <br> $pseudo </div>";
+      $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Bienvenue <br> $pseudoCo </div>";
       //rediriger au bout de X sec
-      header("refresh:2;url=");
+      header("refresh:2;url=profilView.php");
 
     } else {
       //mdp incorrect
-      $msg = "<div style='padding: 20px; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
+      $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
     }
   } else {
     // pseudo incorrect
-    $msg = "<div style='padding: 20px; background-color: red; color: white; text-align: center;'>Pseudo incorrect,<br>Veuillez recommencer</div>";
+    $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Pseudo incorrect,<br>Veuillez recommencer</div>";
   }
 }
 ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>
 <main id="signMain">
     <div class="row">
         <div class="col-sm-1">
@@ -164,7 +132,7 @@ if(isset($_POST['pseudo']) && isset($_POST['mdp'])) {
             <div class="card " >
                 <div  class="card-body  position-static " id="connexion">
                     <h2 class="card-title ">Connexion</h2>
-                    <form class="row">
+                    <form class="row" method="post">
                         <div class="col-sm-12">
                             <label for="pseudoCo">Pseudo</label>
                             <input type="text" name="pseudoCo" class="form-control" placeholder="Entrez votre nom" required="required" data-error="Le Pseudo est requis.">
@@ -175,6 +143,9 @@ if(isset($_POST['pseudo']) && isset($_POST['mdp'])) {
                         </div>
                         <div class="col-sm-12 mt-4 offset-ms-4"> 
                             <button type="submit" class="btn btn-info btn-block active" >Envoyez</button>
+                            <?php
+                             echo $msgCo;
+                            ?>
                         </div>
                     </form>
                 </div>
