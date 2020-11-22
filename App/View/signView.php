@@ -1,6 +1,52 @@
 <?php 
+<<<<<<< HEAD
 include '../../inc/head.inc.php'; 
 include '../../inc/header.inc.php';
+=======
+// connexion à la base de données via la classe PDO
+$host = 'mysql:host=localhost;dbname=projetphp';
+$login = 'root';
+$password = 'root';
+$options = array(
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
+    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+);
+$pdo = new PDO($host, $login, $password, $options);
+
+// ouverture d'une $_SESSION  pour la connexion utilisateur
+session_start();
+
+include '../../inc/head.inc.php'; 
+include '../../inc/header.inc.php';
+
+if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['mdp'])) {
+    $pseudo = trim($_POST['pseudo']);
+    $recup_infos = $pdo->query("SELECT * FROM membre WHERE pseudo = '$pseudo'");
+    // on vérifie si le pseudo n'existe pas dans la BDD
+    $email = trim($_POST['email']);
+    $recup_infos = $pdo->query("SELECT * FROM membre WHERE email = '$email'");
+    // // on vérifie si l'email n'existe pas dans la BDD
+    if($recup_infos->rowCount() < 1) {
+      $mdp = trim($_POST['mdp']);
+      $mdp = password_hash($mdp, PASSWORD_DEFAULT);
+      $prenom = trim($_POST['prenom']);
+      $nom = trim($_POST['nom']);
+
+  
+      $enregistrement = $pdo->prepare("INSERT INTO membre (nom, prenom, pseudo, email, mdp) VALUES (:nom, :prenom, :pseudo, :email, :mdp)");
+      // on fourni les valeurs des marqueurs nominatifs
+      $enregistrement->bindParam(':nom', $nom, PDO::PARAM_STR);
+      $enregistrement->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+      $enregistrement->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
+      $enregistrement->bindParam(':email', $email, PDO::PARAM_STR);
+      $enregistrement->bindParam(':mdp', $mdp, PDO::PARAM_STR);
+      $enregistrement->execute();
+      //rediriger au bout de x sec
+      header("refresh:3;url=../../App/View/profilView.php");
+  }
+}
+
+>>>>>>> ae398a31273e611b990c0b459512c2c4125fc319
 ?>
 <main id="signMain">
     <div class="row">
