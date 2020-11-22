@@ -1,8 +1,8 @@
 <?php 
 // connexion à la base de données via la classe PDO
-$host = 'mysql:host=localhost;dbname=projetphp';
+$host = 'mysql:host=localhost;dbname=projet_php';
 $login = 'root';
-$password = 'root';
+$password = '';
 $options = array(
     PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
