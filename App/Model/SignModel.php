@@ -27,8 +27,6 @@ class SignModel extends Database{
               $enregistrement->bindParam(':email', $email, PDO::PARAM_STR);
               $enregistrement->bindParam(':mdp', $mdp, PDO::PARAM_STR);
               $enregistrement->execute();
-              //rediriger au bout de x sec
-              header("refresh:3;url=../../App/View/profilView.php");
           }
         }
     }

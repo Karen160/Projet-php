@@ -47,6 +47,78 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) &&
     }
 }
 
+
+$affichage = "";
+
+if(isset($_POST['pseudo']) && isset($_POST['mdp'])) {
+
+  $pseudo = $_POST['pseudo'];
+  $mdp = $_POST['mdp'];
+
+  // on interroge la BDD pour récupérer les informations de l'utilisateur sur la base de son pseudo
+  $recup_infos = $pdo->query("SELECT * FROM membre WHERE pseudo = '$pseudo'");
+
+
+  // on vérifie si on a récupéré une ligne.
+  if($recup_infos->rowCount() > 0) {
+    // le pseudo est bon
+
+    // on vérifie le mdp avec un fetch
+    $infos_membre = $recup_infos->fetch(PDO::FETCH_ASSOC);
+    // echo '<pre>'; print_r($infos_membre); echo '</pre>';
+    if(password_verify($mdp, $infos_membre['mdp'])) {
+      // le mdp est bon
+      // Pour la connexion, on place les informations de l'utilisateur sauf son mdp dans la session pour pouvoir intéroger la session par la suite.
+      $_SESSION['membre']['id_membre'] = $infos_membre['id_membre'];
+      $_SESSION['membre']['pseudo'] = $infos_membre['pseudo'];
+      $_SESSION['membre']['mail'] = $infos_membre['mail'];
+      $_SESSION['membre']['statut'] = $infos_membre['statut'];
+      $msg = "<div style='padding: 20px; background-color: green; color: white; text-align: center;'>Bienvenue <br> $pseudo </div>";
+      //rediriger au bout de X sec
+      header("refresh:2;url=");
+
+    } else {
+      //mdp incorrect
+      $msg = "<div style='padding: 20px; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
+    }
+  } else {
+    // pseudo incorrect
+    $msg = "<div style='padding: 20px; background-color: red; color: white; text-align: center;'>Pseudo incorrect,<br>Veuillez recommencer</div>";
+  }
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
 <main id="signMain">
     <div class="row">
