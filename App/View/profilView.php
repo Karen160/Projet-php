@@ -19,8 +19,6 @@ if(empty($_SESSION['membre'])) {
 // si c'est vide ou ça n'existe pas, alors l'utilisateur n'est pas connecté, on le redirige vers la page connexion
 header('location:../../App/View/signView.php');
 // si la personne est connecté alors elle est redirigé sur le profil
-} else {
-header('location:../../App/View/profilView.php');
 }
 
 
