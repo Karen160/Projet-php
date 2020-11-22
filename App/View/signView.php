@@ -73,7 +73,7 @@ if(isset($_POST['pseudoCo']) && isset($_POST['mdpCo'])) {
       $_SESSION['membre']['email'] = $infos_membre['email'];
       $_SESSION['membre']['pseudo'] = $infos_membre['pseudo'];
       $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Bienvenue <br> $pseudoCo </div>";
-      //rediriger au bout de X sec
+      //rediriger au bout de 2sec
       header("refresh:2;url=profilView.php");
     } else {
       //mdp incorrect
