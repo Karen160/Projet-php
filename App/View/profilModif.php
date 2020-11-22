@@ -25,19 +25,28 @@ include '../../inc/header.inc.php';
         <div class="info">
             <div>
                 <label for="nom">Nom :</label>
-                <input type="text" name="nom" class="form-control" placeholder="<?= $afficher['nom'] ?>" required="required" data-error="Le nom est requis.">
+                <input type="text" name="nom" class="form-control" placeholder="<?= $afficher['nom'] ?>">
 
-                <p>Prénom : <?= $afficher['prenom'] ?></p>
-                <p>Pseudo : <?= $afficher['pseudo'] ?></p>
-                <p>Mot de passe : *******</p>
+                <label for="prenom">Prénom :</label>
+                <input type="text" name="prenom" class="form-control" placeholder="<?= $afficher['prenom'] ?>">
+
+                <label for="nom">Pseudo :</label>
+                <input type="text" name="pseudo" class="form-control" placeholder="<?= $afficher['pseudo'] ?>">
+
+                <label for="mdp">Mot de passe :</label>
+                <input type="text" name="nom" class="form-control" placeholder="<?= $afficher['mdp'] ?>">
             </div>
             <div>
                 <p>Nombre d'amis : <?= $afficher['nom'] ?></p>
                 <p>Nombre de mes sondages : <?= $afficher['nom'] ?></p>
-                <p>Email : <?= $afficher['email'] ?></p>
+                <label for="email">Email :</label>
+                <input type="text" name="email" class="form-control" placeholder="<?= $afficher['email'] ?>">
                 <p>Date d'inscription : <?= $afficher['date'] ?></p>
             </div>
+
         </div>
+        <button type="submit" class="btn btn-info btn-block active" name="bouton">Envoyez</button>
+
     </section>
 </main>
 <?php  include '../../inc/footer.inc.php';?>
