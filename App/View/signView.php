@@ -64,10 +64,6 @@ if(isset($_POST['pseudoCo']) && isset($_POST['mdpCo'])) {
 
     // on vérifie le mdp avec un fetch
     $infos_membre = $recup_infosCo->fetch(PDO::FETCH_ASSOC);
-<<<<<<< HEAD
-=======
-
->>>>>>> 65f9cee82a44fad5b0f26b810aa2a595b2f1961d
     if(password_verify($mdpCo, $infos_membre['mdp'])) {
       // le mdp est bon
       // Pour la connexion, on place les informations de l'utilisateur sauf son mdp dans la session pour pouvoir intéroger la session par la suite.
@@ -78,7 +74,7 @@ if(isset($_POST['pseudoCo']) && isset($_POST['mdpCo'])) {
       $_SESSION['membre']['pseudo'] = $infos_membre['pseudo'];
       $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Bienvenue <br> $pseudoCo </div>";
       //rediriger au bout de X sec
-    //   header("refresh:2;url=profilView.php");
+      header("refresh:2;url=profilView.php");
     } else {
       //mdp incorrect
       $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
