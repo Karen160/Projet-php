@@ -65,7 +65,7 @@ if(isset($_POST['pseudoCo']) && isset($_POST['mdpCo'])) {
     // on vérifie le mdp avec un fetch
     $infos_membre = $recup_infosCo->fetch(PDO::FETCH_ASSOC);
 
-    if(password_verify($mdpCo, $infos_membre['mdpCo'])) {
+    if(password_verify($mdpCo, $infos_membre['mdp'])) {
       // le mdp est bon
       // Pour la connexion, on place les informations de l'utilisateur sauf son mdp dans la session pour pouvoir intéroger la session par la suite.
       $_SESSION['membre']['id'] = $infos_membre['id'];
