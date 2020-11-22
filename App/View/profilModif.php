@@ -34,7 +34,7 @@ include '../../inc/header.inc.php';
                 <input type="text" name="pseudo" class="form-control" placeholder="<?= $afficher['pseudo'] ?>">
 
                 <label for="mdp">Mot de passe :</label>
-                <input type="text" name="nom" class="form-control" placeholder="<?= $afficher['mdp'] ?>">
+                <input type="text" name="nom" class="form-control" placeholder="******">
             </div>
             <div>
                 <p>Nombre d'amis : <?= $afficher['nom'] ?></p>
