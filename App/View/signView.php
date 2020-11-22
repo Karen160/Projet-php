@@ -1,8 +1,8 @@
 <?php 
 // connexion à la base de données via la classe PDO
-$host = 'mysql:host=localhost;dbname=projetphp';
+$host = 'mysql:host=localhost;dbname=projet_php';
 $login = 'root';
-$password = 'root';
+$password = '';
 $options = array(
     PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
@@ -14,6 +14,8 @@ session_start();
 
 include '../../inc/head.inc.php'; 
 include '../../inc/header.inc.php';
+
+$msg = "";
 
 if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['mdp'])) {
     $pseudo = trim($_POST['pseudo']);
@@ -37,9 +39,12 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) &&
       $enregistrement->bindParam(':email', $email, PDO::PARAM_STR);
       $enregistrement->bindParam(':mdp', $mdp, PDO::PARAM_STR);
       $enregistrement->execute();
-      //rediriger au bout de x sec
-      header("refresh:3;url=../../App/View/profilView.php");
-  }
+
+      $msg = "<div style='padding: 10px; background-color: green; color: white; text-align: center;'>Félicitation votre compte a été crée<br>Connecter-vous</div>";
+      
+    } else {
+      $msg = "<div style='padding: 10px; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Le pseudo/email existe déjà<br>Veuillez recommencer</div>";
+    }
 }
 
 ?>
@@ -75,12 +80,15 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) &&
                             <div class="col-sm-12 mt-4 position-static offset-ms-4"> 
                                 <button type="submit" class="btn btn-info btn-block active" name="bouton">Envoyez</button>
                             </div>
+                            <?php
+                                echo $msg;
+                            ?>  
                     </form>
                 </div>
             </form>
             
         </section>
-        <!-- <section class="col-sm-5 mx-auto mt-5 position-static"  >
+        <section class="col-sm-5 mx-auto mt-5 position-static"  >
             <div class="card " >
                 <div  class="card-body  position-static " id="connexion">
                     <h2 class="card-title ">Connexion</h2>
@@ -94,12 +102,12 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) &&
                             <input id="form_name" type="password" name="mdp" class="form-control" placeholder="Entrez votre mot de passe" required="required" data-error="Le mot de passe est requis.">
                         </div>
                         <div class="col-sm-12 mt-4 offset-ms-4"> 
-                            <button class="btn btn-info btn-block active" >Envoyez</button>
+                            <button type="submit" class="btn btn-info btn-block active" >Envoyez</button>
                         </div>
                     </form>
                 </div>
             </form>
-        </section> -->
+        </section>
     </div>
 </main>
 <?php
