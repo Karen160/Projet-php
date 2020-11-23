@@ -14,7 +14,5 @@ class SignController{
     {
         require ROOT."/App/View/signView.php";
         $this->model->inscription();
-        
-
     }
 }

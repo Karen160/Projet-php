@@ -21,6 +21,13 @@
     padding: 5px;
 }
 
+
+#profilModif section{
+    width: 700px;
+    margin: 50px auto;
+}
+
+
 @media screen and (max-width:710px){
     #profil section{
         width: 400px;

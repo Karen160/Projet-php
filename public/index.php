@@ -2,7 +2,8 @@
 
 define("ROOT", dirname(__DIR__));
 
-require ROOT."/Autoloader.php";
+require ROOT.'/Autoloader.php';
 Autoloader::register();
 
-require ROOT."/router.php";
+require ROOT.'\root.php';
+

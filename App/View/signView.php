@@ -1,7 +1,8 @@
 <?php 
-include '../../inc/head.inc.php'; 
-include '../../inc/header.inc.php';
+include '../inc/head.inc.php'; 
+include '../inc/header.inc.php';
 ?>
+
 <main id="signMain">
     <div class="row">
         <div class="col-sm-1">
@@ -35,28 +36,32 @@ include '../../inc/header.inc.php';
                             <div class="col-sm-12 mt-4 position-static offset-ms-4"> 
                                 <button type="submit" class="btn btn-info btn-block active" >Envoyez</button>
                             </div>
+                            <?php
+                                echo $msg;
+                            ?>  
                     </form>
                 </div>
             </form>
             
         </section>
         <section class="col-sm-5 mx-auto mt-5 position-static"  >
-            <form>
-                <div class="card " >
-                    <div  class="card-body  position-static " id="connexion">
-                        <h2 class="card-title ">Connexion</h2>
-                        <div class="row">
-                            <div class="col-sm-12 position-static">
-                                <label for="form_name ">Pseudo</label>
-                                <input id="form_name" type="text" name="pseudo" class="form-control" placeholder="Entrez votre nom" required="required" data-error="Le Pseudo est requis.">
-                            </div>
-                            <div class="col-sm-12 mt-4 position-static"> 
-                                <label for="form_name ">Password</label>
-                                <input id="form_name" type="password" name="mdp" class="form-control" placeholder="Entrez votre mot de passe" required="required" data-error="Le mot de passe est requis.">
-                            </div>
-                            <div class="col-sm-12 mt-4 position-static offset-ms-4"> 
-                                <button type="submit" action="signView.php" class="btn btn-info btn-block active" >Envoyez</button>
-                            </div>
+            <div class="card " >
+                <div  class="card-body  position-static " id="connexion">
+                    <h2 class="card-title ">Connexion</h2>
+                    <form class="row" method="post">
+                        <div class="col-sm-12">
+                            <label for="pseudoCo">Pseudo</label>
+                            <input type="text" name="pseudoCo" class="form-control" placeholder="Entrez votre nom" required="required" data-error="Le Pseudo est requis.">
+                        </div>
+                        <div class="col-sm-12 mt-4"> 
+                            <label for="mdpCo">Password</label>
+                            <input type="password" name="mdpCo" class="form-control" placeholder="Entrez votre mot de passe" required="required" data-error="Le mot de passe est requis.">
+                        </div>
+                        <div class="col-sm-12 mt-4 offset-ms-4"> 
+                            <button type="submit" class="btn btn-info btn-block active" >Envoyez</button>
+                            <?php
+                             echo $msgCo;
+                            ?>
                         </div>
                     </form>
                 </div>
@@ -65,5 +70,5 @@ include '../../inc/header.inc.php';
     </div>
 </main>
 <?php
-include '../../inc/footer.inc.php';
+include '../inc/footer.inc.php';
 ?>
