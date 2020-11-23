@@ -1,18 +1,18 @@
 <?php
 namespace App\Controller;
 
-use App\Model\ProfilmodifModel;
+use App\Model\ProfilModifModel;
 
 class ProfilmodifController{
 
     public function __construct()
     {
-        $this->model = new Profilmodif();
+        $this->model = new ProfilModifModel();
     }
 
     public function modifier()
     {
-        require ROOT."/App/View/profilModif.php";
+        require ROOT."/App/View/profilModifView.php";
         $this->model->modifier();
     }
 }
