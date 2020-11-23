@@ -13,11 +13,8 @@ $pdo = new PDO($host, $login, $password, $options);
 session_start();
 
 if(empty($_SESSION['membre'])) {
-    // si c'est vide ou ça n'existe pas, alors l'utilisateur n'est pas connecté, on le redirige vers la page connexion
-    header('location:signView.php');
-    // si la personne est connecté alors elle est redirigé sur le profil
-    // } else {
-    // header('location:profilView.php');
+// si c'est vide ou ça n'existe pas, alors l'utilisateur n'est pas connecté, on le redirige vers la page connexion
+header('location:signView.php');
 }
 
 $id = $_SESSION['membre']['id']; //Charge les données bdd pour connaitre le pseudo de l'internaute
