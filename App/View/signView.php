@@ -50,7 +50,7 @@ include '../inc/header.inc.php';
                     <form class="row" method="post">
                         <div class="col-sm-12">
                             <label for="pseudoCo">Pseudo</label>
-                            <input type="text" name="pseudoCo" class="form-control" placeholder="Entrez votre nom" required="required" data-error="Le Pseudo est requis.">
+                            <input type="text" name="pseudoCo" class="form-control" placeholder="Entrez votre pseudo" required="required" data-error="Le Pseudo est requis.">
                         </div>
                         <div class="col-sm-12 mt-4"> 
                             <label for="mdpCo">Password</label>
