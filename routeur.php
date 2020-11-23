@@ -1,22 +1,18 @@
 <?php
 
-// use App\Controller\;
-// use App\Controller\;
+use App\Controller\SignController;
 
 if (array_key_exists("page", $_GET)) {
     switch ($_GET["page"]) {
-        // case 'orders':
-        //     $controller = new OrderController();
-        // break;
-        // case 'product':
-        //     $controller = new ProductController();
-        // break;
-        
+        case 'sign':
+            $controller = new SignController();
+            $controller->inscrire();
+        break;
         default:
-        # code...
+
     break;
     }
 }else{
-    // $controller = new OrderController();
+    $controller = new SignController();
+    $controller->inscrire();
 }
-$controller->render();
