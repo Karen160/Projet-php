@@ -8,33 +8,32 @@ include '../inc/header.inc.php';
         <div class="col-sm-1">
         </div>
         <section class="col-sm-5 position-static" id="inscription" >
-            <form method="POST" id="signForm" class=" position-static">
-                <div class="card form_group " >
-                    <div class="card-body">
-                        <h2 class="card-title">Inscription</h2>
-                        <div class="row ">
-                            <div class="col-sm-6 position-static">
-                                <label for="form_name ">Nom</label>
-                                <input id="form_name" type="text" name="nom" class="form-control" placeholder="Entrez votre nom" required="required" data-error="Le nom est requis.">
+            <div class="card " >
+                <div class="card-body">
+                    <h2 class="card-title">Inscription</h2>
+                    <form class="row " method="post" action="<?php echo $_SERVER['PHP_SELF'];?>"> 
+                            <div class="col-sm-6">
+                                <label for="nom">Nom</label>
+                                <input type="text" name="nom" class="form-control" placeholder="Entrez votre nom" required="required" data-error="Le nom est requis.">
                             </div>
                             <div class="col-sm-6 position-static"> 
-                                <label for="form_name ">Prénom</label>
-                                <input id="form_name" type="text" name="prenom" class="form-control" placeholder="Entrez votre prénom" required="required" data-error="Le prénom est requis.">
+                                <label for="prenom ">Prénom</label>
+                                <input type="text" name="prenom" class="form-control" placeholder="Entrez votre prénom" required="required" data-error="Le prénom est requis.">
                             </div>
                             <div class="col-sm-12 mt-4 position-static">
-                                <label for="form_name ">Pseudo</label>
-                                <input id="form_name" type="text" name="pseudo" class="form-control" placeholder="Choisissez un pseudo" required="required" data-error="Le pseudo est requis.">
+                                <label for="pseudo">Pseudo</label>
+                                <input type="text" name="pseudo" class="form-control" placeholder="Choisissez un pseudo" required="required" data-error="Le pseudo est requis.">
                             </div>
                             <div class="col-sm-12 mt-4 position-static"> 
-                                <label for="form_name ">Mail</label>
-                                <input id="form_name" type="text" name="email" class="form-control" placeholder="Entrez votre email" required="required" data-error="Le mail est requis.">
+                                <label for="email">Email</label>
+                                <input type="text" name="email" class="form-control" placeholder="Entrez votre email" required="required" data-error="Le mail est requis.">
                             </div>
                             <div class="col-sm-12 mt-4 position-static"> 
-                                <label for="form_name ">Password</label>
-                                <input id="form_name" type="password" name="mdp" class="form-control" placeholder="Entrez votre mot de passe" required="required" data-error="Le mot de passe est requis.">
+                                <label for="mdp">Password</label>
+                                <input type="password" name="mdp" class="form-control" placeholder="Entrez votre mot de passe" required="required" data-error="Le mot de passe est requis.">
                             </div>
                             <div class="col-sm-12 mt-4 position-static offset-ms-4"> 
-                                <button type="submit" class="btn btn-info btn-block active" >Envoyez</button>
+                                <button type="submit" class="btn btn-info btn-block active" name="bouton">Envoyez</button>
                             </div>
                             <?php
                                 echo $msg;
