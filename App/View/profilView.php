@@ -1,26 +1,4 @@
 <?php 
-// connexion à la base de données via la classe PDO
-$host = 'mysql:host=localhost;dbname=projetphp';
-$login = 'root';
-$password = 'root';
-$options = array(
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
-    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
-);
-$pdo = new PDO($host, $login, $password, $options);
-
-// ouverture d'une $_SESSION  pour la connexion utilisateur
-session_start();
-
-if(empty($_SESSION['membre'])) {
-// si c'est vide ou ça n'existe pas, alors l'utilisateur n'est pas connecté, on le redirige vers la page connexion
-header('location:signView.php');
-}
-
-$id = $_SESSION['membre']['id']; //Charge les données bdd pour connaitre le pseudo de l'internaute
-$afficher_profil = $pdo->query("SELECT * FROM membre WHERE id = $id");
-$afficher = $afficher_profil->fetch(PDO::FETCH_ASSOC); 
-
 include '../../inc/head.inc.php'; 
 include '../../inc/header.inc.php';
 ?>
