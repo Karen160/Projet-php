@@ -67,6 +67,7 @@ class SignModel extends Database{
       } else {
         //mdp incorrect
         $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
+        
       }
     } else {
       // pseudo incorrect

@@ -60,7 +60,6 @@ include '../inc/header.inc.php';
                             <button type="submit" class="btn btn-info btn-block active" >Envoyez</button>
                             <?php
                              echo $msgCo;
-                             //com
                             ?>
                         </div>
                     </form>
