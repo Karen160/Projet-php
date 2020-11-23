@@ -13,8 +13,6 @@ if (array_key_exists("page", $_GET)) {
             $controller = new ProfilController();
             $controller->profil();
         default:
-            $controller = new SignController();
-            $controller->inscrire();
     break;
     }
 }else{

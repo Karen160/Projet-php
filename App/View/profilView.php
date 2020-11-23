@@ -1,6 +1,6 @@
 <?php 
-include '../../inc/head.inc.php'; 
-include '../../inc/header.inc.php';
+include '../inc/head.inc.php'; 
+include '../inc/header.inc.php';
 ?>
 <main id="profil">
     <button onclick="window.location.href = 'profilModif.php'" class="btn btn-info active" style="float:right; margin-right:40px">Modifier mon profil</button><br><br>
@@ -24,4 +24,4 @@ include '../../inc/header.inc.php';
         </div>
     </section>
 </main>
-<?php  include '../../inc/footer.inc.php';?>
+<?php  include '../inc/footer.inc.php';?>
