@@ -7,7 +7,6 @@ class HomeModel extends Database{
         if(!isset($_SESSION['connect'])){
             $_SESSION['connect'] = false;
         }
-        
       
     }
 }

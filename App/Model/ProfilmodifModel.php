@@ -3,12 +3,11 @@ namespace App\Model;
 use Core\Database;
 
 class ProfilModifModel extends Database{
-function modifier(){
+  
     
+function modifier(){
+        $id = $_SESSION['user']['id']; //récup id 
 
-        $id = $_SESSION['user']['id']; //Charge les données bdd pour connaitre le pseudo de l'internaute
-        // $afficher_profil = $this->pdo->query("SELECT * FROM membre WHERE id = $id");
-        // $afficher = $afficher_profil->fetch(\PDO::FETCH_ASSOC); 
     $msg = "";
 
     if(isset($_POST['bouton'])){
@@ -30,7 +29,7 @@ function modifier(){
         $enregistrement->bindParam(':mdp', $mdp, \PDO::PARAM_STR);
         $enregistrement->execute();
         //rediriger
-        header("refresh:0.5;url=profilView.php");
+        header("refresh:0.5;url=index.php?page=profil");
     } else {
         $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Veuiller remplir tous les champs</div>";
         return $msg;
