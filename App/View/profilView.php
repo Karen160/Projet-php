@@ -11,15 +11,15 @@ include '../inc/header.inc.php';
         <div class="info">
             <div>
                 <p>Nom :  <?= $_SESSION['user']['nom'] ?></p>
-                <p>Nom :  <?= $_SESSION['user']['nom'] ?></p>
-                <p>Pseudo : <?= $_SESSION['user']['nom'] ?></p>
+                <p>Prénom :  <?= $_SESSION['user']['prenom'] ?></p>
+                <p>Pseudo : <?= $_SESSION['user']['pseudo'] ?></p>
                 <p>Mot de passe : *******</p>   
             </div>
             <div>
                 <p>Nombre d'amis : <?= $_SESSION['user']['nom'] ?></p>
                 <p>Nombre de mes sondages : <?= $_SESSION['user']['nom'] ?></p>
-                <p>Email : <?= $_SESSION['user']['nom'] ?></p>
-                <p>Date d'inscription : <?= $_SESSION['user']['nom'] ?></p>
+                <p>Email : <?= $_SESSION['user']['email'] ?></p>
+                <p>Date d'inscription : <?= $_SESSION['duree'] ?></p>
             </div>
         </div>
     </section>

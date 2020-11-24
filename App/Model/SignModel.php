@@ -67,16 +67,14 @@ function connexion(){
           $_SESSION['user']['prenom'] = $infos_membre['prenom'];
           $_SESSION['user']['email'] = $infos_membre['email'];
           $_SESSION['user']['pseudo'] = $infos_membre['pseudo'];
-
-
-          $date_crea = $_SESSION['user']['date'];
-          $dateJ = "today";
-
-          $duree_1 = (strtotime($dateJ) - strtotime($date_crea));
-
+          $_SESSION['user']['date'] = $infos_membre['date'];
+          //Calculer la date
+          
+          $dateJ = date('Y F D'); ;
+          $duree_1 = (strtotime($dateJ) - strtotime($_SESSION['user']['date']));
           $duree = number_format($duree_1/86400 ,0);
-
-
+          $_SESSION['duree'] = $duree;
+          
           $_SESSION['connect'] = true;
 
           //rediriger au bout de 0.5 sec
