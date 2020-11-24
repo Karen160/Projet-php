@@ -25,7 +25,7 @@ include '../inc/header.inc.php';
                 <p>Nombre de mes sondages : <?= $_SESSION['user']['nom'] ?></p>
                 <label for="email">Email :</label>
                 <input type="text" name="email" class="form-control" value="<?= $_SESSION['user']['email'] ?>">
-                <p>Date d'inscription : <?= $_SESSION['date'] ?></p>
+                <p>Date d'inscription : <?= $_SESSION['user']['date'] ?></p>
             </div>
 
         </div>

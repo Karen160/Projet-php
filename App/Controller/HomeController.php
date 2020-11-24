@@ -12,7 +12,7 @@ class HomeController{
     public function render()
     {
             require ROOT."/App/View/homeView.php";
-            $this->model->Home();
+            $this->model->home();
     }
 
 }
