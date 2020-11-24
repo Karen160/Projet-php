@@ -12,6 +12,12 @@
         <i class="fas fa-bars"></i>
 
     </div>
+    <?php
+        if(isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
+        session_destroy();
+        header('location:index.php');
+    }
+    ?>
 
     <nav>
    
