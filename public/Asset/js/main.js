@@ -20,3 +20,5 @@ $(".share").click(function(){
 
 
 //Nombre de reponse / email
+var nb = 
+for i
