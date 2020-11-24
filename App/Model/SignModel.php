@@ -14,8 +14,7 @@ class SignModel extends Database{
       $email = trim($_POST['email']);
       $recup_email = $this->pdo->query("SELECT * FROM user WHERE email = '$email'");
       // // on vérifie si l'email n'existe pas dans la BDD
-      if($recup_pseudo && $recup_email->rowCount() < 1) {
-        //trim permet de supprimer les espaces en début et en fin de chaines de caractère
+      if($recup_email && $recup_pseudo->rowCount() < 1) {
         $mdp = trim($_POST['mdp']);
         $mdp = password_hash($mdp, PASSWORD_DEFAULT);
         $prenom = trim($_POST['prenom']);
@@ -30,21 +29,21 @@ class SignModel extends Database{
         $enregistrement->bindParam(':email', $email, \PDO::PARAM_STR);
         $enregistrement->bindParam(':mdp', $mdp, \PDO::PARAM_STR);
         $enregistrement->execute();
-        //stocker la valeur connecter dans la $_SESSION afin de l'interroger plus tard
+        //
         $_SESSION['connect'] = true;
-          
-      } else {
+
+        $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Félicitation votre compte a été crée<br>Connecter-vous</div>";
+        echo $msg;
+      }else{
           $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Le pseudo/email existe déjà<br>Veuillez recommencer</div>";
-      }
-      //Rediriger vers la page profil au bout de 0.5s
-      header("refresh:0.5;url=?page=profil");
+         echo $msg;
+        
+        }
+     
     }
   }
-
-
-  function connexion(){ 
-  
-    $msg = "";
+function connexion(){ 
+    $msgCo = "";
 
     if(isset($_POST['pseudoCo']) && isset($_POST['mdpCo'])) {
 
@@ -73,12 +72,13 @@ class SignModel extends Database{
           header("refresh:0.5;url=?page=profil");
         } else {
           //mdp incorrect
-          $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
-          
+          $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
+          return;
         }
       } else {
         // pseudo/email incorrect
         $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Pseudo incorrect,<br>Veuillez recommencer</div>";
+        return;
       }
     }
   }

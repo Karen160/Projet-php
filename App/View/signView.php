@@ -37,6 +37,7 @@ include '../inc/header.inc.php';
                             </div>
                             <?php
                                 echo $msg;
+                                
                             ?>  
                     </form>
                 </div>
