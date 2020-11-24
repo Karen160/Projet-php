@@ -9,12 +9,12 @@ class SignModel extends Database{
 
     if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['mdp'])) {
       $pseudo = trim($_POST['pseudo']);
-      $recup_infos = $this->pdo->query("SELECT * FROM user WHERE pseudo = '$pseudo'");
+      $recup_pseudo = $this->pdo->query("SELECT * FROM user WHERE pseudo = '$pseudo'");
       // on vérifie si le pseudo n'existe pas dans la BDD
       $email = trim($_POST['email']);
-      $recup_infos = $this->pdo->query("SELECT * FROM user WHERE email = '$email'");
+      $recup_email = $this->pdo->query("SELECT * FROM user WHERE email = '$email'");
       // // on vérifie si l'email n'existe pas dans la BDD
-      if($recup_infos->rowCount() < 1) {
+      if($recup_email && $recup_pseudo->rowCount() < 1) {
         $mdp = trim($_POST['mdp']);
         $mdp = password_hash($mdp, PASSWORD_DEFAULT);
         $prenom = trim($_POST['prenom']);
@@ -29,15 +29,17 @@ class SignModel extends Database{
         $enregistrement->bindParam(':email', $email, \PDO::PARAM_STR);
         $enregistrement->bindParam(':mdp', $mdp, \PDO::PARAM_STR);
         $enregistrement->execute();
+        //
         $_SESSION['connect'] = true;
+        git a
         $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Félicitation votre compte a été crée<br>Connecter-vous</div>";
-        return;
+        echo $msg;
       }else{
           $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Le pseudo/email existe déjà<br>Veuillez recommencer</div>";
          echo $msg;
-         return;
+        
         }
-      header("refresh:0.5;url=?page=profil");
+     
     }
   }
 function connexion(){ 
