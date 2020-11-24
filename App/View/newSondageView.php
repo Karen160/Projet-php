@@ -16,9 +16,8 @@ include '../../inc/header.inc.php'; ?>
                 </div>
                 <div class="  col-sm-12 mt-3">
                     <label for="form_name ">Nombre de réponse</label>
-                    <select  type="text" name="nbquestion" class="form-control" placeholder="Choisissez le nombre de réponse" required="required" data-error="Le nombre de réponse est requis.">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
+                    <select  type="text" name="nbquestion" id="nb" class="form-control" placeholder="Choisissez le nombre de réponse" required="required" data-error="Le nombre de réponse est requis.">
+                        <option value="2" selected>2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
@@ -28,6 +27,8 @@ include '../../inc/header.inc.php'; ?>
                         <option value="9">9</option>
                         <option value="10">10</option>
                     </select>
+                </div>
+                <div id="email">
                 </div>
                 <div class="col-sm-12 mt-3"> 
                     <label for="form_name">Date d'expiration</label>
