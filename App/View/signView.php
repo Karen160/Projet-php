@@ -1,6 +1,7 @@
 <?php 
 include '../inc/head.inc.php'; 
 include '../inc/header.inc.php';
+include ROOT.'App/Model/SignModel.php';
 ?>
 
 <main id="signMain">
@@ -37,6 +38,7 @@ include '../inc/header.inc.php';
                             </div>
                             <?php
                                 echo $msg;
+                                
                             ?>  
                     </form>
                 </div>

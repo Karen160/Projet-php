@@ -31,17 +31,16 @@ class SignModel extends Database{
         $enregistrement->execute();
         $_SESSION['connect'] = true;
         $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Félicitation votre compte a été crée<br>Connecter-vous</div>";
-          
-      } else {
+        return;
+      }else{
           $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Le pseudo/email existe déjà<br>Veuillez recommencer</div>";
-      }
+         echo $msg;
+         return;
+        }
       header("refresh:0.5;url=?page=profil");
     }
   }
-
-
-  function connexion(){ 
-  
+function connexion(){ 
     $msgCo = "";
 
     if(isset($_POST['pseudoCo']) && isset($_POST['mdpCo'])) {
@@ -73,11 +72,12 @@ class SignModel extends Database{
         } else {
           //mdp incorrect
           $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
-          
+          return;
         }
       } else {
         // pseudo incorrect
         $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Pseudo incorrect,<br>Veuillez recommencer</div>";
+        return;
       }
     }
   }

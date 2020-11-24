@@ -14,7 +14,7 @@ include '../inc/header.inc.php';
         <div class="info">
             <div>
                 <label for="nom">Nom :</label>
-                <input type="text" name="nom" class="form-control" value="<?= $_SESSION['membre']['nom'] ?>">
+                <input type="text" name="nom" class="form-control" value="<?= $_SESSION['user']['nom'] ?>">
 
                 <label for="prenom">Prénom :</label>
                 <input type="text" name="prenom" class="form-control" value="<?= $afficher['prenom'] ?>">
