@@ -51,7 +51,7 @@ function connexion(){
       $mdpCo = $_POST['mdpCo'];
 
       // on interroge la BDD pour récupérer les informations de l'utilisateur sur la base de son pseudo
-      $recup_infosCo = $this->pdo->query("SELECT * FROM user WHERE pseudo = '$pseudoCo'");
+      $recup_infosCo = $this->pdo->query("SELECT * FROM user WHERE pseudo = '$pseudoCo' ");
 
       // on vérifie si on a récupéré une ligne.
       if($recup_infosCo->rowCount() > 0) {
