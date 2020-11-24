@@ -12,7 +12,11 @@ class ProfilmodifController{
 
     public function modifier()
     {
-        require ROOT."/App/View/profilModifView.php";
-        $this->model->modifier();
+        if($_SESSION['connect'] == true){
+            require ROOT."/App/View/profilModifView.php";
+            $this->model->modifier();
+        }else{
+         header('location:index.php?page=sign');
+        }
     }
 }

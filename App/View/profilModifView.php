@@ -5,13 +5,16 @@ include '../inc/head.inc.php';
 include '../inc/header.inc.php';
 ?>
 <main id="profil">
+
+    <?php var_dump($_SESSION['membre']['id']) ?>
+    
     <section>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
         <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
         <div class="info">
             <div>
                 <label for="nom">Nom :</label>
-                <input type="text" name="nom" class="form-control" value="<?= $afficher['nom'] ?>">
+                <input type="text" name="nom" class="form-control" value="<?= $_SESSION['membre']['nom'] ?>">
 
                 <label for="prenom">Prénom :</label>
                 <input type="text" name="prenom" class="form-control" value="<?= $afficher['prenom'] ?>">
@@ -33,7 +36,7 @@ include '../inc/header.inc.php';
         </div>
         <button type="submit" class="btn btn-info btn-block active" name="bouton">Envoyez</button>
         <?php
-            echo $msg;
+          var_dump($test);
         ?> 
         </form> 
 

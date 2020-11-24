@@ -61,9 +61,10 @@ class SignModel extends Database{
         $_SESSION['membre']['prenom'] = $infos_membre['prenom'];
         $_SESSION['membre']['email'] = $infos_membre['email'];
         $_SESSION['membre']['pseudo'] = $infos_membre['pseudo'];
+        $_SESSION['connect'] = true;
         $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Bienvenue <br> $pseudoCo </div>";
         //rediriger au bout de X sec
-        header("refresh:2;url=profilView.php");
+        header("refresh:2;url=?page=profil");
       } else {
         //mdp incorrect
         $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";

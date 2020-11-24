@@ -4,12 +4,12 @@ use Core\Database;
 
 class ProfilModifModel extends Database{
 function modifier(){
-
+    
 
         $id = $_SESSION['membre']['id']; //Charge les données bdd pour connaitre le pseudo de l'internaute
         $afficher_profil = $this->pdo->query("SELECT * FROM membre WHERE id = $id");
         $afficher = $afficher_profil->fetch(\PDO::FETCH_ASSOC); 
-
+        var_dump($afficher);
     $msg = "";
 
     if(isset($_POST['bouton'])){
@@ -34,7 +34,9 @@ function modifier(){
         header("refresh:0.5;url=profilView.php");
     } else {
         $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Veuiller remplir tous les champs</div>";
+        return $msg;
     }
+ 
     }
         }
     }

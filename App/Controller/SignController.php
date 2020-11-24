@@ -12,8 +12,9 @@ class SignController{
 
     public function inscrire()
     {
-        require ROOT."/App/View/signView.php";
+       
         $this->model->inscription();
-        
+        require ROOT."/App/View/signView.php";
     }
+    
 }
