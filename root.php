@@ -1,5 +1,6 @@
 <?php
 
+use App\Controller\HomeController;
 use App\Controller\SignController;
 use App\Controller\ProfilController;
 use App\Controller\ProfilmodifController;
@@ -7,8 +8,8 @@ use App\Controller\ProfilmodifController;
 if (array_key_exists("page", $_GET)) {
     switch ($_GET["page"]) {
         case 'home':
-            $controller = new SignController();
-            $controller->inscrire();
+            $controller = new HomeController();
+            $controller->render();
         case 'sign':
             $controller = new SignController();
             $controller->inscrire();
@@ -25,6 +26,6 @@ if (array_key_exists("page", $_GET)) {
     break;
     }
 }else{
-    $controller = new SignController();
-    $controller->inscrire();
+    $controller = new HomeController();
+    $controller->render();
 }

@@ -64,7 +64,7 @@ class SignModel extends Database{
         $_SESSION['connect'] = true;
         $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Bienvenue <br> $pseudoCo </div>";
         //rediriger au bout de X sec
-        header("refresh:2;url=?page=profil");
+        header("refresh:0.5;url=?page=profil");
       } else {
         //mdp incorrect
         $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";

@@ -12,9 +12,11 @@ class SignController{
 
     public function inscrire()
     {
-       
-        $this->model->inscription();
-        require ROOT."/App/View/signView.php";
+        if(($_SESSION['connect'] == false )){
+            $this->model->inscription();
+            require ROOT."/App/View/signView.php";
+        }else{
+         header('location:index.php?page=profil');
+        }
     }
-    
 }
