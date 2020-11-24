@@ -1,6 +1,6 @@
 <?php 
-include '../../inc/head.inc.php'; 
-include '../../inc/header.inc.php'; ?>
+include '../inc/head.inc.php'; 
+include '../inc/header.inc.php'; ?>
 <main id="accueil">
     <section>
         <h2>Nouveaux sondages</h2>
@@ -32,4 +32,4 @@ include '../../inc/header.inc.php'; ?>
     </section>
 </main>
 
-<?php include '../../inc/footer.inc.php'; ?>
+<?php include '../inc/footer.inc.php'; ?>

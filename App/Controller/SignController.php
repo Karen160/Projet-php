@@ -12,10 +12,12 @@ class SignController{
 
     public function render()
     {
-       
-        $this->model->inscription();
-        $this->model->connexion();
-        require ROOT."/App/View/signView.php";
+        if(($_SESSION['connect'] == false )){
+            $this->model->inscription();
+            $this->model->connexion();
+            require ROOT."/App/View/signView.php";
+        }else{
+         header('location:index.php?page=profil');
+        }
     }
-    
 }

@@ -12,7 +12,12 @@ class ProfilController{
 
     public function profil()
     {
-        require ROOT."/App/View/profilView.php";
-        $this->model->profil();
+        if($_SESSION['connect'] == true){
+            require ROOT."/App/View/profilView.php";
+            $this->model->profil();
+        }else{
+         header('location:index.php?page=sign');
+        }
+       
     }
 }

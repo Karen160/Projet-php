@@ -4,20 +4,28 @@
     </div>
         <img src="..\Public\Asset\img\logo.png">
     <div>
-
-        <a  href="../App/View/profilView.php"><i class="fas fa-user"></i></a>
+        
+    <a 
+    <?php if($_SESSION['connect'] == true) { 
+        ?>  href="../public/index.php?page=profil" 
+            <?php }else{ ?> href="../public/index.php?page=sign" <?php   } ?> ><i class="fas fa-user"></i></a>
         <i class="fas fa-bars"></i>
 
     </div>
 
     <nav>
+   
         <div><i class="fas fa-times"></i></div>
-        <a href="../App/View/homeView.php">Accueil</a>
+        <a href="../public/index.php?page=home">Accueil</a>
         <hr>
-        <a href="../App/View/newSondage.php">Nouveau sondage</a>
+        <a href="../public/index.php?page=newsondage">Nouveau sondage</a>
         <hr>
-        <a href="../App/View/#">Résultat</a>
+        <a href="../public/index.php?page=resultats">Résultat</a>
         <hr>
-        <a href="../App/View/friendView.php">Amis</a>
+        <a href="../public/index.php?page=amis">Amis</a>
+        <?php if($_SESSION['connect'] == true) { ?>
+        <hr>
+        <a href="index.php?action=deconnexion">Deconnexion</a>
+        <?php } ?>
     </nav>
 </header>
