@@ -9,12 +9,13 @@ class SignModel extends Database{
 
     if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['mdp'])) {
       $pseudo = trim($_POST['pseudo']);
-      $recup_infos = $this->pdo->query("SELECT * FROM user WHERE pseudo = '$pseudo'");
+      $recup_pseudo = $this->pdo->query("SELECT * FROM user WHERE pseudo = '$pseudo'");
       // on vérifie si le pseudo n'existe pas dans la BDD
       $email = trim($_POST['email']);
-      $recup_infos = $this->pdo->query("SELECT * FROM user WHERE email = '$email'");
+      $recup_email = $this->pdo->query("SELECT * FROM user WHERE email = '$email'");
       // // on vérifie si l'email n'existe pas dans la BDD
-      if($recup_infos->rowCount() < 1) {
+      if($recup_pseudo && $recup_email->rowCount() < 1) {
+        //trim permet de supprimer les espaces en début et en fin de chaines de caractère
         $mdp = trim($_POST['mdp']);
         $mdp = password_hash($mdp, PASSWORD_DEFAULT);
         $prenom = trim($_POST['prenom']);
@@ -29,12 +30,13 @@ class SignModel extends Database{
         $enregistrement->bindParam(':email', $email, \PDO::PARAM_STR);
         $enregistrement->bindParam(':mdp', $mdp, \PDO::PARAM_STR);
         $enregistrement->execute();
+        //stocker la valeur connecter dans la $_SESSION afin de l'interroger plus tard
         $_SESSION['connect'] = true;
-        $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Félicitation votre compte a été crée<br>Connecter-vous</div>";
           
       } else {
           $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Le pseudo/email existe déjà<br>Veuillez recommencer</div>";
       }
+      //Rediriger vers la page profil au bout de 0.5s
       header("refresh:0.5;url=?page=profil");
     }
   }
@@ -42,7 +44,7 @@ class SignModel extends Database{
 
   function connexion(){ 
   
-    $msgCo = "";
+    $msg = "";
 
     if(isset($_POST['pseudoCo']) && isset($_POST['mdpCo'])) {
 
@@ -60,23 +62,22 @@ class SignModel extends Database{
         $infos_membre = $recup_infosCo->fetch(\PDO::FETCH_ASSOC);
         if(password_verify($mdpCo, $infos_membre['mdp'])) {
           // le mdp est bon
-          // Pour la connexion, on place les informations de l'utilisateur sauf son mdp dans la session pour pouvoir intéroger la session par la suite.
+          // Pour la connexion, on place les informations de l'utilisateur sauf son mdp dans la session ($_SESSION) pour pouvoir interroger la session par la suite.
           $_SESSION['user']['id'] = $infos_membre['id'];
           $_SESSION['user']['nom'] = $infos_membre['nom'];
           $_SESSION['user']['prenom'] = $infos_membre['prenom'];
           $_SESSION['user']['email'] = $infos_membre['email'];
           $_SESSION['user']['pseudo'] = $infos_membre['pseudo'];
           $_SESSION['connect'] = true;
-          $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Bienvenue <br> $pseudoCo </div>";
-          //rediriger au bout de 2 sec
+          //rediriger au bout de 0.5 sec
           header("refresh:0.5;url=?page=profil");
         } else {
           //mdp incorrect
-          $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
+          $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
           
         }
       } else {
-        // pseudo incorrect
+        // pseudo/email incorrect
         $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Pseudo incorrect,<br>Veuillez recommencer</div>";
       }
     }

@@ -13,4 +13,5 @@ class ProfilModel extends Database{
             $afficher_profil = $this->pdo->query("SELECT * FROM membre WHERE id = $id");
             $afficher = $afficher_profil->fetch(\PDO::FETCH_ASSOC);
     }
+     
 }

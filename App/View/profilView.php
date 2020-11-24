@@ -10,16 +10,16 @@ include '../inc/header.inc.php';
         <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
         <div class="info">
             <div>
-                <p>Nom :  <?= $afficher['nom'] ?></p>
-                <p>Prénom : <?= $afficher['prenom'] ?></p>
-                <p>Pseudo : <?= $afficher['pseudo'] ?></p>
+                <p>Nom :  <?= $infos_membre['nom'] ?></p>
+                <p>Prénom : <?= $infos_membre['prenom'] ?></p>
+                <p>Pseudo : <?= $infos_membre['pseudo'] ?></p>
                 <p>Mot de passe : *******</p>
             </div>
             <div>
-                <p>Nombre d'amis : <?= $afficher['nom'] ?></p>
-                <p>Nombre de mes sondages : <?= $afficher['nom'] ?></p>
-                <p>Email : <?= $afficher['email'] ?></p>
-                <p>Date d'inscription : <?= $afficher['date'] ?></p>
+                <p>Nombre d'amis : <?= $_SESSION['user']['nom'] ?></p>
+                <p>Nombre de mes sondages : <?= $_SESSION['user']['nom'] ?></p>
+                <p>Email : <?= $_SESSION['email'] ?></p>
+                <p>Date d'inscription : <?= $_SESSION['date'] ?></p>
             </div>
         </div>
     </section>
