@@ -11,7 +11,7 @@ include '../inc/header.inc.php';
             <div class="card " >
                 <div class="card-body">
                     <h2 class="card-title">Inscription</h2>
-                    <form class="row " method="post" action="<?php echo $_SERVER['PHP_SELF'];?>"> 
+                    <form class="row " method="post"> 
                             <div class="col-sm-6">
                                 <label for="nom">Nom</label>
                                 <input type="text" name="nom" class="form-control" placeholder="Entrez votre nom" required="required" data-error="Le nom est requis.">

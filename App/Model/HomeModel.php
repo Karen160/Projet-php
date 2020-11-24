@@ -8,6 +8,6 @@ class HomeModel extends Database{
             $_SESSION['connect'] = false;
         }
         
-        var_dump($_SESSION);
+      
     }
 }
