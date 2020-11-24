@@ -19,7 +19,7 @@ include '../inc/header.inc.php';
                 <p>Nombre d'amis : <?= $_SESSION['user']['nom'] ?></p>
                 <p>Nombre de mes sondages : <?= $_SESSION['user']['nom'] ?></p>
                 <p>Email : <?= $_SESSION['user']['email'] ?></p>
-                <p>Date d'inscription : <?= $_SESSION['duree'] ?></p>
+                <p>Date d'inscription : <?= $_SESSION['user']['date'] ?></p>
             </div>
         </div>
     </section>
