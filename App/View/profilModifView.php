@@ -5,11 +5,11 @@ include '../inc/header.inc.php';
 <main id="profil">
     <section>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-        <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
-        <div class="info">
-            <div>
-                <label for="nom">Nom :</label>
-                <input type="text" name="nom" class="form-control" value="<?= $_SESSION['user']['nom'] ?>">
+            <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
+            <div class="info">
+                <div>
+                    <label for="nom">Nom :</label>
+                    <input type="text" name="nom" class="form-control" value="<?= $_SESSION['user']['nom'] ?>">
 
                 <label for="prenom">Prénom :</label>
                 <input type="text" name="prenom" class="form-control" value="<?= $_SESSION['user']['prenom'] ?>">

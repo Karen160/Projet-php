@@ -2,15 +2,19 @@
 include '../../inc/head.inc.php'; 
 include '../../inc/header.inc.php'; ?>
 <main>
-<button class="btn btn-info active" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
+    <button class="btn btn-info active" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
 
-<section id="sondage">
+    <section id="sondage">
         <h2>La question que tout le monde attend</h2>
         <br><br>
         <div class="sond">
-            <button><h4>Oui</h4></button>
+            <button>
+                <h4>Oui</h4>
+            </button>
             <br><br>
-            <button><h4>Non</h4></button>
+            <button>
+                <h4>Non</h4>
+            </button>
         </div>
     </section>
     <br>
@@ -20,14 +24,16 @@ include '../../inc/header.inc.php'; ?>
         <div class="sond">
             <h4>Oui</h4>
             <div class="bar">
-                <div class="percentage"  style="width: 70%"><p>70%</p>
+                <div class="percentage" style="width: 70%">
+                    <p>70%</p>
                 </div>
             </div>
             <p>70 votes</p>
             <br><br>
             <h4>Non</h4>
             <div class="bar">
-                <div class="percentage"  style="width: 30%"><p>30%</p>
+                <div class="percentage" style="width: 30%">
+                    <p>30%</p>
                 </div>
             </div>
             <p>30 votes</p>
@@ -44,7 +50,9 @@ include '../../inc/header.inc.php'; ?>
                 <p>27/10</p>
             </div>
             <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates quidem ab accusamus modi cupiditate? Voluptas error ipsam repudiandae delectus amet consectetur impedit tempora neque libero? Aliquid magnam dignissimos nemo.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates quidem ab accusamus
+                    modi cupiditate? Voluptas error ipsam repudiandae delectus amet consectetur impedit tempora neque
+                    libero? Aliquid magnam dignissimos nemo.</p>
             </div>
         </div>
         <br>

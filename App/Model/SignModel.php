@@ -36,7 +36,7 @@ class SignModel extends Database{
         echo $msg;
       }else{
           $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Le pseudo/email existe déjà<br>Veuillez recommencer</div>";
-         echo $msg;
+          echo $msg;
         
         }
      
@@ -67,18 +67,31 @@ function connexion(){
           $_SESSION['user']['prenom'] = $infos_membre['prenom'];
           $_SESSION['user']['email'] = $infos_membre['email'];
           $_SESSION['user']['pseudo'] = $infos_membre['pseudo'];
+
+
+          $date_crea = $_SESSION['user']['date'];
+          $dateJ = "today";
+
+          $duree_1 = (strtotime($dateJ) - strtotime($date_crea));
+
+          $duree = number_format($duree_1/86400 ,0);
+
+
           $_SESSION['connect'] = true;
+
           //rediriger au bout de 0.5 sec
           header("refresh:0.5;url=?page=profil");
         } else {
           //mdp incorrect
           $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
+          echo $msgCo;
           return;
         }
       } else {
         // pseudo/email incorrect
         $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Pseudo incorrect,<br>Veuillez recommencer</div>";
         return;
+        echo $msgCo;
       }
     }
   }
