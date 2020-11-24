@@ -10,10 +10,11 @@ class SignController{
         $this->model = new SignModel();
     }
 
-    public function inscrire()
+    public function render()
     {
        
         $this->model->inscription();
+        $this->model->connexion();
         require ROOT."/App/View/signView.php";
     }
     
