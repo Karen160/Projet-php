@@ -22,7 +22,8 @@ if (array_key_exists("page", $_GET)) {
             $controller->modifier();
     break;
     default:
-
+        $controller = new HomeController();
+        $controller->render();
     break;
     }
 }else{

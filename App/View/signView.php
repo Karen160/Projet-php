@@ -26,7 +26,7 @@ include '../inc/header.inc.php';
                             </div>
                             <div class="col-sm-12 mt-4 position-static"> 
                                 <label for="email">Email</label>
-                                <input type="text" name="email" class="form-control" placeholder="Entrez votre email" required="required" data-error="Le mail est requis.">
+                                <input type="email" name="email" class="form-control" placeholder="Entrez votre email" required="required" data-error="Le mail est requis.">
                             </div>
                             <div class="col-sm-12 mt-4 position-static"> 
                                 <label for="mdp">Password</label>

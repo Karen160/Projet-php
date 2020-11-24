@@ -35,6 +35,7 @@ class SignModel extends Database{
       } else {
           $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Le pseudo/email existe déjà<br>Veuillez recommencer</div>";
       }
+      header("refresh:0.5;url=?page=profil");
     }
   }
 
@@ -68,7 +69,7 @@ class SignModel extends Database{
           $_SESSION['connect'] = true;
           $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Bienvenue <br> $pseudoCo </div>";
           //rediriger au bout de 2 sec
-          // header("refresh:2;url=?page=profil");
+          header("refresh:0.5;url=?page=profil");
         } else {
           //mdp incorrect
           $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
