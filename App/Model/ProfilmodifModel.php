@@ -6,10 +6,9 @@ class ProfilModifModel extends Database{
 function modifier(){
     
 
-        $id = $_SESSION['membre']['id']; //Charge les données bdd pour connaitre le pseudo de l'internaute
-        $afficher_profil = $this->pdo->query("SELECT * FROM membre WHERE id = $id");
-        $afficher = $afficher_profil->fetch(\PDO::FETCH_ASSOC); 
-        var_dump($afficher);
+        $id = $_SESSION['user']['id']; //Charge les données bdd pour connaitre le pseudo de l'internaute
+        // $afficher_profil = $this->pdo->query("SELECT * FROM membre WHERE id = $id");
+        // $afficher = $afficher_profil->fetch(\PDO::FETCH_ASSOC); 
     $msg = "";
 
     if(isset($_POST['bouton'])){
