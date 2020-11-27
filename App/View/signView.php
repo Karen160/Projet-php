@@ -42,9 +42,8 @@ include '../inc/header.inc.php';
                             <button type="submit" class="btn btn-info btn-block active" name="bouton">Envoyez</button>
                         </div>
                         <?php
-                            
+
                                 echo $msg;
-                                
                             ?>
                     </form>
                 </div>

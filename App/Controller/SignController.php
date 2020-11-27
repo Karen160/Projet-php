@@ -13,7 +13,7 @@ class SignController{
     public function render()
     {
         if(($_SESSION['connect'] == false )){
-            $this->model->inscription();
+            $msg = $this->model->inscription();
             $this->model->connexion();
             require ROOT."/App/View/signView.php";
         }else{
