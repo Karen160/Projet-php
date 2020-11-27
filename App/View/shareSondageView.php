@@ -9,7 +9,7 @@ include '../../inc/header.inc.php'; ?>
                 <div class="row ">
                     <div class="col-sm-12 mt-4">
                         <label for="form_name ">Nombre de personne</label>
-                        <select id="form_name" type="text" name="nbpersonne" class="form-control"
+                        <select id="formNbPerson" type="text" name="nbpersonne" class="form-control"
                             placeholder="Choisissez le nombre de personne à qui partager" required="required"
                             data-error="Le nombre de personne est requis.">
                             <option value="1" selected>1</option>
@@ -35,6 +35,5 @@ include '../../inc/header.inc.php'; ?>
             </div>
         </div>
     </section>
-
 </main>
 <?php include '../../inc/footer.inc.php'?>

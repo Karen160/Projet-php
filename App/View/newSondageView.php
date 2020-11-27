@@ -15,12 +15,12 @@ include '../../inc/header.inc.php'; ?>
                     <input type="text" name="image" class="form-control" placeholder="Entrez le lien de votre image" required="required" data-error="L'image est requise.">
                 </div>
                 <div class="  col-sm-12 mt-3">
-                    <label for="form_name ">Nombre de réponse</label>
-                    <select  type="text" name="nbquestion" id="nb" class="form-control" placeholder="Choisissez le nombre de réponse" required="required" data-error="Le nombre de réponse est requis.">
-                        <option value="2" selected>2</option>
+                    <label for="reponseNb ">Nombre de réponse</label>
+                    <select id="reponseNb" type="text" name="nbquestion" class="form-control" placeholder="Choisissez le nombre de réponse" required="required" data-error="Le nombre de réponse est requis.">
+                        <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5" selected>5</option>
                         <option value="6">6</option>
                         <option value="7">7</option>
                         <option value="8">8</option>
@@ -40,6 +40,19 @@ include '../../inc/header.inc.php'; ?>
             </form>
         </div>
     </section>
-
 </main>
 <?php include '../../inc/footer.inc.php'?>
+
+<script>
+    $("#reponseNb").change(function(){
+        let nbInput = $(this).val();
+       
+        $("#email").html("");
+        i=0;
+        while(i<nbInput){
+            $("#email").append("<div class='col-sm-12 mt-3'> <label for='form_name '>Lien de l'image</label><input type='text' name='image' class='form-control' placeholder='Entrez le lien de votre image' required='required'></div>");
+
+            i++;
+    }
+    });
+</script>
