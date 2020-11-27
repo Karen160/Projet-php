@@ -33,10 +33,11 @@ class SignModel extends Database{
         $_SESSION['connect'] = true;
         header("refresh:0.5;url=?page=profil");
         $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Félicitation votre compte a été crée<br>Connecter-vous</div>";
-        echo $msg;
+        return $msg;
+
       }else{
           $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Le pseudo/email existe déjà<br>Veuillez recommencer</div>";
-          echo $msg;
+          return $msg;
         
         }
      

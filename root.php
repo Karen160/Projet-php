@@ -17,14 +17,15 @@ if (array_key_exists("page", $_GET)) {
         case 'profil':
             $controller = new ProfilController();
             $controller->profil();
+        break; 
         case 'profilModif':
             $controller = new ProfilModifController();
             $controller->modifier();
-    break;
-    default:
-        $controller = new HomeController();
-        $controller->render();
-    break;
+        break;
+        default:
+            $controller = new HomeController();
+            $controller->render();
+        break;
     }
 }else{
     $controller = new HomeController();

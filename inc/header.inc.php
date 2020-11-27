@@ -6,7 +6,11 @@
     <div>
         
     <a 
-    <?php if($_SESSION['connect'] == true) { 
+    <?php 
+    if(!isset($_SESSION['connect'])){
+        $_SESSION['connect'] = false;
+    }
+    if($_SESSION['connect'] == true) { 
         ?>  href="../public/index.php?page=profil" 
             <?php }else{ ?> href="../public/index.php?page=sign" <?php   } ?> ><i class="fas fa-user"></i></a>
         <i class="fas fa-bars"></i>
