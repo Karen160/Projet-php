@@ -7,17 +7,10 @@ class newSondageModel extends Database{
       
     $msg = "";
     // Enregistrement des éléments du sondages
-<<<<<<< HEAD
-    if(isset($_POST['question']) && isset($_POST['image']) && isset($_POST['reponse'])) {
-        $titre = trim($_POST['titre']);
-        $image = trim($_POST['image']);
-        $contenu = trim($_POST['contenu']);
-=======
     if(isset($_POST['question']) && isset($_POST['image']) && isset($_POST['proposition1'])  && isset($_POST['date'])) {
         $question = trim($_POST['question']);
         $image = trim($_POST['image']);
         $date = trim($_POST['date']);
->>>>>>> 0e9194fa573f5c02954d611363188f36655e1ab8
 
         // Défini id_membre de l'internaute connecté = membre_id de la table article en bdd
         $membre_id = $_SESSION['membre']['id_membre'];
@@ -31,9 +24,6 @@ class newSondageModel extends Database{
         $enregistrement->bindParam(':pseudo', $pseudo_membre, \PDO::PARAM_STR);
         $enregistrement->execute();
 
-<<<<<<< HEAD
-        $msg = "<div class='alertGlobal2'>Merci ! Votre nouveau post a bien été enregistré !</div>";
-=======
         // Défini id de la question
         $id_question = $_SESSION['question']['question_id'];
 
@@ -47,7 +37,6 @@ class newSondageModel extends Database{
         }
         
         $msg = "<div class='alertGlobal2'>Merci ! Votre sondage a bien été enregistré !</div>";
->>>>>>> 0e9194fa573f5c02954d611363188f36655e1ab8
     }
 
     $articles = $this->pdo->query("SELECT id_article, titre, pseudo, image FROM article");
