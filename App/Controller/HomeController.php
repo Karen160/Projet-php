@@ -16,7 +16,7 @@ class HomeController{
             if($_SESSION['connect'] == true){
                 $sondPerso = $this->model->home();
             }else{
-               
+               $this->model->home();
             }
             
             require ROOT."/App/View/homeView.php";
