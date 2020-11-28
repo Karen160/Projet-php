@@ -9,4 +9,11 @@ class SondageController{
     {
         $this->model = new SondageModel();
     }
+
+    public function render()
+    {
+        if(($_SESSION['connect'] == false )){
+            header('location:index.php');
+        }
+    }
 }
