@@ -1,35 +1,47 @@
 <?php 
 include '../inc/head.inc.php'; 
+
+// Récupération des sondages en BDD
+// $sondage = $pdo->query("SELECT question FROM article, membre WHERE membre_id = id_membre ORDER BY id_article DESC");
+
 include '../inc/header.inc.php'; ?>
 <main id="accueil">
     <section>
-        <h2>Nouveaux sondages</h2>
+        <h2>Sondages en cours</h2>
         <div class="conteneur">
+        <?php foreach($sond as $sondage) : ?>
             <div class="boxsondage">
                 <a href="">
-                    <img src="https://i.ytimg.com/vi/w_1quQbOqpI/maxresdefault.jpg" alt="">
-                    <span>Benji <br>48 heures</span>
-                    <p>Est ce que Tanjiro Kamado va devenir un démon ?</p>
+                    <img src="<?= $sondage->image ?>" alt="Image de la question ' + <?= $sondage->question ?> + '">
+                    <span>Ecrit par : <?= $sondage->pseudo ?> <br> Date de fin : <?= $sondage->date_fin ?></span>
+                    <p><?= $sondage->question ?></p>
                 </a>
                 <a href=""><i class="fas fa-share"></i></a>
             </div>
+            <?php endforeach; ?>
         </div>
         <button class="btn btn-info active" style="margin:0 auto; display:block">Voir plus</button>
     </section>
 
-    <section>
-        <h2>Mes sondages en cours</h2>
+    <section id="mesSond">
+        <h2>Mes sondages</h2>
         <div class="conteneur">
-            <div class="boxsondage">   
-        </div>
-    </section>
-
-    <section>
-        <h2>Derniers sondages terminés</h2>
-        <div class="conteneur">
-            <div class="boxsondage">   
+            <?php foreach($sondPerso as $sondagePerso) : ?>
+                <div class="boxsondage">
+                    <a href="">
+                        <img src="<?= $sondagePerso->image ?>" alt="Image de la question ' + <?= $sondagePerso->question ?> + '">
+                        <span>Date de fin : <?= $sondagePerso->date_fin ?></span>
+                        <p><?= $sondagePerso->question ?></p>
+                    </a>
+                    <a href=""><i class="fas fa-share"></i></a>
+                </div>
+            <?php endforeach; ?> 
         </div>
     </section>
 </main>
 
 <?php include '../inc/footer.inc.php'; ?>
+
+<script>
+    
+</script>
