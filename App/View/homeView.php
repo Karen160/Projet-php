@@ -1,9 +1,6 @@
 <?php 
 include '../inc/head.inc.php'; 
 
-// Récupération des sondages en BDD
-// $sondage = $pdo->query("SELECT question FROM article, membre WHERE membre_id = id_membre ORDER BY id_article DESC");
-
 include '../inc/header.inc.php'; ?>
 <main id="accueil">
     <section>
