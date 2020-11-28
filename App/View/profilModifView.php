@@ -7,7 +7,7 @@ include '../inc/header.inc.php';
         <form method="post" >
             <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
             <div class="info">
-                <?php foreach($userinfos as $userdata):?>
+                <?php foreach($user_infos as $userdata):?>
                 <div>
                     <label for="nom">Nom :</label>
                     <input type="text" name="nom" class="form-control" value="<?= $userdata->nom ?>">
@@ -18,19 +18,22 @@ include '../inc/header.inc.php';
                 <label for="pseudo">Pseudo :</label>
                 <input type="text" name="pseudo" class="form-control" value="<?= $userdata->pseudo?>">
 
-                <label for="mdp">Mot de passe :</label>
+                <label for="mdp">Nouveau Mot de passe :</label>
                 <input type="text" name="mdp" class="form-control" required>    
             </div>
             <div>
-                <p>Nombre d'amis : <?= $userdata->pseudo ?></p>
-                <p>Nombre de mes sondages : <?= $userdata->pseudo ?></p>
                 <label for="email">Email :</label>
                 <input type="text" name="email" class="form-control" value="<?= $userdata->email ?>">
+                <p style="margin-top: 10% ">Nombre d'amis : <?= $userdata->pseudo ?></p>
+                <p>Nombre de mes sondages : <?= $userdata->pseudo ?></p>
                 <p>Date d'inscription : <?= $userdata->date ?></p>
+                <label style="margin-top: 7%;" for="email">Mdp actuel :</label>
+                <input  type="text" name="mdpAct" class="form-control" value="">
+              
             </div>
                     <?php endforeach ?>
         </div>
-        <button type="submit" class="btn btn-info btn-block active" name="bouton">Envoyez</button>
+        <input type="submit" class="btn btn-info btn-block active" value="Envoyez" name="bouton">
         </form> 
     </section>
 </main>

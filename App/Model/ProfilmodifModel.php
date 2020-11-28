@@ -3,14 +3,12 @@ namespace App\Model;
 use Core\Database;
 
 class ProfilModifModel extends Database{
-
-
-
-
+function recup(){
+    return $this->query("SELECT * from user where id = ".$_SESSION['user']['id']);
+}
 function modifier(){
         $id = $_SESSION['user']['id']; //récup id 
-
-    $msg = "";
+        $msg = "";
 
     if(isset($_POST['bouton'])){
         if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['mdp'])) {
@@ -35,8 +33,8 @@ function modifier(){
         //rediriger
         header("location:index.php?page=profil");
      } else {
-        // $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Veuiller remplir tous les champs</div>";
-        // return $msg;
+        return $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Veuiller remplir tous les champs</div>";
+        
     }
  
     }

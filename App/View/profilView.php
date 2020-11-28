@@ -10,7 +10,7 @@ include '../inc/header.inc.php';
     <section>
         <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
         <div class="info">
-            <?php foreach($userinfos as $userdata):?>
+            <?php foreach($user_infos as $userdata):?>
             <div>
                 <p>Nom :  <?= $userdata->nom  ?></p>
                 <p>Prénom :  <?= $userdata->prenom  ?></p>

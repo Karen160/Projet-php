@@ -78,6 +78,7 @@ function connexion(){
           
         $_SESSION['connect'] = true;
           //rediriger au bout de 0.5 sec
+          $_SESSION['modif'] = true;
           header("url=?page=profil");
         } else {
           //mdp incorrect
