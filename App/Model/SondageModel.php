@@ -7,26 +7,33 @@ class SignModel extends Database{
       
     $msg = "";
     // Enregistrement des éléments du sondages
-    if(isset($_POST['question']) && isset($_POST['image']) && isset($_POST['reponse'])) {
-        $titre = trim($_POST['titre']);
+    if(isset($_POST['question']) && isset($_POST['image']) && isset($_POST['proposition1'])  && isset($_POST['date'])) {
+        $titre = trim($_POST['question']);
         $image = trim($_POST['image']);
-        $contenu = trim($_POST['contenu']);
+        $contenu = trim($_POST['proposition1']);
+        $contenu = trim($_POST['date']);
 
-        // Défini id_membre de l'internaute connecté = membre_id de la table article en bdd
-        $membre_id = $_SESSION['membre']['id_membre'];
-        $pseudo_membre = $_SESSION['membre']['pseudo'];
+        // Défini id de l'internaute connecté
+        $membre_id = $_SESSION['user']['id'];
 
-        // Enregistrement de l'artcile dans la bdd
-        $enregistrement = $pdo->prepare("INSERT INTO article (id_article, titre, membre_id, pseudo, image, date_publication, contenu) VALUES (NULL, :titre, $membre_id, :pseudo, :image, CURDATE(), :contenu)");
-        $enregistrement->bindParam(':titre', $titre, PDO::PARAM_STR);
-        $enregistrement->bindParam(':image', $image, PDO::PARAM_STR);
-        $enregistrement->bindParam(':contenu', $contenu, PDO::PARAM_STR);
-        $enregistrement->bindParam(':pseudo', $pseudo_membre, PDO::PARAM_STR);
+        // Enregistrement de la question dans la bdd
+        $enregistrementQuestion = $pdo->prepare("INSERT INTO question (question_id, user_id_author, question, date_fin) VALUES (NULL, $membre_id, :question, :date)");
+        $enregistrement->bindParam(':question', $question, \PDO::PARAM_STR);
+        $enregistrement->bindParam(':date', $date, \PDO::PARAM_STR);
         $enregistrement->execute();
 
-        $msg = "<div class='alertGlobal2'>Merci ! Votre nouveau post a bien été enregistré !</div>";
-    }
+        // Défini id de la question
+        $id_question = $_SESSION['question']['question_id'];
 
-    $articles = $pdo->query("SELECT id_article, titre, pseudo, image FROM article");
+       
+        for($k = 0; nbReponse>$k; $k++){
+          // Enregistrement des proposition de réponse dans la bdd
+          $enregistrementAnswer = $pdo->prepare("INSERT INTO answer (answer_id, id_question_id, choix) VALUES (NULL, $id_question, :proposition)");
+          $enregistrement->bindParam(':proposition', $proposition, \PDO::PARAM_STR);
+          $enregistrement->execute();
+        }
+        
+        $msg = "<div class='alertGlobal2'>Merci ! Votre sondage a bien été enregistré !</div>";
+    }
   }
 }
