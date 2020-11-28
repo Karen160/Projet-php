@@ -8,10 +8,9 @@ class newSondageModel extends Database{
     $msg = "";
     // Enregistrement des éléments du sondages
     if(isset($_POST['question']) && isset($_POST['image']) && isset($_POST['proposition1'])  && isset($_POST['date'])) {
-        $titre = trim($_POST['question']);
+        $question = trim($_POST['question']);
         $image = trim($_POST['image']);
-        $contenu = trim($_POST['proposition1']);
-        $contenu = trim($_POST['date']);
+        $date = trim($_POST['date']);
 
         // Défini id de l'internaute connecté
         $membre_id = $_SESSION['user']['id'];
@@ -27,9 +26,10 @@ class newSondageModel extends Database{
 
        
         for($k = 0; nbReponse>$k; $k++){
+          $proposition = trim($_POST['proposition'+ ($k+1) +'']);
           // Enregistrement des proposition de réponse dans la bdd
           $enregistrementAnswer = $pdo->prepare("INSERT INTO answer (answer_id, id_question_id, choix) VALUES (NULL, $id_question, :proposition)");
-          $enregistrement->bindParam(':proposition', $proposition, \PDO::PARAM_STR);
+          $enregistrement->bindParam(':proposition'+ ($k+1) +'', $proposition, \PDO::PARAM_STR);
           $enregistrement->execute();
         }
         
