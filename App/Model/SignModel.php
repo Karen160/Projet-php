@@ -6,7 +6,7 @@ class SignModel extends Database{
   function inscription(){    
 
     $msg = "";
-
+    $msg2="";
     if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['mdp'])) {
       $pseudo = trim($_POST['pseudo']);
       $recup_pseudo = $this->pdo->query("SELECT * FROM user WHERE pseudo = '$pseudo'");
@@ -81,14 +81,13 @@ function connexion(){
         } else {
           //mdp incorrect
           $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
-          echo $msgCo;
-          return;
+          return $msgCo;
+          
         }
       } else {
         // pseudo/email incorrect
         $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Pseudo incorrect,<br>Veuillez recommencer</div>";
-        return;
-        echo $msgCo;
+        return $msgCo;
       }
     }
   }
