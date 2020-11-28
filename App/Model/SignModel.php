@@ -20,7 +20,7 @@ class SignModel extends Database{
         $prenom = trim($_POST['prenom']);
         $nom = trim($_POST['nom']);
     
-        $enregistrement = $this->pdo->prepare("INSERT INTO user (nom, prenom, pseudo, email, mdp, `date`) VALUES (:nom, :prenom, :pseudo, :email, :mdp, NOW() )");
+        $enregistrement = $this->pdo->prepare("INSERT INTO user (nom, prenom, pseudo, email, mdp, `date`) VALUES (:nom, :prenom, :pseudo, :email, :mdp,  NOW() )");
         // on fourni les valeurs des marqueurs nominatifs
         $enregistrement->bindParam(':nom', $nom, \PDO::PARAM_STR);
         $enregistrement->bindParam(':prenom', $prenom, \PDO::PARAM_STR);
@@ -29,13 +29,20 @@ class SignModel extends Database{
         $enregistrement->bindParam(':mdp', $mdp, \PDO::PARAM_STR);
         $enregistrement->execute();
         //
+        $recup_infos = $this->pdo->query("SELECT * FROM user  where pseudo = '$pseudo' ");
+        $infos_membre = $recup_infos->fetch(\PDO::FETCH_ASSOC);
+  
+        $_SESSION['user']['id'] = $infos_membre['id'];
+        $_SESSION['user']['nom'] = $infos_membre['nom'];
+        $_SESSION['user']['prenom'] = $infos_membre['prenom'];
+        $_SESSION['user']['email'] = $infos_membre['email'];
+        $_SESSION['user']['pseudo'] = $infos_membre['pseudo'];
+        $_SESSION['user']['date'] = $infos_membre['date'];
+
         $_SESSION['connect'] = true;
-        header("refresh:0.5;url=?page=profil");
-        return $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Félicitation votre compte a été crée<br>Connecter-vous</div>";
+        header("location:index.php?page=profil");
       }else{
         return  $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Le pseudo/email existe déjà<br>Veuillez recommencer</div>";
-
-        
         }
      
     }
@@ -77,8 +84,8 @@ function connexion(){
           header("refresh:0.5;url=?page=profil");
         } else {
           //mdp incorrect
-         echo $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
-          return $msgCo;
+          return $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
+          
           
         }
       } else {
