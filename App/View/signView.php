@@ -41,10 +41,7 @@ include '../inc/header.inc.php';
                         <div class="col-sm-12 mt-4 position-static offset-ms-4">
                             <button type="submit" class="btn btn-info btn-block active" name="bouton">Envoyez</button>
                         </div>
-                        <?php
-
-                                echo $msg;
-                            ?>
+                        <?php  echo $msg;?>
                     </form>
                 </div>
                 </form>

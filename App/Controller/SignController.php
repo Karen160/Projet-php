@@ -14,7 +14,7 @@ class SignController{
     {
         if(($_SESSION['connect'] == false )){
             $msg = $this->model->inscription();
-            $this->model->connexion();
+            $msgCo = $this->model->connexion();
             require ROOT."/App/View/signView.php";
         }else{
          header('location:index.php?page=profil');
