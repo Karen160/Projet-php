@@ -31,7 +31,8 @@ class SignModel extends Database{
         //
         $recup_infos = $this->pdo->query("SELECT * FROM user  where pseudo = '$pseudo' ");
         $infos_membre = $recup_infos->fetch(\PDO::FETCH_ASSOC);
-  
+        $date = date('dd-mm-yy',$infos_membre['date']);
+
         $_SESSION['user']['id'] = $infos_membre['id'];
         $_SESSION['user']['nom'] = $infos_membre['nom'];
         $_SESSION['user']['prenom'] = $infos_membre['prenom'];
@@ -49,7 +50,7 @@ class SignModel extends Database{
   }
 function connexion(){ 
     $msgCo = "";
-
+    
     if(isset($_POST['pseudoCo']) && isset($_POST['mdpCo'])) {
 
       $pseudoCo = $_POST['pseudoCo'];
@@ -65,6 +66,7 @@ function connexion(){
         // on vérifie le mdp avec un fetch
         $infos_membre = $recup_infosCo->fetch(\PDO::FETCH_ASSOC);
         if(password_verify($mdpCo, $infos_membre['mdp'])) {
+        $date = date('d-m-Y', strtotime($infos_membre['date']));
           // le mdp est bon
           // Pour la connexion, on place les informations de l'utilisateur sauf son mdp dans la session ($_SESSION) pour pouvoir interroger la session par la suite.
           $_SESSION['user']['id'] = $infos_membre['id'];
@@ -72,7 +74,7 @@ function connexion(){
           $_SESSION['user']['prenom'] = $infos_membre['prenom'];
           $_SESSION['user']['email'] = $infos_membre['email'];
           $_SESSION['user']['pseudo'] = $infos_membre['pseudo'];
-          $_SESSION['user']['date'] = $infos_membre['date'];
+          $_SESSION['user']['date'] = $date;
           //Calculer la date
           
         // $current = date("Y/m/d");
@@ -84,14 +86,11 @@ function connexion(){
           header("refresh:0.5;url=?page=profil");
         } else {
           //mdp incorrect
-          return $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
-          
-          
+          return $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>"; 
         }
       } else {
         // pseudo/email incorrect
-        return $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Pseudo incorrect,<br>Veuillez recommencer</div>";
-        
+        return $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Pseudo incorrect,<br>Veuillez recommencer</div>";  
       }
     }
   }
