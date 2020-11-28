@@ -3,6 +3,7 @@
 use App\Controller\HomeController;
 use App\Controller\SignController;
 use App\Controller\ProfilController;
+use App\Controller\newSondageController;
 use App\Controller\ProfilmodifController;
 
 if (array_key_exists("page", $_GET)) {
@@ -10,6 +11,7 @@ if (array_key_exists("page", $_GET)) {
         case 'home':
             $controller = new HomeController();
             $controller->render();
+        break;
         case 'sign':
             $controller = new SignController();
             $controller->render();
@@ -21,6 +23,10 @@ if (array_key_exists("page", $_GET)) {
         case 'profilModif':
             $controller = new ProfilModifController();
             $controller->modifier();
+        break;
+        case 'newSondage':
+            $controller = new newSondageController();
+            $controller->render();
         break;
         default:
             $controller = new HomeController();

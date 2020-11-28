@@ -20,7 +20,7 @@ function modifier(){
         $pseudo = trim($_POST['pseudo']);
         $email = trim($_POST['email']);
 
-        $enregistrement = $this->pdo->prepare("UPDATE user SET nom = :nom , prenom = :prenom, email = :email, mdp = :mdp, pseudo = :pseudo WHERE id = $id");
+        $enregistrement = $this->pdo->prepare("UPDATE user SET nom = :nom , prenom = :prenom, pseudo = :pseudo, email = :email, mdp = :mdp WHERE id = $id");
         
         $enregistrement->bindParam(':nom', $nom, \PDO::PARAM_STR);
         $enregistrement->bindParam(':prenom', $prenom, \PDO::PARAM_STR);
