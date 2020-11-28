@@ -3,11 +3,14 @@ namespace App\Model;
 use Core\Database;
 
 class ProfilModifModel extends Database{
+  function recup(){
+      return $this->query("SELECT * from user where id = ".$_SESSION['user']['id']);
+  }
   
     
 function modifier(){
         $id = $_SESSION['user']['id']; //récup id 
-
+    var_dump($id);
     $msg = "";
 
     if(isset($_POST['bouton'])){

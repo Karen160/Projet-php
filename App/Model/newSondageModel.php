@@ -26,13 +26,13 @@ class newSondageModel extends Database{
         $id_question = $_SESSION['question']['question_id'];
 
        
-        // for($k = 0; nbReponse>$k; $k++){
-        //   $proposition = trim($_POST['proposition'+ ($k+1) +'']);
-        //   // Enregistrement des proposition de réponse dans la bdd
-        //   $enregistrementAnswer = $this->pdo->prepare("INSERT INTO answer (answer_id, id_question_id, choix) VALUES (NULL, $id_question, :proposition)");
-        //   $enregistrementAnswer->bindParam(':proposition'+ ($k+1) +'', $proposition, \PDO::PARAM_STR);
-        //   $enregistrementAnswer->execute();
-        // }
+        for($k = 0; nbReponse>$k; $k++){
+          $proposition = trim($_POST['proposition'+ ($k+1) +'']);
+          // Enregistrement des proposition de réponse dans la bdd
+          $enregistrementAnswer = $this->pdo->prepare("INSERT INTO answer (answer_id, id_question_id, choix) VALUES (NULL, $id_question, :proposition)");
+          $enregistrementAnswer->bindParam(':proposition'+ ($k+1) +'', $proposition, \PDO::PARAM_STR);
+          $enregistrementAnswer->execute();
+        }
         
         $msg = "<div class='alertGlobal2'>Merci ! Votre sondage a bien été enregistré !</div>";
     }

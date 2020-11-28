@@ -8,6 +8,7 @@ include '../inc/header.inc.php';
             <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
             <div class="info">
                 <div>
+                    <?php  foreach( $user as $data ) ?>
                     <label for="nom">Nom :</label>
                     <input type="text" name="nom" class="form-control" value="<?= $_SESSION['user']['nom'] ?>">
 
@@ -29,7 +30,7 @@ include '../inc/header.inc.php';
             </div>
 
         </div>
-        <button type="submit" class="btn btn-info btn-block active" name="bouton">Envoyez</button>
+        <input type="submit" class="btn btn-info btn-block active" value="Envoyez" name="bouton">
         </form> 
     </section>
 </main>

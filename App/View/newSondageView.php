@@ -48,8 +48,8 @@ include '../../inc/header.inc.php'; ?>
         <?php  echo $msg;?>
     </section>
 </main>
-<?php include '../../inc/footer.inc.php'?>
-
+<?php include '../inc/footer.inc.php'?>
+<?php ?>
 <script>
     //Permet d'afficher le bon nombre de champ a remplir pour le choix de proposition de réponse que souhaite mettre l'internaute sur sa question
     var i = 0;
