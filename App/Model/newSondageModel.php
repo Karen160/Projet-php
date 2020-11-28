@@ -13,8 +13,9 @@ class newSondageModel extends Database{
         $image = trim($_POST['image']);
         $date = trim($_POST['date']);
 
-        // Défini id de l'internaute connecté
-        $membre_id = $_SESSION['user']['id'];
+        // Défini id_membre de l'internaute connecté = membre_id de la table article en bdd
+        $membre_id = $_SESSION['membre']['id_membre'];
+        $pseudo_membre = $_SESSION['membre']['pseudo'];
 
         // Enregistrement de la question dans la bdd
         $enregistrementQuestion = $this->pdo->prepare("INSERT INTO question (question_id, user_id_author, question, date_fin) VALUES (NULL, $membre_id, :question, :date)");
@@ -36,5 +37,7 @@ class newSondageModel extends Database{
         
         $msg = "<div class='alertGlobal2'>Merci ! Votre sondage a bien été enregistré !</div>";
     }
+
+    $articles = $this->pdo->query("SELECT id_article, titre, pseudo, image FROM article");
   }
 }
