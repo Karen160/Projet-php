@@ -14,7 +14,7 @@ class SignModel extends Database{
       $email = trim($_POST['email']);
       $recup_email = $this->pdo->query("SELECT * FROM user WHERE email = '$email'");
       // // on vérifie si l'email n'existe pas dans la BDD
-      if($recup_email && $recup_pseudo->rowCount() < 1) {
+      if($recup_email->rowCount() < 1 && $recup_pseudo->rowCount() < 1) {
         $mdp = trim($_POST['mdp']);
         $mdp = password_hash($mdp, PASSWORD_DEFAULT);
         $prenom = trim($_POST['prenom']);
