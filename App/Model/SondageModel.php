@@ -17,7 +17,7 @@ class SignModel extends Database{
         $membre_id = $_SESSION['user']['id'];
 
         // Enregistrement de la question dans la bdd
-        $enregistrementQuestion = $pdo->prepare("INSERT INTO question (question_id, user_id_author, question, date_fin) VALUES (NULL, $membre_id, :question, :date)");
+        $enregistrementQuestion = $this->pdo->prepare("INSERT INTO question (question_id, user_id_author, question, date_fin) VALUES (NULL, $membre_id, :question, :date)");
         $enregistrement->bindParam(':question', $question, \PDO::PARAM_STR);
         $enregistrement->bindParam(':date', $date, \PDO::PARAM_STR);
         $enregistrement->execute();
