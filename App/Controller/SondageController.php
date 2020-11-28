@@ -1,12 +1,19 @@
 <?php
 namespace App\Controller;
 
-use App\Model\SondageModel;
+use App\Model\newSondageModel;
 
-class SondageController{
+class newSondageController{
 
     public function __construct()
     {
-        $this->model = new SondageModel();
+        $this->model = new newSondageModel();
+    }
+
+    public function render()
+    {
+        if(($_SESSION['connect'] == false )){
+            header('location:index.php');
+        }
     }
 }

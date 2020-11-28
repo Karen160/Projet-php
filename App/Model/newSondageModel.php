@@ -2,7 +2,7 @@
 namespace App\Model;
 use Core\Database;
 
-class SignModel extends Database{ 
+class newSondageModel extends Database{ 
   function newsondage(){  
       
     $msg = "";
