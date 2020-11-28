@@ -6,7 +6,7 @@ class newSondageModel extends Database{
   function newsondage(){  
       
     $msg = "";
-    
+
     // Enregistrement des éléments du sondages
     if(isset($_POST['question']) && isset($_POST['image']) && isset($_POST['proposition1'])  && isset($_POST['date'])) {
         $question = trim($_POST['question']);
@@ -17,8 +17,9 @@ class newSondageModel extends Database{
         $membre_id = $_SESSION['user']['id'];
 
         // Enregistrement de la question dans la bdd
-        $enregistrementQuestion = $this->pdo->prepare("INSERT INTO question (question_id, user_id_author, question, date_fin) VALUES (NULL, $membre_id, :question, :date)");
+        $enregistrementQuestion = $this->pdo->prepare("INSERT INTO question (question_id, user_id_author, question, image, date_fin) VALUES (NULL, $membre_id, :question, :image, :date)");
         $enregistrementQuestion->bindParam(':question', $question, \PDO::PARAM_STR);
+        $enregistrementQuestion->bindParam(':image', $image, \PDO::PARAM_STR);
         $enregistrementQuestion->bindParam(':date', $date, \PDO::PARAM_STR);
         $enregistrementQuestion->execute();
 
