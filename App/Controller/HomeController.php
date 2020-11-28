@@ -11,8 +11,9 @@ class HomeController{
     }
     public function render()
     {
-            require ROOT."/App/View/homeView.php";
             $this->model->home();
+            require ROOT."/App/View/homeView.php";
+           
     }
 
 }

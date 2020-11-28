@@ -4,7 +4,7 @@ include '../inc/header.inc.php';
 ?>
 <main id="profil">
     <section>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+        <form method="post" >
             <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
             <div class="info">
                 <div>

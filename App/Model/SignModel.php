@@ -31,14 +31,14 @@ class SignModel extends Database{
         //
         $recup_infos = $this->pdo->query("SELECT * FROM user  where pseudo = '$pseudo' ");
         $infos_membre = $recup_infos->fetch(\PDO::FETCH_ASSOC);
-        $date = date('dd-mm-yy',$infos_membre['date']);
+        $date = date('d-m-Y', strtotime($infos_membre['date']));
 
         $_SESSION['user']['id'] = $infos_membre['id'];
         $_SESSION['user']['nom'] = $infos_membre['nom'];
         $_SESSION['user']['prenom'] = $infos_membre['prenom'];
         $_SESSION['user']['email'] = $infos_membre['email'];
         $_SESSION['user']['pseudo'] = $infos_membre['pseudo'];
-        $_SESSION['user']['date'] = $infos_membre['date'];
+        $_SESSION['user']['date'] = $date;
 
         $_SESSION['connect'] = true;
         header("location:index.php?page=profil");
@@ -75,12 +75,7 @@ function connexion(){
           $_SESSION['user']['email'] = $infos_membre['email'];
           $_SESSION['user']['pseudo'] = $infos_membre['pseudo'];
           $_SESSION['user']['date'] = $date;
-          //Calculer la date
           
-        // $current = date("Y/m/d");
-        // $duree = date_diff($current, $_SESSION['user']['date']);
-        // $duree->format('d');
-        // $_SESSION['duree'] = $duree;
         $_SESSION['connect'] = true;
           //rediriger au bout de 0.5 sec
           header("refresh:0.5;url=?page=profil");
