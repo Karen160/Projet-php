@@ -16,11 +16,12 @@ include '../../inc/header.inc.php'; ?>
                 </div>
                 <div class="  col-sm-12 mt-3">
                     <label for="reponseNb ">Nombre de réponse</label>
-                    <select id="reponseNb" type="text" name="nbquestion" class="form-control" placeholder="Choisissez le nombre de réponse" required="required" data-error="Le nombre de réponse est requis.">
+                    <select id="reponseNb" type="text" name="nbquestion" class="form-control" placeholder="Nombre de vos proposition de réponse" required="required" data-error="Le nombre de réponse est requis.">
+                        <option value="0" selected>Selectionnez un nombre</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5" selected>5</option>
+                        <option value="5">5</option>
                         <option value="6">6</option>
                         <option value="7">7</option>
                         <option value="8">8</option>
@@ -28,7 +29,7 @@ include '../../inc/header.inc.php'; ?>
                         <option value="10">10</option>
                     </select>
                 </div>
-                <div id="email">
+                <div id="proposition">
                 </div>
                 <div class="col-sm-12 mt-3"> 
                     <label for="form_name">Date d'expiration</label>
@@ -44,14 +45,15 @@ include '../../inc/header.inc.php'; ?>
 <?php include '../../inc/footer.inc.php'?>
 
 <script>
+
+//Permet d'afficher le bon nombre de champ a remplir pour le choix de proposition de réponse que souhaite mettre l'internaute sur sa question
     $("#reponseNb").change(function(){
         let nbInput = $(this).val();
        
-        $("#email").html("");
+        $("#proposition").html("");
         i=0;
         while(i<nbInput){
-            $("#email").append("<div class='col-sm-12 mt-3'> <label for='form_name '>Lien de l'image</label><input type='text' name='image' class='form-control' placeholder='Entrez le lien de votre image' required='required'></div>");
-
+            $("#proposition").append("<div class='col-sm-12 mt-3'> <label for='proposition'>Proposition " + (i+1) + "</label><input type='text' name='proposition' class='form-control' placeholder='Entrez votre proposition' required='required'></div>");
             i++;
     }
     });
