@@ -10,18 +10,20 @@ include '../inc/header.inc.php';
     <section>
         <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
         <div class="info">
+            <?php foreach($user_infos as $userdata):?>
             <div>
-                <p>Nom :  <?= $_SESSION['user']['nom'] ?></p>
-                <p>Prénom :  <?= $_SESSION['user']['prenom'] ?></p>
-                <p>Pseudo : <?= $_SESSION['user']['pseudo'] ?></p>
+                <p>Nom :  <?= $userdata->nom  ?></p>
+                <p>Prénom :  <?= $userdata->prenom  ?></p>
+                <p>Pseudo : <?= $userdata->pseudo  ?></p>
                 <p>Mot de passe : *******</p>   
             </div>
             <div>
-                <p>Nombre d'amis : <?= $_SESSION['user']['nom'] ?></p>
-                <p>Nombre de mes sondages : <?= $_SESSION['user']['nom'] ?></p>
-                <p>Email : <?= $_SESSION['user']['email'] ?></p>
-                <p>Date d'inscription : <?= $_SESSION['user']['date'] ?></p>
+                <p>Nombre d'amis : <?= $userdata->nom  ?></p>
+                <p>Nombre de mes sondages : <?= $userdata->nom  ?></p>
+                <p>Email : <?= $userdata->email  ?></p>
+                <p>Date d'inscription : <?= $userdata->date  ?></p>
             </div>
+            <?php endforeach ?>
         </div>
     </section>
 </main>
