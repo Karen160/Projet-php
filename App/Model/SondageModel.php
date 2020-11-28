@@ -17,16 +17,16 @@ class SignModel extends Database{
         $pseudo_membre = $_SESSION['membre']['pseudo'];
 
         // Enregistrement de l'artcile dans la bdd
-        $enregistrement = $pdo->prepare("INSERT INTO article (id_article, titre, membre_id, pseudo, image, date_publication, contenu) VALUES (NULL, :titre, $membre_id, :pseudo, :image, CURDATE(), :contenu)");
-        $enregistrement->bindParam(':titre', $titre, PDO::PARAM_STR);
-        $enregistrement->bindParam(':image', $image, PDO::PARAM_STR);
-        $enregistrement->bindParam(':contenu', $contenu, PDO::PARAM_STR);
-        $enregistrement->bindParam(':pseudo', $pseudo_membre, PDO::PARAM_STR);
+        $enregistrement = $this->pdo->prepare("INSERT INTO article (id_article, titre, membre_id, pseudo, image, date_publication, contenu) VALUES (NULL, :titre, $membre_id, :pseudo, :image, CURDATE(), :contenu)");
+        $enregistrement->bindParam(':titre', $titre, \PDO::PARAM_STR);
+        $enregistrement->bindParam(':image', $image, \PDO::PARAM_STR);
+        $enregistrement->bindParam(':contenu', $contenu, \PDO::PARAM_STR);
+        $enregistrement->bindParam(':pseudo', $pseudo_membre, \PDO::PARAM_STR);
         $enregistrement->execute();
 
         $msg = "<div class='alertGlobal2'>Merci ! Votre nouveau post a bien été enregistré !</div>";
     }
 
-    $articles = $pdo->query("SELECT id_article, titre, pseudo, image FROM article");
+    $articles = $this->pdo->query("SELECT id_article, titre, pseudo, image FROM article");
   }
 }
