@@ -27,7 +27,7 @@ include '../inc/header.inc.php';
                 <p style="margin-top: 10% ">Nombre d'amis : <?= $userdata->pseudo ?></p>
                 <p>Nombre de mes sondages : <?= $userdata->pseudo ?></p>
                 <p>Date d'inscription : <?= $userdata->date ?></p>
-                <label style="margin-top: 7git %;" for="email">Mdp actuel :</label>
+                <label style="margin-top: 7%;" for="email">Mdp actuel :</label>
                 <input  type="text" name="mdpAct" class="form-control" value="">
               
             </div>
