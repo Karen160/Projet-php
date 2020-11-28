@@ -20,7 +20,7 @@ function modifier(){
         $pseudo = trim($_POST['pseudo']);
         $email = trim($_POST['email']);
 
-        $enregistrement = $this->pdo->prepare("UPDATE membre SET nom = :nom , prenom = :prenom, email = :email, mdp = :mdp, pseudo = :pseudo WHERE id = $id");
+        $enregistrement = $this->pdo->prepare("UPDATE user SET nom = :nom , prenom = :prenom, email = :email, mdp = :mdp, pseudo = :pseudo WHERE id = $id");
         
         $enregistrement->bindParam(':nom', $nom, \PDO::PARAM_STR);
         $enregistrement->bindParam(':prenom', $prenom, \PDO::PARAM_STR);
@@ -29,7 +29,7 @@ function modifier(){
         $enregistrement->bindParam(':mdp', $mdp, \PDO::PARAM_STR);
         $enregistrement->execute();
         //rediriger
-        header("refresh:0.5;url=index.php?page=profil");
+        header("location:index.php?page=profil");
     } else {
         $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Veuiller remplir tous les champs</div>";
         return $msg;

@@ -14,14 +14,13 @@ class SignModel extends Database{
       $email = trim($_POST['email']);
       $recup_email = $this->pdo->query("SELECT * FROM user WHERE email = '$email'");
       // // on vérifie si l'email n'existe pas dans la BDD
-      if($recup_email && $recup_pseudo->rowCount() < 1) {
+      if($recup_email->rowCount() < 1 &&  $recup_pseudo->rowCount() < 1) {
         $mdp = trim($_POST['mdp']);
         $mdp = password_hash($mdp, PASSWORD_DEFAULT);
         $prenom = trim($_POST['prenom']);
         $nom = trim($_POST['nom']);
-
     
-        $enregistrement = $this->pdo->prepare("INSERT INTO user (nom, prenom, pseudo, email, mdp) VALUES (:nom, :prenom, :pseudo, :email, :mdp)");
+        $enregistrement = $this->pdo->prepare("INSERT INTO user (nom, prenom, pseudo, email, mdp, `date`) VALUES (:nom, :prenom, :pseudo, :email, :mdp, NOW() )");
         // on fourni les valeurs des marqueurs nominatifs
         $enregistrement->bindParam(':nom', $nom, \PDO::PARAM_STR);
         $enregistrement->bindParam(':prenom', $prenom, \PDO::PARAM_STR);
@@ -32,12 +31,10 @@ class SignModel extends Database{
         //
         $_SESSION['connect'] = true;
         header("refresh:0.5;url=?page=profil");
-        $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Félicitation votre compte a été crée<br>Connecter-vous</div>";
-        return $msg;
-
+        return $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; color: white; text-align: center;'>Félicitation votre compte a été crée<br>Connecter-vous</div>";
       }else{
-          $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Le pseudo/email existe déjà<br>Veuillez recommencer</div>";
-          return $msg;
+        return  $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Le pseudo/email existe déjà<br>Veuillez recommencer</div>";
+
         
         }
      
@@ -80,14 +77,14 @@ function connexion(){
           header("refresh:0.5;url=?page=profil");
         } else {
           //mdp incorrect
-          $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
+         echo $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
           return $msgCo;
           
         }
       } else {
         // pseudo/email incorrect
-        $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Pseudo incorrect,<br>Veuillez recommencer</div>";
-        return $msgCo;
+        return $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Pseudo incorrect,<br>Veuillez recommencer</div>";
+        
       }
     }
   }
