@@ -28,7 +28,7 @@ class newSondageModel extends Database{
         for($k = 0; nbReponse>$k; $k++){
           $proposition = trim($_POST['proposition'+ ($k+1) +'']);
           // Enregistrement des proposition de réponse dans la bdd
-          $enregistrementAnswer = $pdo->prepare("INSERT INTO answer (answer_id, id_question_id, choix) VALUES (NULL, $id_question, :proposition)");
+          $enregistrementAnswer = $this->pdo->prepare("INSERT INTO answer (answer_id, id_question_id, choix) VALUES (NULL, $id_question, :proposition)");
           $enregistrement->bindParam(':proposition'+ ($k+1) +'', $proposition, \PDO::PARAM_STR);
           $enregistrement->execute();
         }
