@@ -7,27 +7,28 @@ include '../inc/header.inc.php';
         <form method="post" >
             <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
             <div class="info">
+                <?php foreach($userinfos as $userdata):?>
                 <div>
                     <label for="nom">Nom :</label>
-                    <input type="text" name="nom" class="form-control" value="<?= $_SESSION['user']['nom'] ?>">
+                    <input type="text" name="nom" class="form-control" value="<?= $userdata->nom ?>">
 
                 <label for="prenom">Prénom :</label>
-                <input type="text" name="prenom" class="form-control" value="<?= $_SESSION['user']['prenom'] ?>">
+                <input type="text" name="prenom" class="form-control" value="<?= $userdata->prenom?>">
 
                 <label for="pseudo">Pseudo :</label>
-                <input type="text" name="pseudo" class="form-control" value="<?= $_SESSION['user']['pseudo'] ?>">
+                <input type="text" name="pseudo" class="form-control" value="<?= $userdata->pseudo?>">
 
                 <label for="mdp">Mot de passe :</label>
                 <input type="text" name="mdp" class="form-control" required>    
             </div>
             <div>
-                <p>Nombre d'amis : <?= $_SESSION['user']['nom'] ?></p>
-                <p>Nombre de mes sondages : <?= $_SESSION['user']['nom'] ?></p>
+                <p>Nombre d'amis : <?= $userdata->pseudo ?></p>
+                <p>Nombre de mes sondages : <?= $userdata->pseudo ?></p>
                 <label for="email">Email :</label>
-                <input type="text" name="email" class="form-control" value="<?= $_SESSION['user']['email'] ?>">
-                <p>Date d'inscription : <?= $_SESSION['user']['date'] ?></p>
+                <input type="text" name="email" class="form-control" value="<?= $userdata->email ?>">
+                <p>Date d'inscription : <?= $userdata->date ?></p>
             </div>
-
+                    <?php endforeach ?>
         </div>
         <button type="submit" class="btn btn-info btn-block active" name="bouton">Envoyez</button>
         </form> 
