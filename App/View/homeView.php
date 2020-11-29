@@ -45,7 +45,3 @@ include '../inc/header.inc.php'; ?>
 </main>
 
 <?php include '../inc/footer.inc.php'; ?>
-
-<script>
-    
-</script>
