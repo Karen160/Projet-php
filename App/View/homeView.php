@@ -15,7 +15,7 @@ include '../inc/header.inc.php'; ?>
         foreach($sond as $sondage) :
            ?>
             <div class="boxsondage">
-                <a href="index.php?page=sondageView<?= $sond->question_id ?>">
+                <a href="index.php?page=sondage&sondage=<?=$sondage->question_id?>">
                     <img src="<?= $sondage->image ?>" alt="Image de la question ' + <?= $sondage->question ?> + '">
                     <span>Ecrit par : <?= $sondage->pseudo ?> <br> Date de fin : <?= $sondage->date_fin ?></span>
                     <p><?= $sondage->question ?></p>
