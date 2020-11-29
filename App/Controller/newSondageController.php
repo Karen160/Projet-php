@@ -13,7 +13,7 @@ class newSondageController{
     public function render()
     {
         if(($_SESSION['connect'] == false )){
-            header('location:index.php');
+            header('location:index.php?page=sign');
         }else{
             $msg = $this->model->newsondage();
             require ROOT."/App/View/newSondageView.php";

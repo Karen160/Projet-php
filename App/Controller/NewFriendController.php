@@ -10,9 +10,12 @@ class NewFriendController{
         $this->model = new NewFriendModel();
     }
     public function render()
-    {            
-            $this->model->friend();
-            require ROOT."/App/View/newFriendView.php";
-    }
-
+    {        
+            if($_SESSION['connect']){
+                $var = $this->model->friend();
+                require ROOT."/App/View/newFriendView.php";
+            }else{
+                header('location:index.php?page=sign');
+            } 
+         }
 }
