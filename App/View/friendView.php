@@ -1,10 +1,10 @@
 <?php 
-include '../../inc/head.inc.php'; 
-include '../../inc/header.inc.php'; ?>
+include '../inc/head.inc.php'; 
+include '../inc/header.inc.php'; ?>
 <main>
-    <button onclick="window.location.href = 'newFriend.php'" class="btn btn-info active" style="float:right; margin-right:40px">Ajouter de nouveaux amis</button><br><br>
-    <form class="form-inline">
-        <input class="form-control mr-sm-0" type="search" placeholder="Rechercher" aria-label="Search">
+    <a href="../public/index.php?page=NewFriend" class="btn btn-info active" style="float:right; margin-right:40px">Ajouter de nouveaux amis</a><br><br>
+    <form class="form-inline" method="POST">
+        <input class="form-control mr-sm-0" type="search" placeholder="Rechercher" aria-label="Search" name="recherche">
         <button class="btn btn-outline-success my-2 my-sm-0 active" type="submit">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="white" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
@@ -18,7 +18,6 @@ include '../../inc/header.inc.php'; ?>
     <table>
         <thead>
             <tr>
-                <th class="pp">Photo de profil</th>
                 <th>Pseudo</th>
                 <th>Statut</th>
                 <th>Modifier</th>
@@ -34,4 +33,4 @@ include '../../inc/header.inc.php'; ?>
         </tbody>
     </table>
 </main>
-<?php include '../../inc/footer.inc.php' ?>
+<?php include '../inc/footer.inc.php' ?>

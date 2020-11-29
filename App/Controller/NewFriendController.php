@@ -1,18 +1,18 @@
 <?php
 namespace App\Controller;
 
-use App\Model\FriendModel;
+use App\Model\NewFriendModel;
 
 
-class FriendController{
+class NewFriendController{
     public function __construct()
     {
-        $this->model = new FriendModel();
+        $this->model = new NewFriendModel();
     }
     public function render()
     {            
             $this->model->friend();
-            require ROOT."/App/View/friendView.php";
+            require ROOT."/App/View/newFriendView.php";
     }
 
 }
