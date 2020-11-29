@@ -56,6 +56,3 @@ $("#reponseNb").change(function () {
 //'../../../root.php?function=newSondage'
 //'../../../App/Model/newSondageModel.php'
 //'../../../App/Controller/newSondageController.php'
-
-
-

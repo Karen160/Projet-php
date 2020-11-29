@@ -15,6 +15,7 @@ class SondageController{
         if(($_SESSION['connect'] == false )){
             header('location:index.php');
         }else{
+            $sondage = $this->model->sondage();
             require ROOT."/App/View/sondageView.php";
         }
     }

@@ -15,7 +15,7 @@ include '../inc/header.inc.php'; ?>
         foreach($sond as $sondage) :
            ?>
             <div class="boxsondage">
-                <a href="">
+                <a href="index.php?page=sondageView<?= $sond->question_id ?>">
                     <img src="<?= $sondage->image ?>" alt="Image de la question ' + <?= $sondage->question ?> + '">
                     <span>Ecrit par : <?= $sondage->pseudo ?> <br> Date de fin : <?= $sondage->date_fin ?></span>
                     <p><?= $sondage->question ?></p>
@@ -32,7 +32,7 @@ include '../inc/header.inc.php'; ?>
         <div class="conteneur">
             <?php foreach( $requete[1] as $sondagePerso) : ?>
                 <div class="boxsondage">
-                    <a href="">
+                    <a href=>
                         <img src="<?= $sondagePerso->image ?>" alt="Image de la question ' + <?= $sondagePerso->question ?> + '">
                         <span>Date de fin : <?= $sondagePerso->date_fin ?></span>
                         <p><?= $sondagePerso->question ?></p>
