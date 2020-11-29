@@ -1,6 +1,6 @@
 <?php 
-include '../../inc/head.inc.php'; 
-include '../../inc/header.inc.php'; ?>
+include '../inc/head.inc.php'; 
+include '../inc/header.inc.php'; ?>
 <main>
     <section class="col-sm-7 mx-auto" id="newSondage">
         <div class="card position-static">
@@ -41,7 +41,7 @@ include '../../inc/header.inc.php'; ?>
                         required="required" data-error="La date d'expiration est requise.">
                 </div>
                 <div class="  col-sm-12 mt-4 offset-ms-4">
-                    <button id="bouton" type="submit" class="btn btn-info btn-block active">Envoyez</button>
+                    <button id="boutonPropo" type="submit" class="btn btn-info btn-block active">Envoyez</button>
                 </div>
             </form>
         </div>
@@ -49,28 +49,3 @@ include '../../inc/header.inc.php'; ?>
     </section>
 </main>
 <?php include '../inc/footer.inc.php'?>
-<?php ?>
-<script>
-    //Permet d'afficher le bon nombre de champ a remplir pour le choix de proposition de réponse que souhaite mettre l'internaute sur sa question
-    var i = 0;
-    $("#reponseNb").change(function () {
-        let nbInput = $(this).val();
-
-        $("#proposition").html("");
-        
-        while (i < nbInput) {
-            $("#proposition").append("<div class='col-sm-12 mt-3'> <label for='proposition'>Proposition " + (i +
-                    1) +
-                "</label><input type='text' name='proposition" + (i+1) + "' class='form-control' placeholder='Entrez votre proposition' required='required'></div>"
-                );
-            i++;
-        }
-    });
-
-    $("#bouton").click(function(){
-        var nbReponse = i;
-        console.log(nbReponse);
-    })
-    
-    
-</script>
