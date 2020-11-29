@@ -18,7 +18,7 @@ class newSondageModel extends Database{
         $membre_id = $_SESSION['user']['id'];
 
         // Enregistrement de la question dans la bdd
-        $enregistrementQuestion = $this->pdo->prepare("INSERT INTO question (question_id, user_id_author, question, image, date_fin) VALUES (NULL, $membre_id, :question, :image, :date)");
+        $enregistrementQuestion = $this->pdo->prepare("INSERT INTO question (user_id_author, question, image, date_fin) VALUES ( $membre_id, :question, :image, :date)");
         $enregistrementQuestion->bindParam(':question', $question, \PDO::PARAM_STR);
         $enregistrementQuestion->bindParam(':image', $image, \PDO::PARAM_STR);
         $enregistrementQuestion->bindParam(':date', $date, \PDO::PARAM_STR);
