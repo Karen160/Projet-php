@@ -15,7 +15,7 @@ class newSondageController{
         if(($_SESSION['connect'] == false )){
             header('location:index.php');
         }else{
-            $this->model->newsondage();
+            $msg = $this->model->newsondage();
             require ROOT."/App/View/newSondageView.php";
         }
     }

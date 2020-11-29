@@ -12,7 +12,9 @@ class HomeController{
     public function render()
     {            
             $sond = $this->model->home();
-
+            if(!isset($_SESSION['connect'])){
+                $_SESSION['connect'] = false;
+            }
             if($_SESSION['connect'] == true){
                $sondPerso = $this->model->home();
             }else{

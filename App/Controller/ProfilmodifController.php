@@ -13,8 +13,10 @@ class ProfilmodifController{
     public function modifier()
     {
         if($_SESSION['connect'] == true){  
+            
+            $msg =  $this->model->modifier();
             $user_infos = $this->model->recup();
-            $msg = $this->model->modifier();
+           
             require ROOT."/App/View/profilModifView.php";
         }else{
          header('location:index.php?page=sign');

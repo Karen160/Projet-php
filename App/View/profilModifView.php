@@ -19,21 +19,23 @@ include '../inc/header.inc.php';
                 <input type="text" name="pseudo" class="form-control" value="<?= $userdata->pseudo?>">
 
                 <label for="Nmdp">Nouveau Mot de passe :</label>
-                <input type="password" name="Nmdp" class="form-control">    
+                <input type="password" name="Nmdp" class="form-control" >    
             </div>
             <div>
                 <label for="email">Email :</label>
-                <input type="text" name="email" class="form-control" value="<?= $userdata->email ?>">
+                <input type="email" name="email" class="form-control" value="<?= $userdata->email ?>">
                 <p style="margin-top: 10% ">Nombre d'amis : <?= $userdata->pseudo ?></p>
                 <p>Nombre de mes sondages : <?= $userdata->pseudo ?></p>
-                <p>Date d'inscription : <?= $userdata->date ?></p>
-                <label style="margin-top: 7%;" for="mdp">Mdp actuel :</label>
-                <input  type="password" class="form-control" name="mdp" required>
-                    
+                <p style="margin-top: 6%;">Date d'inscription : <?= $userdata->date ?></p>
+                <label style="margin-top: 1%;" for="mdp">Mdp actuel :</label>
+                <input  type="password" name="mdp" class="form-control" value="" required >
+              
             </div>
                     <?php endforeach ?>
         </div>
         <input type="submit" class="btn btn-info btn-block active" value="Envoyez" name="bouton">
+        <?php  
+        ?>
         </form> 
     </section>
 </main>
