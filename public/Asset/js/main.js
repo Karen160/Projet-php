@@ -35,6 +35,7 @@ $("#reponseNb").change(function () {
     }
 });
 
+var nbReponse = 0;
 $("#boutonPropo").click(function(){
     var nbReponse = i;
     console.log(nbReponse);
@@ -43,7 +44,4 @@ $("#boutonPropo").click(function(){
 $.ajax({
     url: '../../../App/Model/newSondageModel.php',
     data: 'nbReponse='+ nbReponse,
-    success: function(reponse) {
-      alert(reponse); // reponse contient l'affichage du fichier PHP (soit echo)
-    }
-  });
+});

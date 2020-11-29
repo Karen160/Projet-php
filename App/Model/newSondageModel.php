@@ -24,11 +24,13 @@ class newSondageModel extends Database{
         $enregistrementQuestion->bindParam(':date', $date, \PDO::PARAM_STR);
         $enregistrementQuestion->execute();
 
+
+
+       
+
         // Défini id de la question
-        $recup_question = $this->pdo->query("SELECT * FROM question");
+        $recup_question = $this->pdo->query("SELECT max(question_id) FROM question");
         $recupQ = $recup_question->fetch(\PDO::FETCH_ASSOC);
-        $id_question = $recupQ['question']['question_id'];
-        var_dump($id_question);
 
         $nbRep = $_GET['nbReponse'];
         var_dump($nbRep);
@@ -36,7 +38,7 @@ class newSondageModel extends Database{
         for($k = 0; $nbRep>$k; $k++){
           $proposition = trim($_POST['proposition'+ ($k+1) +'']);
           // Enregistrement des proposition de réponse dans la bdd
-          $enregistrementAnswer = $this->pdo->prepare("INSERT INTO answer (answer_id, id_question_id, choix) VALUES (NULL, $id_question, :proposition)");
+          $enregistrementAnswer = $this->pdo->prepare("INSERT INTO answer (answer_id, id_question_id, choix) VALUES (NULL, $recupQ, :proposition)");
           $enregistrementAnswer->bindParam(':proposition'+ ($k+1) +'', $proposition, \PDO::PARAM_STR);
           $enregistrementAnswer->execute();
         }
@@ -44,7 +46,5 @@ class newSondageModel extends Database{
         return  $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; text-transform: uppercase; color: white; text-align: center;'>Merci ! Votre sondage a bien été enregistré !</div>";
 
     }
-
-    $articles = $this->pdo->query("SELECT id_article, titre, pseudo, image FROM article");
   }
 }
