@@ -34,8 +34,7 @@ include '../inc/header.inc.php';
                     <?php endforeach ?>
         </div>
         <input type="submit" class="btn btn-info btn-block active" value="Envoyez" name="bouton">
-        <?php  
-        ?>
+        <?php echo $message[0] ?>
         </form> 
     </section>
 </main>
