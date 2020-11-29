@@ -26,12 +26,15 @@ include '../inc/header.inc.php';
             </tr>
         </thead>
         <tbody>
+
+            <?php 
+            foreach($Result as $user): ?>
             <tr>
-                <td class="pp"><img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg"></td>
-                <td>Paul</td>
+                <td> <?= $user->pseudo ?> </td>
                 <td>Connecté</td>
                 <td><button>Ajouter</button></td>
             </tr>
+            <?php endforeach ?>
         </tbody>
     </table>
 </main>

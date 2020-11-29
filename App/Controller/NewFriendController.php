@@ -11,7 +11,7 @@ class NewFriendController{
     }
     public function render()
     {            
-            $this->model->friend();
+            $Result= $this->model->friend();
             require ROOT."/App/View/newFriendView.php";
     }
 

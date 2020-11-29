@@ -26,7 +26,6 @@ include '../inc/header.inc.php'; ?>
         </thead>
         <tbody>
             <tr>
-                <td class="pp"><img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg"></td>
                 <td>Paul</td>
                 <td>Connecté</td>
                 <td><button>Supprimé</button></td>
