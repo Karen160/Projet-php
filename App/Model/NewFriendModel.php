@@ -7,7 +7,10 @@ class NewFriendModel extends Database{
 
     if(!empty($_POST['recherche'])) {     
         $recherche = htmlspecialchars($_POST['recherche']);
-        $searchresult = $this->pdo->query("SELECT pseudo FROM user WHERE pseudo LIKE "%'.$recherche.'%" ORDER BY id DESC ");
+        $searchResult = $this->pdo->query("SELECT pseudo FROM user WHERE pseudo LIKE "%'.$recherche.'%" ORDER BY id DESC ");
     }
+    
+    $bdd = $this->pdo->query("SELECT pseudo FROM user WHERE id <>".$_SESSION['user']['id']);
+    return $request = array($searchResult,$bdd);
 }
 }
