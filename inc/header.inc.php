@@ -28,7 +28,7 @@
         <div><i class="fas fa-times"></i></div>
         <a href="../public/index.php?page=home">Accueil</a>
         <hr>
-        <a href="../public/index.php?page=newsondage">Nouveau sondage</a>
+        <a href="../public/index.php?page=newSondage">Nouveau sondage</a>
         <hr>
         <a href="../public/index.php?page=resultats">Résultat</a>
         <hr>

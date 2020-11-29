@@ -18,8 +18,8 @@ include '../inc/header.inc.php';
                 <label for="pseudo">Pseudo :</label>
                 <input type="text" name="pseudo" class="form-control" value="<?= $userdata->pseudo?>">
 
-                <label for="mdp">Nouveau Mot de passe :</label>
-                <input type="text" name="mdp" class="form-control" required>    
+                <label for="Nmdp">Nouveau Mot de passe :</label>
+                <input type="password" name="Nmdp" class="form-control">    
             </div>
             <div>
                 <label for="email">Email :</label>
@@ -27,9 +27,9 @@ include '../inc/header.inc.php';
                 <p style="margin-top: 10% ">Nombre d'amis : <?= $userdata->pseudo ?></p>
                 <p>Nombre de mes sondages : <?= $userdata->pseudo ?></p>
                 <p>Date d'inscription : <?= $userdata->date ?></p>
-                <label style="margin-top: 7%;" for="email">Mdp actuel :</label>
-                <input  type="text" name="mdpAct" class="form-control" value="">
-              
+                <label style="margin-top: 7%;" for="mdp">Mdp actuel :</label>
+                <input  type="password" class="form-control" name="mdp" required>
+                    
             </div>
                     <?php endforeach ?>
         </div>
