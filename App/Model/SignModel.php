@@ -4,13 +4,9 @@ use Core\Database;
 class SignModel extends Database {
   function inscription() {
 
-<<<<<<< HEAD
-    $msg = "";
-=======
     $msg="";
     $msg2="";
 
->>>>>>> bd5e4807ece8b0b3d8faa4c70e71fc112edc236d
     if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['mdp'])) {
       $pseudo=trim($_POST['pseudo']);
       $recup_pseudo=$this->pdo->query("SELECT * FROM user WHERE pseudo = '$pseudo'");
@@ -47,19 +43,12 @@ class SignModel extends Database {
 
         $_SESSION['connect']=true;
         header("location:index.php?page=profil");
-<<<<<<< HEAD
-      }else{
-        $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Le pseudo/email existe déjà<br>Veuillez recommencer</div>";
-        }
-     
-=======
       }
 
       else {
         return $msg="<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Le pseudo/email existe déjà<br>Veuillez recommencer</div>";
       }
 
->>>>>>> bd5e4807ece8b0b3d8faa4c70e71fc112edc236d
     }
   }
 
@@ -94,16 +83,11 @@ class SignModel extends Database {
 
           $_SESSION['connect']=true;
           //rediriger au bout de 0.5 sec
-<<<<<<< HEAD
-          header("location=index.php?page=profil");
-        } else {
-=======
           $_SESSION['modif']=true;
           header("url=?page=profil");
         }
 
         else {
->>>>>>> bd5e4807ece8b0b3d8faa4c70e71fc112edc236d
           //mdp incorrect
           return $msgCo="<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>";
         }

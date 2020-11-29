@@ -4,7 +4,7 @@ include '../inc/header.inc.php';
 ?>
 
 <main>
-    <button onclick="window.location.href = 'friendView.php'" class="btn btn-info active" style="float:right; margin-right:40px">Voir mes amis</button><br><br>
+    <a href="../public/index.php?page=friend" class="btn btn-info active" style="float:right; margin-right:40px">Voir mes amis</a><br><br>
     <form class="form-inline">
         <input class="form-control mr-sm-0" type="search" placeholder="Rechercher" aria-label="Search" name="recherche">
         <button class="btn btn-outline-success my-2 my-sm-0 active" type="submit">
