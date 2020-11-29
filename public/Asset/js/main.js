@@ -35,13 +35,27 @@ $("#reponseNb").change(function () {
     }
 });
 
-var nbReponse = 0;
-$("#boutonPropo").click(function(){
-    var nbReponse = i;
-    console.log(nbReponse);
-})
+// var nbReponse = 5;
+// $("#boutonPropo").click(function(){
+    
+//     $.ajax({
+//         url: ,
+//         type: "POST",
+//         data: {nbRepon:nbReponse},
+//         success: function(){
+//             console.log("tu as géré")
+//         },
+    
+//         error: function(){
+//             console.log("ca marche pas LOL")
+//         },
+//     });
+// })
 
-$.ajax({
-    url: '../../../App/Model/newSondageModel.php',
-    data: 'nbReponse='+ nbReponse,
-});
+//'../../../index.php?page=newSondage'
+//'../../../root.php?function=newSondage'
+//'../../../App/Model/newSondageModel.php'
+//'../../../App/Controller/newSondageController.php'
+
+
+
