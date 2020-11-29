@@ -35,6 +35,17 @@ $("#reponseNb").change(function () {
     }
 });
 
+$("#formNbPerson").change(function () {
+    let nbPerson = $(this).val();
+
+    var j = 0;
+    $("#email").html("");
+    while (j < nbPerson) {
+        $("#email").append("<div class='col-sm-12 mt-3'> <label for='email'>Adresse email " + (j +1) + "</label><input type='text' name='email" + (j+1) + "' class='form-control' placeholder='Entrez l'email pour l'envoi' required='required'></div>");
+        j++;
+    }
+});
+
 // var nbReponse = 5;
 // $("#boutonPropo").click(function(){
     
