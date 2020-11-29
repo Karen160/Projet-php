@@ -14,7 +14,7 @@ class ProfilmodifController{
     {
         if($_SESSION['connect'] == true){  
             
-            $message =  $this->model->modifier();
+            $msg =  $this->model->modifier();
             $user_infos = $this->model->recup();
            
             require ROOT."/App/View/profilModifView.php";

@@ -7,30 +7,29 @@ class ProfilModifModel extends Database {
     }
 
     function modifier() {
-        $msg ="";
-        $error = false;
         $id = $_SESSION['user']['id']; //récup id 
         if(isset($_POST['bouton'])) {
             if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['mdp'])) {
                 $mdp=trim($_POST['mdp']);
-                var_dump($mdp);
                 $recup_infos=$this->pdo->query("SELECT * FROM user WHERE id = '$id' ");
-                var_dump($recup_infos);
                 $infos_membre=$recup_infos->fetch(\PDO::FETCH_ASSOC);
-                var_dump($infos_membre);
 
                  if(password_verify($mdp, $infos_membre['mdp']) == true ) {
-                    if(isset($_POST['Nmdp'])){
+                     $Nmdp = "";
+                    if(!empty($_POST['Nmdp'])){
                         $Nmdp=trim($_POST['Nmdp']);
+                        var_dump($Nmdp);
                         $Nmdp=password_hash($Nmdp, PASSWORD_DEFAULT);
                     }else{
                         $Nmdp = $mdp;
+                        var_dump($Nmdp);
                         $Nmdp=password_hash($Nmdp, PASSWORD_DEFAULT);
                     }
-                    $prenom=trim($_POST['prenom']);
-                    $nom=trim($_POST['nom']);
-                    $pseudo=trim($_POST['pseudo']);
-                    $email=trim($_POST['email']);
+                    
+                    $prenom= htmlspecialchars(trim($_POST['prenom']))   ;
+                    $nom= htmlspecialchars(trim($_POST['nom']));
+                    $pseudo= htmlspecialchars(trim($_POST['pseudo'])) ;
+                    $email= htmlspecialchars(trim($_POST['email']));
 
 
                     $enregistrement=$this->pdo->prepare("UPDATE user SET nom = :nom , prenom = :prenom, pseudo = :pseudo, email = :email, mdp = :Nmdp WHERE id = '$id' ");
@@ -45,16 +44,15 @@ class ProfilModifModel extends Database {
                     //rediriger
                     header("location:index.php?page=profil");
                  } else {
-                         $mes = true;
-                         $msg="<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Mdp inccorrect</div>";
+                //     return $mes = true;
+                //     return $msg="<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Mdp inccorrect</div>";
                 }
 
             }else{
-                $error = true;
-                $msg="<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Veuiller remplir tous les champs</div>";
+                return $mes = true;
+                return $msg="<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; text-transform: uppercase; color: white; text-align: center;'>Veuiller remplir tous les champs</div>";
             }
         }
-        return $message =  array($msg, $error);
     }
 }
     ?>

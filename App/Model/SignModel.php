@@ -77,8 +77,7 @@ function connexion(){
           
         $_SESSION['connect'] = true;
           //rediriger au bout de 0.5 sec
-          $_SESSION['modif'] = true;
-          header("url=?page=profil");
+          header("location=index.php?page=profil");
         } else {
           //mdp incorrect
           return $msgCo = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: red; color: white; text-align: center;'>Mdp incorrect,<br>Veuillez recommencer</div>"; 

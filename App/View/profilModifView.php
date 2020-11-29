@@ -28,13 +28,14 @@ include '../inc/header.inc.php';
                 <p>Nombre de mes sondages : <?= $userdata->pseudo ?></p>
                 <p style="margin-top: 6%;">Date d'inscription : <?= $userdata->date ?></p>
                 <label style="margin-top: 1%;" for="mdp">Mdp actuel :</label>
-                <input  type="password" name="mdp" class="form-control" value="" required >
+                <input  type="password" name="mdp" class="form-control"  >
               
             </div>
                     <?php endforeach ?>
         </div>
         <input type="submit" class="btn btn-info btn-block active" value="Envoyez" name="bouton">
-        <?php echo $message[0] ?>
+        <?php  
+        ?>
         </form> 
     </section>
 </main>
