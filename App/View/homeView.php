@@ -30,7 +30,7 @@ include '../inc/header.inc.php'; ?>
     <section id="mesSond">
         <h2>Mes sondages</h2>
         <div class="conteneur">
-            <?php foreach($requete[1] as $sondagePerso) : ?>
+            <?php foreach( $requete[1] as $sondagePerso) : ?>
                 <div class="boxsondage">
                     <a href="">
                         <img src="<?= $sondagePerso->image ?>" alt="Image de la question ' + <?= $sondagePerso->question ?> + '">
