@@ -18,7 +18,7 @@ class newSondageModel extends Database{
         $membre_id = $_SESSION['user']['id'];
 
         // Enregistrement de la question dans la bdd
-        $enregistrementQuestion = $this->pdo->prepare("INSERT INTO question (question_id, user_id_author, question, image, date_fin) VALUES (NULL, $membre_id, :question, :image, :date)");
+        $enregistrementQuestion = $this->pdo->prepare("INSERT INTO question (user_id_author, question, image, date_fin) VALUES ( $membre_id, :question, :image, :date)");
         $enregistrementQuestion->bindParam(':question', $question, \PDO::PARAM_STR);
         $enregistrementQuestion->bindParam(':image', $image, \PDO::PARAM_STR);
         $enregistrementQuestion->bindParam(':date', $date, \PDO::PARAM_STR);
@@ -32,16 +32,21 @@ class newSondageModel extends Database{
         $recup_question = $this->pdo->query("SELECT max(question_id) FROM question");
         $recupQ = $recup_question->fetch(\PDO::FETCH_ASSOC);
 
-        $nbRep = $_GET['nbReponse'];
-        var_dump($nbRep);
+        
+        // $new = $_POST['nbRepon'];
+        // var_dump($new);
+        
+        
+      
        
-        for($k = 0; $nbRep>$k; $k++){
-          $proposition = trim($_POST['proposition'+ ($k+1) +'']);
-          // Enregistrement des proposition de réponse dans la bdd
-          $enregistrementAnswer = $this->pdo->prepare("INSERT INTO answer (answer_id, id_question_id, choix) VALUES (NULL, $recupQ, :proposition)");
-          $enregistrementAnswer->bindParam(':proposition'+ ($k+1) +'', $proposition, \PDO::PARAM_STR);
-          $enregistrementAnswer->execute();
-        }
+        // for($k = 0; $nbRep>$k; $k++){
+        //   $proposition = trim($_POST['proposition'+ ($k+1) +'']);
+        //   // Enregistrement des proposition de réponse dans la bdd
+        //   $enregistrementAnswer = $this->pdo->prepare("INSERT INTO answer (answer_id, id_question_id, choix) VALUES (NULL, $recupQ, :proposition)");
+        //   $enregistrementAnswer->bindParam(':proposition'+ ($k+1) +'', $proposition, \PDO::PARAM_STR);
+        //   $enregistrementAnswer->execute();
+        // }
+
 
         return  $msg = "<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; text-transform: uppercase; color: white; text-align: center;'>Merci ! Votre sondage a bien été enregistré !</div>";
 

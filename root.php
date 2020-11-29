@@ -4,6 +4,7 @@ use App\Controller\HomeController;
 use App\Controller\SignController;
 use App\Controller\ProfilController;
 use App\Controller\newSondageController;
+use App\Controller\SondageController;
 use App\Controller\ProfilmodifController;
 use App\Controller\FriendController;
 use App\Controller\NewFriendController;
@@ -28,6 +29,10 @@ if (array_key_exists("page", $_GET)) {
         break;
         case 'newSondage':
             $controller = new newSondageController();
+            $controller->render();
+        break;
+        case 'sondage':
+            $controller = new SondageController();
             $controller->render();
         break;
         case 'friend':

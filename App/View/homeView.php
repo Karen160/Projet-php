@@ -6,7 +6,14 @@ include '../inc/header.inc.php'; ?>
     <section>
         <h2>Sondages en cours</h2>
         <div class="conteneur">
-        <?php foreach($sond as $sondage) : ?>
+        <?php 
+         if($_SESSION['connect']){
+            $sond =  $requete[0] ;
+          }else{
+            $sond = $allSondage;
+          }
+        foreach($sond as $sondage) :
+           ?>
             <div class="boxsondage">
                 <a href="">
                     <img src="<?= $sondage->image ?>" alt="Image de la question ' + <?= $sondage->question ?> + '">
@@ -23,7 +30,7 @@ include '../inc/header.inc.php'; ?>
     <section id="mesSond">
         <h2>Mes sondages</h2>
         <div class="conteneur">
-            <?php foreach($sondPerso as $sondagePerso) : ?>
+            <?php foreach( $requete[1] as $sondagePerso) : ?>
                 <div class="boxsondage">
                     <a href="">
                         <img src="<?= $sondagePerso->image ?>" alt="Image de la question ' + <?= $sondagePerso->question ?> + '">

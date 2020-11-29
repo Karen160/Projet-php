@@ -5,8 +5,6 @@ class SignModel extends Database {
   function inscription() {
 
     $msg="";
-    $msg2="";
-
     if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['mdp'])) {
       $pseudo=trim($_POST['pseudo']);
       $recup_pseudo=$this->pdo->query("SELECT * FROM user WHERE pseudo = '$pseudo'");

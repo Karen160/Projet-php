@@ -4,7 +4,7 @@ include '../inc/header.inc.php'; ?>
 <main>
     <section class="col-sm-7 mx-auto" id="newSondage">
         <div class="card position-static">
-            <form class="card-body" method="post">
+            <form class="card-body" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
                 <h2 class="card-title">Créer un sondage</h2>
                 <div class="  col-sm-12 mt-3">
                     <label for="question">Question</label>
@@ -45,7 +45,7 @@ include '../inc/header.inc.php'; ?>
                 </div>
             </form>
         </div>
-        <?php  echo $msg;?>
+        <?php  echo $msg; ?>
     </section>
 </main>
 <?php include '../inc/footer.inc.php'?>
