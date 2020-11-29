@@ -17,9 +17,28 @@ $('nav a').click(function(){ //Appuie sur le menu
 
 
 //Pop up partage
-$(".share").click(function(){
-    $("#shareSondage").show();
-})
+$(".fa-share").click(function(){
+    $("#shareSondage").show("slow");
+    $("section").css('position', 'fixed');
+    $('main').css('margin-top', '100px');
+    $('footer').css('display', 'none');
+});
+
+$('#shareSondage i').click(function(){ //Appuie sur la croix
+    $('#shareSondage').hide("slow");
+    $('#fond').css('display', 'none');
+    $("section").css('position', 'inherit');
+    $('main').css('margin-top', '120px');
+    $('footer').css('display', 'block');
+});
+
+$('#shareSondage .btn').click(function(){ //Appuie sur le menu
+    $('#shareSondage').hide("slow");
+    $('#fond').css('display', 'none');
+    $("section").css('position', 'inherit');
+    $('main').css('margin-top', '120px');
+    $('footer').css('display', 'block');
+});
 
 
 //Nombre de reponse / email
@@ -41,7 +60,7 @@ $("#formNbPerson").change(function () {
     var j = 0;
     $("#email").html("");
     while (j < nbPerson) {
-        $("#email").append("<div class='col-sm-12 mt-3'> <label for='email'>Adresse email " + (j +1) + "</label><input type='text' name='email" + (j+1) + "' class='form-control' placeholder='Entrez l'email pour l'envoi' required='required'></div>");
+        $("#email").append("<div class='col-sm-6  mt-3'> <label for='email'>Adresse email " + (j +1) + "</label><input type='text' name='email" + (j+1) + "' class='form-control' placeholder='Entrez email' required='required'></div>");
         j++;
     }
 });

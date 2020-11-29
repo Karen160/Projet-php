@@ -20,7 +20,7 @@ include '../inc/header.inc.php'; ?>
                     <span>Ecrit par : <?= $sondage->pseudo ?> <br> Date de fin : <?= $sondage->date_fin ?></span>
                     <p><?= $sondage->question ?></p>
                 </a>
-                <a href=""><i class="fas fa-share"></i></a>
+                <i class="fas fa-share"></i>
             </div>
             <?php endforeach; ?>
         </div>
@@ -38,15 +38,16 @@ include '../inc/header.inc.php'; ?>
                     <span>Date de fin : <?= $sondagePerso->date_fin ?></span>
                     <p><?= $sondagePerso->question ?></p>
                 </a>
-                <a href=""><i class="fas fa-share"></i></a>
+                <i class="fas fa-share"></i>
             </div>
             <?php endforeach; ?>
         </div>
     </section>
 
-    <article id="pop">
+    <div id="fond"></div>
         <section class="col-sm-7 mx-auto" id="shareSondage">
             <div class="card position-static">
+                <i class="fas fa-times"></i>
                 <div class="card-body">
                     <h2 class="card-title">Partager le sondage<br>la question de folie</h2>
                     <div class="row ">
@@ -55,7 +56,8 @@ include '../inc/header.inc.php'; ?>
                             <select id="formNbPerson" type="text" name="nbpersonne" class="form-control"
                                 placeholder="Choisissez le nombre de personne à qui partager" required="required"
                                 data-error="Le nombre de personne est requis.">
-                                <option value="1" selected>1</option>
+                                <option value="0" selected>Veuillez selectionner un nombre</option>
+                                <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -82,7 +84,7 @@ include '../inc/header.inc.php'; ?>
                 </div>
             </div>
         </section>
-    </article>
+   
 </main>
 
 <?php include '../inc/footer.inc.php'; ?>
