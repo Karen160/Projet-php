@@ -5,7 +5,7 @@ include '../inc/header.inc.php'; ?>
     <button class="btn btn-info active" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
 
     <section id="sondage">
-        <h2><?=$sondage->question?></h2>
+        <h2><?=$sondage[0]->question?></h2>
         <br><br>
         <div class="sond">
             <button>
