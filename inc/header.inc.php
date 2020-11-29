@@ -32,7 +32,7 @@
         <hr>
         <a href="../public/index.php?page=resultats">Résultat</a>
         <hr>
-        <a href="../public/index.php?page=amis">Amis</a>
+        <a href="../public/index.php?page=friend">Amis</a>
         <?php if($_SESSION['connect'] == true) { ?>
         <hr>
         <a href="index.php?action=deconnexion">Deconnexion</a>

@@ -38,6 +38,7 @@ header{
     margin-bottom: 20px;
     display: flex;
     position: fixed;
+    z-index: 1;
 }
 
 header img {

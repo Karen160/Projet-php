@@ -60,8 +60,8 @@ include '../inc/header.inc.php';
                         <div class="col-sm-12 mt-4">
                             <label for="mdpCo">Password</label>
                             <input type="password" name="mdpCo" class="form-control"
-                                placeholder="Entrez votre mot de passe" required="required"
-                                data-error="Le mot de passe est requis.">
+                                placeholder="Entrez votre mot de passe" 
+                               >
                         </div>
                         <div class="col-sm-12 mt-4 offset-ms-4">
                             <button type="submit" class="btn btn-info btn-block active">Envoyez</button>
