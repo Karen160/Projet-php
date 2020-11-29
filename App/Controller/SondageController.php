@@ -13,7 +13,7 @@ class SondageController{
     public function render()
     {
         if(($_SESSION['connect'] == false )){
-            header('location:index.php');
+            header('location:index.php?page=home');
         }else{
             require ROOT."/App/View/sondageView.php";
         }

@@ -10,8 +10,7 @@ class HomeController{
         $this->model = new HomeModel();
     }
     public function render()
-    {            
-           
+    {               
         if(!isset($_SESSION['connect'])){
             $_SESSION['connect'] = false;
         }

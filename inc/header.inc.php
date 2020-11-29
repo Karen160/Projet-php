@@ -19,7 +19,7 @@
     <?php
         if(isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
         session_destroy();
-        header('location:index.php');
+        header('location:index.php?page=home');
     }
     ?>
 
