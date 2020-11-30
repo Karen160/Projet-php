@@ -25,11 +25,25 @@ include '../inc/header.inc.php'; ?>
             </tr>
         </thead>
         <tbody>
+        <?php 
+            foreach($var[1] as $friendA):
+            ?>
             <tr>
-                <td>Paul</td>
+                <td name="pseudo"> <?=$friendA['pseudo']?> </td>
                 <td>Connecté</td>
-                <td><button>Supprimé</button></td>
+                <td><button name="add" > <a href="index.php?page=friend&id=<?= $friendA['id'] ?>" > Supprimer</a></button></td>            
             </tr>
+            <?php 
+             endforeach;
+              foreach($var[2] as $friendB):
+            ?>
+            <tr>
+                <td name="pseudo"> <?=$friendB['pseudo']?> </td>
+                <td>Connecté</td>
+                <td><button name="add" > <a href="index.php?page=friend&id=<?= $friendB['id'] ?>"> Supprimer</a></button></td>            
+            </tr>
+            <?php 
+             endforeach ;?>
         </tbody>
     </table>
 </main>
