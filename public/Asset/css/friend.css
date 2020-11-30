@@ -58,6 +58,15 @@ td button{
     padding: 5px 10px;
 }
 
+td a{
+    color: white;
+}
+
+td a:hover{
+    color: white;
+    text-decoration: none;
+}
+
 td button:hover{
     background-color: #e21717!important;
     border-color: #e21717!important;

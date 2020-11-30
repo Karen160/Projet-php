@@ -9,7 +9,7 @@ include '../inc/header.inc.php'; ?>
         <br><br>
         <div class="sond">
             <button>
-                <h4>Oui</h4>
+                <h4><?=$sondage[0]->answer?></h4>
             </button>
             <br><br>
             <button>
