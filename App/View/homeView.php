@@ -24,9 +24,16 @@ include '../inc/header.inc.php'; ?>
             </div>
             <?php endforeach; ?>
         </div>
-        <button class="btn btn-info active" style="margin:0 auto; display:block">Voir plus</button>
+        <?php if($_SESSION['connect'] == false): ?>
+        <button onclick="alert('Pour pouvoir voir tous les sondages, veuillez-vous connecter'), window.location.href='index.php?page=sign'" class="btn btn-info active" style="margin:0 auto; display:block">Voir d'autres sondages</button>
+        <br><br><br><br>
+        <h2>Mes sondages</h2>
+        <br><br>
+        <button onclick="alert('Pour pouvoir voir vos sondages, veuillez-vous connecter'), window.location.href='index.php?page=sign'" class="btn btn-info active" style="margin:0 auto; display:block">Voir mes sondages</button>
+        <?php endif; ?>
     </section>
 
+    <?php if($_SESSION['connect']): ?>
     <section id="mesSond">
         <h2>Mes sondages</h2>
         <div class="conteneur">
@@ -43,6 +50,7 @@ include '../inc/header.inc.php'; ?>
             <?php endforeach; ?>
         </div>
     </section>
+    <?php endif; ?>
 
     <div id="fond"></div>
         <section class="col-sm-7 mx-auto" id="shareSondage">

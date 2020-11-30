@@ -16,9 +16,11 @@ $('nav a').click(function(){ //Appuie sur le menu
 
 
 
+
 //Pop up partage
 $(".fa-share").click(function(){
     $("#shareSondage").show("slow");
+    $('#fond').css('display', 'block');
     $("section").css('position', 'fixed');
     $('main').css('margin-top', '100px');
     $('footer').css('display', 'none');
@@ -44,18 +46,22 @@ $('#shareSondage .btn').click(function(){ //Appuie sur le menu
 //Nombre de reponse / email
 //Permet d'afficher le bon nombre de champ a remplir pour le choix de proposition de réponse que souhaite mettre l'internaute sur sa question
 $("#reponseNb").change(function () {
+ 
     let nbInput = $(this).val();
 
     var i = 0;
+    
     $("#proposition").html("");
     while (i < nbInput) {
-        $("#proposition").append("<div class='col-sm-12 mt-3'> <label for='proposition'>Proposition " + (i +1) + "</label><input type='text' name='proposition" + (i+1) + "' class='form-control' placeholder='Entrez votre proposition' required='required'></div>");
+        $("#proposition").append("<div class='col-sm-12 mt-3'> <label for='proposition'>Proposition " + (i+1) + "</label><input type='text' name='proposition" + (i+1) + "' class='form-control' placeholder='Entrez votre proposition' required='required'></div>");
         i++;
+        
     }
 });
 
 $("#formNbPerson").change(function () {
     let nbPerson = $(this).val();
+
 
     var j = 0;
     $("#email").html("");
@@ -65,24 +71,23 @@ $("#formNbPerson").change(function () {
     }
 });
 
-// var nbReponse = 5;
+// var notre = {};
+// notre.id = 5;
 // $("#boutonPropo").click(function(){
     
-//     $.ajax({
-//         url: ,
-//         type: "POST",
-//         data: {nbRepon:nbReponse},
-//         success: function(){
-//             console.log("tu as géré")
-//         },
-    
-//         error: function(){
-//             console.log("ca marche pas LOL")
-//         },
-//     });
+    // console.log(notre);
 // })
 
-//'../../../index.php?page=newSondage'
+// $.ajax({
+//     url:'../../index.php?page=newSondage',
+//     method: "POST",
+//     data: notre,
+//     success: function(){
+//         console.log("tu as géré")
+//     }
+// });
+
+//'../../index.php?page=newSondage'
 //'../../../root.php?function=newSondage'
 //'../../../App/Model/newSondageModel.php'
 //'../../../App/Controller/newSondageController.php'
