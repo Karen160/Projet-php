@@ -35,7 +35,6 @@ class newSondageModel extends Database {
         $i=0;
         while(isset($_POST['proposition'.($i+1)])) {
           // var_dump(isset($_POST['proposition'.($i+1)]));
-         
           $i++;
           // var_dump($i);
         }

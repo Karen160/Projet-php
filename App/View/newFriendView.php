@@ -29,17 +29,26 @@ include '../inc/header.inc.php';
         <tbody>
         
             <?php 
-             
-            foreach($var[0] as $user): ?>
+        echo $var[2];
+             $i = 0;
+            foreach($var[0] as $user):
+                
+            ?>
             <tr>
-                <td> <?= $user->pseudo ?> </td>
+                
+                <td name="pseudo"> <?= $user->pseudo ?> </td>
                 <td>Connecté</td>
-                <td><button>Ajouter</button></td>
+                <td><button name="add" > <a href="index.php?page=NewFriend&id=<?= $user->id ?> " > Ajouter</a></button></td>    
+               
+                       
             </tr>
            
             <?php 
-            
-            endforeach ?>
+            $i++;
+             endforeach ;
+            //  echo 'test(idB)'. $var[2];
+            //  echo 'idA'. $var[3] ;
+            //  echo 'idB'. $var[4];?>
             <div style="margin-left:25.5%;text-align: center; background-color : orange; width : 49%"><?php echo $var[1]; ?></div>
         </tbody>
     </table>
