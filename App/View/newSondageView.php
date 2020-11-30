@@ -45,7 +45,7 @@ include '../inc/header.inc.php'; ?>
                 </div>
             </form>
         </div>
-        <?php  echo $msg; ?>
+        <?php echo $msg; ?>
     </section>
 </main>
 <?php include '../inc/footer.inc.php'?>

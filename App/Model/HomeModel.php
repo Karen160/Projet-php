@@ -14,4 +14,23 @@ class HomeModel extends Database{
              
         return $requete = array($sond, $sondPerso);
     }
+    function share(){
+       
+            if(isset($_POST['question']) && isset($_POST['image']) && isset($_POST['proposition1'])  && isset($_POST['date'])) {
+      
+            // Défini id de la question
+            $recup_question = $this->pdo->query("SELECT max(question_id) FROM question");
+            $recupQ = $recup_question->fetch(\PDO::FETCH_ASSOC);
+            
+            return $nombre = ($_POST['nbquestion']);
+      
+            for($k = 1; $nombre>$k; $k++){
+              $proposition = trim($_POST['proposition'.($k+1)]);
+              // Enregistrement des proposition de réponse dans la bdd
+              $enregistrementAnswer = $this->pdo->prepare("INSERT INTO answer (answer_id, id_question_id, choix) VALUES (NULL, $recupQ, :proposition)");
+              $enregistrementAnswer->bindParam(':proposition'. ($k+1), $proposition, \PDO::PARAM_STR);
+              $enregistrementAnswer->execute();
+            }
+    }
+}
 }
