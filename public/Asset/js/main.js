@@ -44,18 +44,22 @@ $('#shareSondage .btn').click(function(){ //Appuie sur le menu
 //Nombre de reponse / email
 //Permet d'afficher le bon nombre de champ a remplir pour le choix de proposition de réponse que souhaite mettre l'internaute sur sa question
 $("#reponseNb").change(function () {
+ 
     let nbInput = $(this).val();
 
     var i = 0;
+    
     $("#proposition").html("");
     while (i < nbInput) {
-        $("#proposition").append("<div class='col-sm-12 mt-3'> <label for='proposition'>Proposition " + (i +1) + "</label><input type='text' name='proposition" + (i+1) + "' class='form-control' placeholder='Entrez votre proposition' required='required'></div>");
+        $("#proposition").append("<div class='col-sm-12 mt-3'> <label for='proposition'>Proposition " + (i+1) + "</label><input type='text' name='proposition" + (i+1) + "' class='form-control' placeholder='Entrez votre proposition' required='required'></div>");
         i++;
+        
     }
 });
 
 $("#formNbPerson").change(function () {
     let nbPerson = $(this).val();
+
 
     var j = 0;
     $("#email").html("");
