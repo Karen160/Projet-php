@@ -28,26 +28,25 @@ class newSondageModel extends Database {
 
 
       // Défini id de la question
-      $recup_question=$this->pdo->query("SELECT max(`question_id`) FROM question");
+      $recup_question=$this->pdo->query("SELECT max(`question_id`) as question_id FROM question");
       $recupQ=$recup_question->fetch(\PDO::FETCH_ASSOC);
-      foreach( $recupQ as $id) : 
-        $question_id = $id;
-      endforeach;
-      
-      var_dump($question_id);
-        $i=1;
-        while(isset($_POST['proposition'.$i])) {
-          var_dump($_POST['proposition'.$i]);
+      $question_id = $recupQ['question_id'];
+      // var_dump($question_id);
+        $i=0;
+        while(isset($_POST['proposition'.($i+1)])) {
+          var_dump(isset($_POST['proposition'.($i+1)]));
+         
           $i++;
+          var_dump($i);
         }
-        for($k=1; $k<$i; $k++) {
+        for($k=1; $k<=$i; $k++) {
           $proposition=trim($_POST['proposition'.$k]);
           // Enregistrement des proposition de réponse dans la bdd
           $enregistrementAnswer=$this->pdo->prepare("INSERT INTO answer (id_question_id, choix) VALUES ( '$question_id' , '$proposition')");
           $enregistrementAnswer->execute();
-          return $msg="<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; text-transform: uppercase; color: white; text-align: center;'>Merci ! Votre sondage a bien été enregistré !</div>";
+          
         }
-
+        return $msg="<div style='margin: 10px auto; padding:10px 0; width: 90%; background-color: green; text-transform: uppercase; color: white; text-align: center;'>Merci ! Votre sondage a bien été enregistré !</div>";
       }
     }
   }
