@@ -31,7 +31,7 @@ include '../inc/header.inc.php'; ?>
             <tr>
                 <td name="pseudo"> <?=$friendA['pseudo']?> </td>
                 <td>Connecté</td>
-                <td><button name="add" > <a href="index.php?page=friend&id=<?= $friendA['id'] ?>" > Supprimer</a></button></td>            
+                <td><button name="deleteA" > <a href="index.php?page=friend&id=<?= $friendA['id'] ?>" > Supprimer</a></button></td>            
             </tr>
             <?php 
              endforeach;
@@ -40,7 +40,7 @@ include '../inc/header.inc.php'; ?>
             <tr>
                 <td name="pseudo"> <?=$friendB['pseudo']?> </td>
                 <td>Connecté</td>
-                <td><button name="add" > <a href="index.php?page=friend&id=<?= $friendB['id'] ?>"> Supprimer</a></button></td>            
+                <td><button name="deleteB" > <a href="index.php?page=friend&id=<?= $friendB['id'] ?>"> Supprimer</a></button></td>            
             </tr>
             <?php 
              endforeach ;?>

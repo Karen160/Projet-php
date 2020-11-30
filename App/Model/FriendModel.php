@@ -25,6 +25,27 @@ class FriendModel extends Database {
             $msg="vous n'avez aucun amis";
         }
 
+        if(isset($_GET['id'])) {
+            $idFriend=$_GET['id'];
+            $idUser=$_SESSION['user']['id'];
+            //verif présence amis dans col A 
+            $colA=$this->pdo->query("SELECT user_id_A FROM friend where user_id_A = '$idFriend'  AND user_id_B = '$idUser' ");
+            $colB=$this->pdo->query("SELECT user_id_B FROM friend where user_id_A = '$idUser'  AND user_id_B = '$idFriend' ");
+            
+            if($colA->rowCount()==1 || $colB->rowCount()==1) {
+                $colA=$this->pdo->prepare("DELETE FROM friend where user_id_A = '$idFriend'  AND user_id_B = '$idUser' ");
+                $colB=$this->pdo->prepare("DELETE FROM friend where user_id_A = '$idUser'  AND user_id_B = '$idFriend' ");
+                $colA->execute();
+                $colB->execute();
+                header("location:index.php?page=friend");
+            }
+
+            else {
+               $msg2 = 'vous êtes déjà amis';
+            }
+
+
+        }
         return $var = array($msg, $colA, $colB);
         
     }
