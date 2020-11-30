@@ -34,10 +34,9 @@ class newSondageModel extends Database {
       // var_dump($question_id);
         $i=0;
         while(isset($_POST['proposition'.($i+1)])) {
-          var_dump(isset($_POST['proposition'.($i+1)]));
-         
+          // var_dump(isset($_POST['proposition'.($i+1)]));
           $i++;
-          var_dump($i);
+          // var_dump($i);
         }
         for($k=1; $k<=$i; $k++) {
           $proposition=trim($_POST['proposition'.$k]);

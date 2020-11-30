@@ -37,13 +37,17 @@ include '../inc/header.inc.php';
             <tr>
                 <td name="pseudo"> <?= $user->pseudo ?> </td>
                 <td>Connecté</td>
-                <td><button type="submit" name="add" href="index.php?page=NewFriend&id=<?= $user->id ?> ">Ajouter</button></td> 
-                           
+                <td><a name="add" href="index.php?page=NewFriend&id=<?= $user->id ?> ">Ajouter</a></td>    
+               
+                       
             </tr>
            
             <?php 
             $i++;
-             endforeach  ?>
+             endforeach ;
+            //  echo 'test(idB)'. $var[2];
+            //  echo 'idA'. $var[3] ;
+            //  echo 'idB'. $var[4];?>
             <div style="margin-left:25.5%;text-align: center; background-color : orange; width : 49%"><?php echo $var[1]; ?></div>
         </tbody>
     </table>

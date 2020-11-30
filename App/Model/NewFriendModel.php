@@ -17,23 +17,19 @@ class NewFriendModel extends Database {
                 }
             }
         }
+        if(isset($_GET['id'])) {
+        $test = $_GET['id'];
+        $idB = $_GET['id'];
+        $idA = $_SESSION['user']['id'];
 
-        return $var = array($Result, $msg);
-
-        if(isset($_POST['add'])) {
+        $FriendAdd =$this->pdo->prepare("INSERT INTO friend (user_id_A, user_id_B) VALUES ('$idA', '$idB')");
+        $FriendAdd->execute();
+        }else{
             $idA = $_SESSION['user']['id'];
-            $idB = $_GET['id'];
-            $FriendAdd =$this->pdo->prepare("INSERT INTO friend (user_id_A, user_id_B) VALUES ('$idA', '$idB')");
-            $FriendAdd->execute();
-            // var_dump($idA);  
-            // var_dump($idB);
-            // var_dump($FriendAdd); 
-            var_dump($_GET['id']);
-
-            
+            $test = 8;
+            $idB = NULL;
         }
-
-        
+        return $var = array($Result, $msg, $test, $idA, $idB);
 
     }
 
