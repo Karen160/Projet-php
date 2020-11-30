@@ -12,6 +12,7 @@ class SondageController {
     public function render() {
         if(($_SESSION['connect'])) {
             $id=$this->model->verif();
+            $msg =$this->model->share();
             if( !empty($id) &&  !empty($_GET['sondage'])) {
                 $sondage=$this->model->sondage();
                 require ROOT."/App/View/sondageView.php";

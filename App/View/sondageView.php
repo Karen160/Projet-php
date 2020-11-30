@@ -2,7 +2,7 @@
 include '../inc/head.inc.php'; 
 include '../inc/header.inc.php'; ?>
 <main>
-    <button class="btn btn-info active" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
+    <button class="btn btn-info active pop" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
 
     <section id="sondage">
         <h2><?=$sondage[0]->question?></h2>
@@ -59,6 +59,44 @@ include '../inc/header.inc.php'; ?>
         <button class="btn btn-info active" style="margin:0 auto; display:block">Ajouter un commentaire</button>
         <br>
     </section>
+
+        <section class="col-sm-7 mx-auto" id="shareSondage">
+            <div class="card position-static">
+                <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                <i class="fas fa-times"></i>
+                <div class="card-body">
+                    <h2 class="card-title">Partager le sondage<br>la question de folie</h2>
+                    <div class="row ">
+                        <div class="col-sm-12 mt-4">
+                            <label for="nbPerson">Nombre de personne</label>
+                            <select id="formNbPerson" type="text" name="nbpersonne" class="form-control"
+                                placeholder="Choisissez le nombre de personne à qui partager" required="required"
+                                data-error="Le nombre de personne est requis.">
+                                <option value="0" selected>Veuillez selectionner un nombre</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div id="email">
+
+                        </div>
+                        <div class="col-sm-12 mt-4">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="msg" class="form-control">Salut,<?="\n"?>Je te recommande ce sondage de 2Choose dont la question est : <?=$sondage[0]->question?><?="\n"?>Clique sur ce lien pour y répondre : <?= $_SERVER['REQUEST_URI'];?><?="\n"?>Répond y vite et donne moi ton avis ! <?="\n"?>Ton ami(e) <?= $_SESSION['user']['pseudo']?></textarea>
+                        </div>
+                        <div class="col-sm-12 mt-4 offset-ms-4">
+                            <button type="submit" name="send" class="btn btn-info btn-block active">Envoyez</button>
+                        </div>
+                        <?php echo $msg ?>
+                    </div>
+                </div>
+                </form> 
+            </div>
+        </section>
 
 </main>
 <?php include '../inc/footer.inc.php'?>
