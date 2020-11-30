@@ -10,7 +10,7 @@ class FriendController{
         $this->model = new FriendModel();
     }
     public function render()
-    {            
+    {             
             $this->model->friend();
             require ROOT."/App/View/friendView.php";
     }

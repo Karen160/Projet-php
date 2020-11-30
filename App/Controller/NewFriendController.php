@@ -12,7 +12,7 @@ class NewFriendController{
     public function render()
     {        
             if($_SESSION['connect']){
-                $var = $this->model->friend();
+                $var = $this->model->NewFriend();
                 require ROOT."/App/View/newFriendView.php";
             }else{
                 header('location:index.php?page=sign');
