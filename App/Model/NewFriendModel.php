@@ -25,6 +25,10 @@ class NewFriendModel extends Database {
             $idB = $_GET['id'];
             $FriendAdd =$this->pdo->prepare("INSERT INTO friend (user_id_A, user_id_B) VALUES ('$idA', '$idB')");
             $FriendAdd->execute();
+            // var_dump($idA);  
+            // var_dump($idB);
+            // var_dump($FriendAdd); 
+            var_dump($_GET['id']);
 
             
         }

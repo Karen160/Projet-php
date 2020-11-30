@@ -37,10 +37,8 @@ include '../inc/header.inc.php';
             <tr>
                 <td name="pseudo"> <?= $user->pseudo ?> </td>
                 <td>Connecté</td>
-                <td><a name="add" href="index.php?page=NewFriend&id=<?= $user->id ?> ">Ajouter</a></td>    
-                <?php var_dump($idA);  
-            var_dump($idB);
-            var_dump($FriendAdd);    ?>            
+                <td><button type="submit" name="add" href="index.php?page=NewFriend&id=<?= $user->id ?> ">Ajouter</button></td> 
+                           
             </tr>
            
             <?php 
