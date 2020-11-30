@@ -2,9 +2,10 @@
 include '../inc/head.inc.php'; 
 include '../inc/header.inc.php'; ?>
 <main>
+   
     <section class="col-sm-7 mx-auto" id="newSondage">
         <div class="card position-static">
-            <form class="card-body" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+            <form class="card-body" method="post">
                 <h2 class="card-title">Créer un sondage</h2>
                 <div class="  col-sm-12 mt-3">
                     <label for="question">Question</label>
@@ -21,7 +22,7 @@ include '../inc/header.inc.php'; ?>
                     <select id="reponseNb" type="text" name="nbquestion" class="form-control"
                         placeholder="Nombre de vos proposition de réponse" required="required"
                         data-error="Le nombre de réponse est requis.">
-                        <option value="0" selected>Selectionnez un nombre</option>
+                        <option value="" selected>Selectionnez un nombre</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
@@ -41,7 +42,7 @@ include '../inc/header.inc.php'; ?>
                         required="required" data-error="La date d'expiration est requise.">
                 </div>
                 <div class="  col-sm-12 mt-4 offset-ms-4">
-                    <button id="boutonPropo" type="submit" class="btn btn-info btn-block active">Envoyez</button>
+                    <button name="boutton" id="boutonPropo" type="submit" class="btn btn-info btn-block active">Envoyez</button>
                 </div>
             </form>
         </div>

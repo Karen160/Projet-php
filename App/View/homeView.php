@@ -55,6 +55,7 @@ include '../inc/header.inc.php'; ?>
     <div id="fond"></div>
         <section class="col-sm-7 mx-auto" id="shareSondage">
             <div class="card position-static">
+                <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>>
                 <i class="fas fa-times"></i>
                 <div class="card-body">
                     <h2 class="card-title">Partager le sondage<br>la question de folie</h2>
@@ -88,8 +89,10 @@ include '../inc/header.inc.php'; ?>
                         <div class="col-sm-12 mt-4 offset-ms-4">
                             <button class="btn btn-info btn-block active">Envoyez</button>
                         </div>
+                        <?php echo $msg ?>
                     </div>
                 </div>
+                </form> 
             </div>
         </section>
    
