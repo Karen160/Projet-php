@@ -16,8 +16,6 @@ class HomeController{
         }
         if($_SESSION['connect'] == true){
             $requete = $this->model->homeConnect();
-            $msg =  $this->model->share();
-
         }else{
             $allSondage = $this->model->home();
         }

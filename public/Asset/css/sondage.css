@@ -86,6 +86,45 @@
     font-size: 0.8em;
   }
 
+
+
+#shareSondage{
+    display: none;
+    position: fixed;
+    z-index: 5;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+#shareSondage .card{
+    background-color: #D5E9EC;
+}
+
+#shareSondage form i{
+    font-size: 30px;
+    text-align: right;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    float: right;
+}
+
+#shareSondage form i:hover{
+    color: #7e1010;
+}
+
+#shareSondage form #message{
+  height: 200px;
+}
+
+#email{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
 @media screen and (max-width:800px){
   #sondage{
     width: 500px;

@@ -2,7 +2,7 @@
 include '../inc/head.inc.php'; 
 include '../inc/header.inc.php'; ?>
 <main>
-    <button class="btn btn-info active" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
+    <button class="btn btn-info active pop" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
 
     <section id="sondage">
         <h2><?=$sondage[0]->question?></h2>
@@ -60,7 +60,6 @@ include '../inc/header.inc.php'; ?>
         <br>
     </section>
 
-    <div id="fond"></div>
         <section class="col-sm-7 mx-auto" id="shareSondage">
             <div class="card position-static">
                 <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
@@ -80,10 +79,6 @@ include '../inc/header.inc.php'; ?>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                                 <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
                             </select>
                         </div>
                         <div id="email">
@@ -91,10 +86,10 @@ include '../inc/header.inc.php'; ?>
                         </div>
                         <div class="col-sm-12 mt-4">
                             <label for="message">Message</label>
-                            <input id="message" name="msg" class="form-control" value="Salut, '<?php ?>'" rows="5">
+                            <textarea id="message" name="msg" class="form-control">Salut,<?="\n"?>Je te recommande ce sondage de 2Choose dont la question est : <?=$sondage[0]->question?><?="\n"?>Clique sur ce lien pour y répondre : <?= $_SERVER['REQUEST_URI'];?><?="\n"?>Répond y vite et donne moi ton avis ! <?="\n"?>Ton ami(e) <?= $_SESSION['user']['pseudo']?></textarea>
                         </div>
                         <div class="col-sm-12 mt-4 offset-ms-4">
-                            <button type="submit" class="btn btn-info btn-block active">Envoyez</button>
+                            <button type="submit" name="send" class="btn btn-info btn-block active">Envoyez</button>
                         </div>
                         <?php echo $msg ?>
                     </div>

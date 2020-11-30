@@ -20,7 +20,7 @@ include '../inc/header.inc.php'; ?>
                     <span>Ecrit par : <?= $sondage->pseudo ?> <br> Date de fin : <?= $sondage->date_fin ?></span>
                     <p><?= $sondage->question ?></p>
                 </a>
-                <i class="fas fa-share"></i>
+                <br>
             </div>
             <?php endforeach; ?>
         </div>
@@ -45,7 +45,7 @@ include '../inc/header.inc.php'; ?>
                     <span>Date de fin : <?= $sondagePerso->date_fin ?></span>
                     <p><?= $sondagePerso->question ?></p>
                 </a>
-                <i class="fas fa-share"></i>
+                <br>
             </div>
             <?php endforeach; ?>
         </div>

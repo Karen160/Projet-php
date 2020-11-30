@@ -18,20 +18,12 @@ $('nav a').click(function(){ //Appuie sur le menu
 
 
 //Pop up partage
-$(".fa-share").click(function(){
+$(".pop").click(function(){
     $("#shareSondage").show("slow");
-    $('#fond').css('display', 'block');
-    $("section").css('position', 'fixed');
-    $('main').css('margin-top', '100px');
-    $('footer').css('display', 'none');
 });
 
 $('#shareSondage i').click(function(){ //Appuie sur la croix
     $('#shareSondage').hide("slow");
-    $('#fond').css('display', 'none');
-    $("section").css('position', 'inherit');
-    $('main').css('margin-top', '120px');
-    $('footer').css('display', 'block');
 });
 
 
