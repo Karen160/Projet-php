@@ -16,9 +16,11 @@ $('nav a').click(function(){ //Appuie sur le menu
 
 
 
+
 //Pop up partage
 $(".fa-share").click(function(){
     $("#shareSondage").show("slow");
+    $('#fond').css('display', 'block');
     $("section").css('position', 'fixed');
     $('main').css('margin-top', '100px');
     $('footer').css('display', 'none');
@@ -65,24 +67,23 @@ $("#formNbPerson").change(function () {
     }
 });
 
-// var nbReponse = 5;
+// var notre = {};
+// notre.id = 5;
 // $("#boutonPropo").click(function(){
     
-//     $.ajax({
-//         url: ,
-//         type: "POST",
-//         data: {nbRepon:nbReponse},
-//         success: function(){
-//             console.log("tu as géré")
-//         },
-    
-//         error: function(){
-//             console.log("ca marche pas LOL")
-//         },
-//     });
+    // console.log(notre);
 // })
 
-//'../../../index.php?page=newSondage'
+// $.ajax({
+//     url:'../../index.php?page=newSondage',
+//     method: "POST",
+//     data: notre,
+//     success: function(){
+//         console.log("tu as géré")
+//     }
+// });
+
+//'../../index.php?page=newSondage'
 //'../../../root.php?function=newSondage'
 //'../../../App/Model/newSondageModel.php'
 //'../../../App/Controller/newSondageController.php'

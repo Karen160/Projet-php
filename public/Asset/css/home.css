@@ -68,6 +68,7 @@
     height: 100vh;
     z-index: 3;
     background-color: #106c7eb2;
+    display: none;
 }
 
 #shareSondage{
@@ -88,6 +89,10 @@
     text-align: right;
     padding: 10px;
     cursor: pointer;
+}
+
+#shareSondage i:hover{
+    color: #7e1010;
 }
 
 #email{

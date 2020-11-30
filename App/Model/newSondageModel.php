@@ -36,6 +36,7 @@ class newSondageModel extends Database{
         // $new = $_POST['nbRepon'];
         // var_dump($new);
         
+        print_r($_POST['nbquestion']);
         
       
        
