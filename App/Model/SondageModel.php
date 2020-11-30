@@ -16,11 +16,9 @@ class SondageModel extends Database{
       
       
       //select info d'un sondage
-      return $sondage = $this->query("SELECT `question`, `question_id` FROM `question` where `question_id` = ' $sondage_id' ");
+      return $sondage = $this->query("SELECT q.`question`, q.`question_id`, a.`choix` FROM `question` as q INNER JOIN answer as a where `question_id` = `id_question_id` AND `question_id` = ' $sondage_id' ");
       
-       //return de variables
-      
-      // $resultSondage = 
+       
     }
 
     function share(){
