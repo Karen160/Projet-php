@@ -29,15 +29,16 @@ include '../inc/header.inc.php';
         <tbody>
         
             <?php 
-
+        echo $var[2];
              $i = 0;
             foreach($var[0] as $user):
-
+                
             ?>
             <tr>
+                
                 <td name="pseudo"> <?= $user->pseudo ?> </td>
                 <td>Connecté</td>
-                <td><a name="add" href="index.php?page=NewFriend&id=<?= $user->id ?> ">Ajouter</a></td>    
+                <td><button name="add" > <a href="index.php?page=NewFriend&id=<?= $user->id ?> " > Ajouter</a></button></td>    
                
                        
             </tr>
