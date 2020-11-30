@@ -4,7 +4,7 @@ use Core\Database;
 class NewFriendModel extends Database {
     function NewFriend() {
         $idUser=$_SESSION['user']['id'];
-        $Result=$this->query("SELECT * FROM user as u WHERE id <> ALL ( SELECT user_id_A FROM friend where user_id_A = '$idUser' OR user_id_B = '$idUser') AND id <> ALL ( SELECT user_id_B FROM friend where user_id_A = '$idUser' OR user_id_B = '$idUser')");
+        $Result=$this->query("SELECT * FROM user as u WHERE id <> ALL ( SELECT user_id_A FROM friend where user_id_A = '$idUser' OR user_id_B = '$idUser') AND id <> ALL ( SELECT user_id_B FROM friend where user_id_A = '$idUser' OR user_id_B = '$idUser') AND id <> '$idUser'");
         $msg="";
         $msg2="";
 
