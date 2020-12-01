@@ -39,9 +39,6 @@ class NewFriendModel extends Database {
         return $var=array($Result, $msg, $msg2);
     }
 
-<<<<<<< HEAD
-    
-=======
     // function statut(){
     //     if($_SESSION['connect'] == true)
     //     {
@@ -52,7 +49,6 @@ class NewFriendModel extends Database {
     //         return $co = 'hors ligne';
     //     }
     // }
->>>>>>> 8f4e40fb16fda84d74a53b499d490b59abeff7f3
 
 
 

@@ -9,7 +9,10 @@ include '../inc/header.inc.php'; ?>
         <div class="sond">
         <?php foreach($sondage as $choix): ?>
             <button name="addAnswer">
-                <a href="index.php?page=sondage&sondage=<?= $choix->question_id?>&answer=<?=$choix->answer_id?>"><h4><?=$choix->choix?></h4></a>
+            <?php
+            $idHash = password_hash($choix->answer_id, PASSWORD_DEFAULT);
+            ?>    
+            <a href="index.php?page=sondage&sondage=<?= $choix->question_id?>&answer=<?=$idHash?>"><h4><?=$choix->choix?></h4></a>
             </button>
             <br><br>
             <?php endforeach ?>
