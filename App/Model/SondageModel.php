@@ -46,7 +46,6 @@ function addAnswer(){
         $mess=$_POST['commentaire'];
         $enregistrementCom=$this->pdo->prepare("INSERT INTO user_comment (`user_id`, id_question_id, comment) VALUES ('$iduser', '$sondage_id', '$mess')");
         $enregistrementCom->execute();
-
       }
 
       else {
