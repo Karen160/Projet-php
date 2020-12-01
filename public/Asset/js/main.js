@@ -32,76 +32,7 @@ $('.com').click(function(){
 
 
 $('#com .com2').click(function(){
-    /**
- * Il nous faut une fonction pour récupérer le JSON des
- * messages et les afficher correctement
- */
-function getMessages(){
-    // 1. Elle doit créer une requête AJAX pour se connecter au serveur, et notamment au fichier handler.php
-    const requeteAjax = new XMLHttpRequest();
-    requeteAjax.open("GET", "index.php?page=sondage");
-  
-    // 2. Quand elle reçoit les données, il faut qu'elle les traite (en exploitant le JSON) et il faut qu'elle affiche ces données au format HTML
-    requeteAjax.onload = function(){
-      const resultat = JSON.parse(requeteAjax.responseText);
-      const html = resultat.reverse().map(function(commentaire){
-        return `
-            <textarea name="commentaire" id="commentaire" class="form-control" placeholder="Mon commentaire...">${commentaire.content}</textarea>
-            <br>            
-            <button name="sendcom" id="com2" class="btn btn-info com2 active" type="submit" style="margin:0 auto; display:block">Envoyez</button>
-            <br>
-        `
-      }).join('');
-  
-      const commentaires = document.querySelector('.monCom');
-  
-      commentaires.innerHTML = html;
-      commentaires.scrollTop = commentaires.scrollHeight;
-    }
-  
-    // 3. On envoie la requête
-    requeteAjax.send();
-  }
-  
-  /**
-   * Il nous faut une fonction pour envoyer le nouveau
-   * message au serveur et rafraichir les messages
-   */
-  
-  function postCommentaire(event){
-    // 1. Elle doit stoper le submit du formulaire
-    event.preventDefault();
-  
-    // 2. Elle doit récupérer les données du formulaire
-    const com = document.querySelector('#commentaire');
-  
-    // 3. Elle doit conditionner les données
-    const data = new FormData();
-    data.append('com', com.value);
-  
-    // 4. Elle doit configurer une requête ajax en POST et envoyer les données
-    const requeteAjax = new XMLHttpRequest();
-    requeteAjax.open('POST', 'index.php?page=sondageCom');
-    
-    requeteAjax.onload = function(){
-      com.value = '';
-      com.focus();
-      getCommentaire();
-    }
-  
-    requeteAjax.send(data);
-  }
-  
-  document.querySelector('form').addEventListener('submit', postCommentaire);
-  
-  /**
-   * Il nous faut une intervale qui demande le rafraichissement
-   * des messages toutes les 3 secondes et qui donne 
-   * l'illusion du temps réel.
-   */
-  const interval = window.setInterval(getCommentaire, 3000);
-  
-  getMessages();
+
 });
 
 

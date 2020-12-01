@@ -53,7 +53,7 @@ include '../inc/header.inc.php'; ?>
             </div>
         </div>
         <?php endforeach;?>
-        <form action="<?php ?>" method="POST">
+        <form action="<?php echo 'location:index.php?page=sondage&sondage='.$sondage_id.'task=write'?>" method="POST">
 
         </form>
         <br>
