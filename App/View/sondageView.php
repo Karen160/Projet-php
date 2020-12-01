@@ -8,13 +8,14 @@ include '../inc/header.inc.php'; ?>
         <h2><?=$sondage[0]->question?></h2>
         <br><br>
         <div class="sond">
+            <?php
+            // $nbChoix = $this->query("SELECT count(`choix`) FROM `answer` WHERE `id_question_id` = $sondage_id");
+            // for($i=0; $nbChoix>$i; $i++): ?>
             <button>
-                <h4>Oui</h4>
+                <h4><?=$sondage[2]->choix?></h4>
             </button>
             <br><br>
-            <button>
-                <h4>Non</h4>
-            </button>
+            <?php //endfor?>
         </div>
     </section>
     <br>
