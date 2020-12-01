@@ -130,6 +130,38 @@ function addAnswer(){
       return $msg;
     }
   }
+
+  function ajax(){
+      public function saveCom($data)
+      {
+          $com = $data["titre"].",".$data["desc"].",".$data["urgence"].",".$data["date"]."\n";
+          $file = fopen("tasks.csv", 'a+');
+          fwrite($file,$com);
+  
+          fclose($file);
+      }
+  
+      public function getCom($return = false)
+      {
+          $filename = "tasks.csv";
+          $file = fopen($filename, 'r');
+          $data = array();
+          while(true){
+              $task = fgetcsv($file);
+              if ($task == false) {
+                  break;
+              }else {
+                  $data[] = $task;
+              }
+          }
+          fclose($file);
+  
+          if ($return) {
+            return $data;
+          }
+          echo json_encode($data);
+      }
+  }
 }
 
 ?>
