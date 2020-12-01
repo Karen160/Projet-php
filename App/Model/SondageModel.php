@@ -10,7 +10,6 @@ class SondageModel extends Database{
   }
   function sondage(){  
       $sondage_id = $_GET['sondage'];
-    
 
     //select tout les ids de sondage exitants
       

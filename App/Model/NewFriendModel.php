@@ -44,6 +44,17 @@ class NewFriendModel extends Database {
 
     }
 
+    function statut(){
+        if($_SESSION['connect'] == true)
+        {
+            return $co = 'connecté';
+        }
+        else
+        {
+            return $co = 'hors ligne';
+        }
+    }
+
 
 
 }
