@@ -30,6 +30,11 @@ class SondageModel extends Database {
         }else{
         //  return $msg = '<div class="alert"><i class="fas fa-exclamation-circle"></i>Merci de completer votre commentaire</div>';
         }
+      
+      
+      
+      
+      
       }
       return $sondage;
     }
