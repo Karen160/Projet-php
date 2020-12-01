@@ -8,11 +8,8 @@ include '../inc/header.inc.php'; ?>
         <br><br>
         <div class="sond">
         <?php foreach($sondage as $choix): ?>
-            <button name="addAnswer">
-            <?php
-            $idHash = password_hash($choix->answer_id, PASSWORD_DEFAULT);
-            ?>    
-            <a href="index.php?page=sondage&sondage=<?= $choix->question_id?>&answer=<?=$idHash?>"><h4><?=$choix->choix?></h4></a>
+            <button>
+                <h4><?=$choix->choix?></h4>
             </button>
             <br><br>
             <?php endforeach ?>
@@ -76,7 +73,10 @@ include '../inc/header.inc.php'; ?>
         <br>
         <button type="submit" class="btn btn-info com active" style="margin:0 auto; display:block">Ajouter un commentaire</button>
         <form method="POST" action="<?php $_SERVER['PHP_SELF'] ?>" class="monCom">
-            
+            <textarea name="commentaire" id="commentaire" class="form-control" placeholder="Mon commentaire..."></textarea>
+            <br>            
+            <button name="sendcom" id="com2" class="btn btn-info com2 active" type="submit" style="margin:0 auto; display:block">Envoyez</button>
+            <br>
         </form>
     </section>
 
