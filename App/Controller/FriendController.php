@@ -13,7 +13,7 @@ class FriendController{
     {            
             if($_SESSION['connect']){
                 $var = $this->model->friend();
-                $co = $this->model->statut();
+                // $co = $this->model->statut();
                 require ROOT."/App/View/friendView.php";
             }else{
                 header('location:index.php?page=sign');

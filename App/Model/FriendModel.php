@@ -39,7 +39,6 @@ class FriendModel extends Database {
                 $colB->execute();
                 header("location:index.php?page=friend");
             }
-
             else {
                $msg2 = 'vous êtes déjà amis';
             }

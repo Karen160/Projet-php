@@ -12,27 +12,34 @@ class SondageModel extends Database {
     $sondage_id=$_GET['sondage'];
 
     //select tout les ids de sondage exitants
-      
-      
-      //select info d'un sondage
-      $sondage = $this->query("SELECT q.`question`, q.`question_id`, a.`choix` FROM `question` as q INNER JOIN answer as a where `question_id` = `id_question_id` AND `question_id` = ' $sondage_id' ");
-      
-      
-      
-      if(isset($_POST['sendcom'])){
-        
-        if(!empty($_POST['commentaire'])){
-          $iduser = $_SESSION['user']['id'];
-          $mess   = $_POST['commentaire'];
-          $enregistrementCom = $this->pdo->prepare("INSERT INTO user_comment (`user_id`, id_question_id, comment) VALUES ('$iduser', '$sondage_id', '$mess')");
-          $enregistrementCom->execute();
-          
-        }else{
-        //  return $msg = '<div class="alert"><i class="fas fa-exclamation-circle"></i>Merci de completer votre commentaire</div>';
-        }
+    //select info d'un sondage
+    $sondage=$this->query("SELECT q.`question`, q.`question_id`, a.`choix` FROM `question` as q INNER JOIN answer as a where `question_id` = `id_question_id` AND `question_id` = ' $sondage_id' ");
+    return $sondage;
+  }
+function addAnswer(){
+  $sondage_id=$_GET['sondage'];
+  $addAnswer = 2;
+}
+  function comment() {
+    $sondage_id=$_GET['sondage'];
+
+    $commentaire =$this->query("SELECT u.`pseudo`, uc.`comment`, uc.`date` FROM user_comment as uc INNER JOIN user as u on uc.`user_id` = u.`id` WHERE id_question_id = '$sondage_id'");
+    if(isset($_POST['sendcom'])) {
+      if( !empty($_POST['commentaire'])) {
+        $iduser=$_SESSION['user']['id'];
+        $mess=$_POST['commentaire'];
+        $enregistrementCom=$this->pdo->prepare("INSERT INTO user_comment (`user_id`, id_question_id, comment) VALUES ('$iduser', '$sondage_id', '$mess')");
+        $enregistrementCom->execute();
       }
-      return $sondage;
+
+      else {
+        //  return $msg = '<div class="alert"><i class="fas fa-exclamation-circle"></i>Merci de completer votre commentaire</div>';
+      }
     }
+    return $commentaire;
+  }
+
+
 
   function share() {
     $membre_email=$_SESSION['user']['email'];
@@ -61,18 +68,19 @@ class SondageModel extends Database {
             //envoi de l'email
             $to=$_POST['email'.$k]; //le destinataire
             $subject='Le sondage 2Choose';
-            $mail = $_POST['textarea'];
-            $link = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-            $content= "Tu as recu une invitation à un sondage, clique sur le message pour y accéder: <br> <br><a href='".$link."'>".$mail." </a>";
-            
-          
-            
-            $headers[] = 'MIME-Version: 1.0';
-            $headers[] = 'Content-type: text/html; charset=utf-8; Content-Transfer-Encoding: 7BIT';
+            $mail=$_POST['textarea'];
+            $link=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+            $content="Tu as recu une invitation à un sondage, clique sur le message pour y accéder: <br> <br><a href='".$link."'>".$mail." </a>";
+
+
+
+            $headers[]='MIME-Version: 1.0';
+            $headers[]='Content-type: text/html; charset=utf-8 ';
 
             $headers[]='From: '. $membre_email; //de qui proviens l'email
             $headers[]='Reply-To: '. $membre_email; //répondre à l'envoyeur
             $headers[]='X-Mailer: PHP/'. phpversion();
+
             if(isset($to, $subject, $content, $headers)) {
               if(mail($to, $subject, $content, implode("\r\n", $headers))) {
                 //message d'envoi email
@@ -80,11 +88,15 @@ class SondageModel extends Database {
                 unset($_POST['email'.$k]);
                 // header('Location:' . $_SERVER['REQUEST_URI']);
                 // exit;
-              }else {
+              }
+
+              else {
                 //erreur envoi d'email
                 $msg='<div class="alertGlobal">Problème lors de l\'envoi de l\'email. Merci de réessayer plus tard.</div>';
               }
-            }else {
+            }
+
+            else {
               $msg='<div class="alert"><i class="fas fa-exclamation-circle"></i>Merci de remplir tous les champs. Le message doit avoir au moin 20 caractèregi</div>';
             }
 
