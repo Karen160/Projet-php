@@ -8,8 +8,8 @@ include '../inc/header.inc.php'; ?>
         <br><br>
         <div class="sond">
         <?php foreach($sondage as $choix): ?>
-            <button>
-                <h4><?=$choix->choix?></h4>
+            <button name="addAnswer">
+                <a href="index.php?page=sondage&sondage=<?= $choix->question_id?>&answer=<?=$choix->answer_id?>"><h4><?=$choix->choix?></h4></a>
             </button>
             <br><br>
             <?php endforeach ?>

@@ -4,7 +4,6 @@ use Core\Database;
 class SondageModel extends Database {
   function verif() {
     $sondage_id=$_GET['sondage'];
-
     return $id=$this->query("SELECT `question_id` FROM `question` where  `question_id` =  '$sondage_id'  ");
   }
 
@@ -13,12 +12,29 @@ class SondageModel extends Database {
 
     //select tout les ids de sondage exitants
     //select info d'un sondage
-    $sondage=$this->query("SELECT q.`question`, q.`question_id`, a.`choix` FROM `question` as q INNER JOIN answer as a where `question_id` = `id_question_id` AND `question_id` = ' $sondage_id' ");
+    $sondage=$this->query("SELECT q.`question`, q.`question_id`, a.`choix`, a.`answer_id` FROM `question` as q INNER JOIN answer as a where `question_id` = `id_question_id` AND `question_id` = ' $sondage_id' ");
     return $sondage;
   }
 function addAnswer(){
+ 
   $sondage_id=$_GET['sondage'];
-  $addAnswer = 2;
+  $idUser=$_SESSION['user']['id'];
+  $verif=$this->pdo->query("SELECT * FROM user_answer where `user_id` = '$idUser' AND id_question = '$sondage_id' ");
+    if(isset($_GET['answer'])){
+      $idAnswer = $_GET['answer'];
+      if($verif->rowCount() == 0){
+        $addAnswer = $this->pdo->prepare("INSERT INTO user_answer (`user_id`,answer_id,id_question) VALUES ('$idUser','$idAnswer',' $sondage_id')");
+        $addAnswer->execute();  
+        $countAnswer= $this->pdo->prepare("UPDATE ANSWER SET nombre = nombre+1 WHERE answer_id = '$idAnswer' ");
+        $countAnswer->execute();
+        header('location:index.php?page=sondage&sondage='.$sondage_id); 
+      }else{
+       header('location:index.php?page=sondage&sondage='.$sondage_id); 
+      }
+     
+    }
+  // }
+  
 }
   function comment() {
     $sondage_id=$_GET['sondage'];
