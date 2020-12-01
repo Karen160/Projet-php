@@ -30,18 +30,13 @@ class NewFriendModel extends Database {
             if($colA->rowCount()==0 && $colB->rowCount()==0) {
                 $FriendAdd=$this->pdo->prepare("INSERT INTO friend (user_id_A, user_id_B) VALUES ('$idUser', '$idFriend')");
                 $FriendAdd->execute();
-                header('location:index.php?page=NewFriend');
-            }
-
-            else {
+                header('location:index.php?page=NewFriend', true, 303);
+            } else {
                 $msg2='vous êtes déjà amis';
+                
             }
-
-
         }
-
         return $var=array($Result, $msg, $msg2);
-
     }
 
 <<<<<<< HEAD
