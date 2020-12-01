@@ -25,22 +25,24 @@ class SondageModel extends Database{
 
     function share(){
       $membre_pseudo = $_SESSION['user']['email'];
-
+      
       if(isset($_POST['send'])) {
           //Vérifier le message
           if(iconv_strlen(trim($_POST['msg'])) >= 20) { 
-            
-            $i=1;
-
-            while(isset($_POST['email'. $i])) {
-
+              var_dump('je suis 1');
+            $i=0;
+            while(isset($_POST['email'.($i+1)])) {
+              // var_dump(isset($_POST['email'.($i+1)]));
               $i++;
-
+              // var_dump($i);
+              var_dump('je suis while');
             }
+            
             for($k=1; $k<=$i; $k++) {
-
+              var_dump('je suis for');
               //Vérifie l'email
               if(filter_var($_POST['email'. $k], FILTER_VALIDATE_EMAIL)){
+                var_dump('je suis if email');
                 //envoi de l'email
                 $to = $_POST['email'.$k]; //le destinataire
                 $subject = 'Le sondage 2Choose';
@@ -49,9 +51,7 @@ class SondageModel extends Database{
                 'X-Mailer: PHP/' . phpversion();
 
                 if(mail($to, $subject, $_POST['msg'], $headers)){ //message d'envoi email
-                  
                   unset($_POST['email'.$k]);
-
                 }
               }
             }
