@@ -20,7 +20,10 @@ include '../inc/header.inc.php'; ?>
     </section>
     <br>
     <section id="sondage">
-        <h2>La question que tout le monde attend</h2>
+        <h2>Résultat:</h2>
+        <P>Statut: <?php $date = 'NOW'; echo $date;?></P>
+        <br><br>
+        <h3><?= $resultat[0]["question"] ?></h3>
         <br><br>
         <div class="sond">
             <h4>Oui</h4>
@@ -29,7 +32,7 @@ include '../inc/header.inc.php'; ?>
                     <p>70%</p>
                 </div>
             </div>
-            <p>70 votes</p>
+            <p> votes</p>
             <br><br>
             <h4>Non</h4>
             <div class="bar">

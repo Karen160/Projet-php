@@ -15,6 +15,7 @@ class SondageController {
             $msg =$this->model->share();
             if( !empty($id) &&  !empty($_GET['sondage'])) {
                 $sondage=$this->model->sondage();
+                $resultat = $this->model->result();
                 $commentaire = $this->model->comment();
                 $this->model->addAnswer();
                 require ROOT."/App/View/sondageView.php";
