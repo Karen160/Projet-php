@@ -86,7 +86,16 @@
     font-size: 0.8em;
   }
 
+#com .monCom{
+  display: none;
+}
 
+#com textarea.form-control {
+    height: 100px;
+    width: 60%;
+    border: 1px #106B7e solid;
+    margin: auto;
+}
 
 #shareSondage{
     display: none;

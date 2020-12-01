@@ -15,7 +15,11 @@ $('nav a').click(function(){ //Appuie sur le menu
 });
 
 
-
+//Bouton ajout commentaire
+$('.com').click(function(){
+    $('#com .monCom').css('display', 'block');
+    $(this).css('display', 'none');
+});
 
 //Pop up partage
 $(".pop").click(function(){

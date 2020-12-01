@@ -57,8 +57,13 @@ include '../inc/header.inc.php'; ?>
             </div>
         </div>
         <br>
-        <button class="btn btn-info active" style="margin:0 auto; display:block">Ajouter un commentaire</button>
-        <br>
+        <button class="btn btn-info com active" style="margin:0 auto; display:block">Ajouter un commentaire</button>
+        <div class="monCom">
+            <textarea id="commentaire" class="form-control">Mon commentaire...</textarea>
+            <br>
+            <button class="btn btn-info com2 active" type="submit" style="margin:0 auto; display:block">Envoyez</button>
+            <br>
+        </div>
     </section>
 
         <section class="col-sm-7 mx-auto" id="shareSondage">
