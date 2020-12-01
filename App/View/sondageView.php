@@ -53,6 +53,9 @@ include '../inc/header.inc.php'; ?>
             </div>
         </div>
         <?php endforeach;?>
+        <form action="<?php ?>" method="POST">
+
+        </form>
         <br>
         <button type="submit" class="btn btn-info com active" style="margin:0 auto; display:block">Ajouter un commentaire</button>
         <form method="POST" action="<?php $_SERVER['PHP_SELF'] ?>" class="monCom">
