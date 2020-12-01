@@ -21,7 +21,14 @@ function addAnswer(){
   $idUser=$_SESSION['user']['id'];
   $verif=$this->pdo->query("SELECT * FROM user_answer where `user_id` = '$idUser' AND id_question = '$sondage_id' ");
     if(isset($_GET['answer'])){
-      $idAnswer = $_GET['answer'];
+      $idAnswerHash = $_GET['answer'];
+      $idAnswer = 0;
+
+      while(password_verify($idAnswer, $idAnswerHash) == false){
+        $idAnswer++;
+      }
+
+
       if($verif->rowCount() == 0){
         $addAnswer = $this->pdo->prepare("INSERT INTO user_answer (`user_id`,answer_id,id_question) VALUES ('$idUser','$idAnswer',' $sondage_id')");
         $addAnswer->execute();  
