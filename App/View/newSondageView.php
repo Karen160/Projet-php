@@ -38,7 +38,7 @@ include '../inc/header.inc.php'; ?>
                 </div>
                 <div class="col-sm-12 mt-3">
                     <label for="date">Date d'expiration</label>
-                    <input type="date" name="date" class="form-control" placeholder="Choisissez la date d'expiration"
+                    <input type="datetime-local" name="date" class="form-control" placeholder="Choisissez la date d'expiration"
                         required="required" data-error="La date d'expiration est requise.">
                 </div>
                 <div class="  col-sm-12 mt-4 offset-ms-4">
