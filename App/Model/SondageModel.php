@@ -33,8 +33,11 @@ function addAnswer(){
       }
      
     }
-  // }
-  
+}
+
+function Result(){
+  $sondage_id=$_GET['sondage'];
+  $resultat = $this->query("SELECT q.`date_fin`,q.`question`, a.`choix`,a.`nombre` from question as q INNER JOIN answer as a on q.`id_question` = a.`id_question_id` WHERE q.`question_id` = 2");
 }
   function comment() {
     $sondage_id=$_GET['sondage'];

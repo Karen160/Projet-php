@@ -33,15 +33,12 @@ class NewFriendModel extends Database {
                 header('location:index.php?page=NewFriend', true, 303);
             } else {
                 $msg2='vous êtes déjà amis';
-                
+
             }
         }
         return $var=array($Result, $msg, $msg2);
     }
 
-<<<<<<< HEAD
-    
-=======
     // function statut(){
     //     if($_SESSION['connect'] == true)
     //     {
@@ -52,7 +49,6 @@ class NewFriendModel extends Database {
     //         return $co = 'hors ligne';
     //     }
     // }
->>>>>>> 8f4e40fb16fda84d74a53b499d490b59abeff7f3
 
 
 
