@@ -57,13 +57,27 @@ include '../inc/header.inc.php'; ?>
             </div>
         </div>
         <br>
-        <button class="btn btn-info com active" style="margin:0 auto; display:block">Ajouter un commentaire</button>
+
+
+
+
+
+
+        <button type="submit" class="btn btn-info com active" style="margin:0 auto; display:block">Ajouter un commentaire</button>
         <div class="monCom">
-            <textarea id="commentaire" class="form-control">Mon commentaire...</textarea>
+            <textarea name="commentaire" id="commentaire" class="form-control" placeholder="Mon commentaire..."></textarea>
             <br>
-            <button class="btn btn-info com2 active" type="submit" style="margin:0 auto; display:block">Envoyez</button>
+            <button name="sendcom" class="btn btn-info com2 active" type="submit" style="margin:0 auto; display:block">Envoyez</button>
             <br>
         </div>
+
+
+
+
+
+
+
+
     </section>
 
         <section class="col-sm-7 mx-auto" id="shareSondage">
@@ -92,7 +106,7 @@ include '../inc/header.inc.php'; ?>
                         </div>
                         <div class="col-sm-12 mt-4">
                             <label for="message">Message</label>
-                            <textarea id="message" name="msg" class="form-control">Salut,<?="\n"?>Je te recommande ce sondage de 2Choose dont la question est : <?=$sondage[0]->question?><?="\n"?>Clique sur ce lien pour y répondre : <?= $_SERVER['REQUEST_URI'];?><?="\n"?>Répond y vite et donne moi ton avis ! <?="\n"?>Ton ami(e) <?= $_SESSION['user']['pseudo']?></textarea>
+                            <textarea id="message" name="msg" class="form-control">Salut,<?="\n"?>Je te recommande ce sondage de 2Choose dont la question est : <?=$sondage[0]->question?><?="\n"?>Clique sur ce lien pour y répondre : <?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?><?="\n"?>Répond y vite et donne moi ton avis ! <?="\n"?>Ton ami(e) <?= $_SESSION['user']['pseudo']?></textarea>
                         </div>
                         <div class="col-sm-12 mt-4 offset-ms-4">
                             <button type="submit" name="send" class="btn btn-info btn-block active">Envoyez</button>
