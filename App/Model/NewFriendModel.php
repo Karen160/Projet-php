@@ -15,14 +15,19 @@ class NewFriendModel extends Database {
                 $rowCount=$this->pdo->query("SELECT * FROM user WHERE pseudo LIKE '$recherche%' ORDER BY id DESC ");
 
                 if($rowCount->rowCount() < 1) {
-                    $msg='0 amis pour toi magueule';
+                    $msg='Aucun membre ne correspond à votre recherche';
                 }
             }
         }
 
         if(isset($_GET['id'])) {
-            $idFriend=$_GET['id'];
+            $idFriendHash=$_GET['id'];
+            $idFriend = 0;
 
+            while(password_verify($idFriend, $idFriendHash) == false){
+                $idFriend++;
+            }
+            
             //verif présence amis dans col A 
             $colA=$this->pdo->query("SELECT user_id_A FROM friend where user_id_A = '$idFriend'  AND user_id_B = '$idUser' ");
             $colB=$this->pdo->query("SELECT user_id_B FROM friend where user_id_A = '$idUser'  AND user_id_B = '$idFriend' ");

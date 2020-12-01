@@ -37,7 +37,10 @@ include '../inc/header.inc.php';
                 
                 <td name="pseudo"> <?= $user->pseudo ?> </td>
                 <td>Connecté</td>
-                <td><button name="add" > <a href="index.php?page=NewFriend&id=<?= $user->id ?> " > Ajouter</a></button></td>    
+                <?php
+                $idFriendHash = password_hash($user->id, PASSWORD_DEFAULT);
+                ?> 
+                <td><button name="add" > <a href="index.php?page=NewFriend&id=<?= $idFriendHash ?> " > Ajouter</a></button></td>    
                
                        
             </tr>
