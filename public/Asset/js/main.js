@@ -21,6 +21,27 @@ $('.com').click(function(){
     $(this).css('display', 'none');
 });
 
+// var xhr = new XMLHttpRequest();
+
+// xhr.onreadystatechange = function(){
+//     console.log(this);
+// };
+
+// xhr.open("GET", "async/text", true); //requete
+// xhr.send();
+
+
+$('#com .com2').click(function(){
+    
+});
+
+
+
+
+
+
+
+
 //Pop up partage
 $(".pop").click(function(){
     $("#shareSondage").show("slow");
@@ -79,3 +100,4 @@ $("#formNbPerson").change(function () {
 //'../../../root.php?function=newSondage'
 //'../../../App/Model/newSondageModel.php'
 //'../../../App/Controller/newSondageController.php'
+
