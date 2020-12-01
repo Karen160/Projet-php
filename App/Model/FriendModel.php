@@ -49,4 +49,14 @@ class FriendModel extends Database {
         return $var = array($msg, $colA, $colB);
         
     }
+    function statut(){
+        if($_SESSION['connect'] == true)
+        {
+            return $co = 'connecté';
+        }
+        else
+        {
+            return $co = 'hors ligne';
+        }
+    }
 }
