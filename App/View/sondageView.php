@@ -3,19 +3,16 @@ include '../inc/head.inc.php';
 include '../inc/header.inc.php'; ?>
 <main>
     <button class="btn btn-info active pop" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
-
     <section id="sondage">
         <h2><?=$sondage[0]->question?></h2>
         <br><br>
         <div class="sond">
-            <?php
-            // $nbChoix = $this->query("SELECT count(`choix`) FROM `answer` WHERE `id_question_id` = $sondage_id");
-            // for($i=0; $nbChoix>$i; $i++): ?>
+        <?php foreach($sondage as $choix): ?>
             <button>
-                <h4><?=$sondage[2]->choix?></h4>
+                <h4><?=$choix->choix?></h4>
             </button>
             <br><br>
-            <?php //endfor?>
+            <?php endforeach ?>
         </div>
     </section>
     <br>
@@ -37,7 +34,7 @@ include '../inc/header.inc.php'; ?>
                     <p>30%</p>
                 </div>
             </div>
-            <p>30 votes</p>
+            <p >30 votes</p>
         </div>
     </section>
     <br><br><br>
@@ -68,13 +65,13 @@ include '../inc/header.inc.php'; ?>
 
         <section class="col-sm-7 mx-auto" id="shareSondage">
             <div class="card position-static">
-                <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                <form method="post" enctype="multipart/form-data" id="partage">
                 <i class="fas fa-times"></i>
                 <div class="card-body">
                     <h2 class="card-title">Partager le sondage<br>la question de folie</h2>
                     <div class="row ">
                         <div class="col-sm-12 mt-4">
-                            <label for="nbPerson">Nombre de personne</label>
+                            <label  for="nbPerson">Nombre de personne</label>
                             <select id="formNbPerson" type="text" name="nbpersonne" class="form-control"
                                 placeholder="Choisissez le nombre de personne à qui partager" required="required"
                                 data-error="Le nombre de personne est requis.">
@@ -91,14 +88,19 @@ include '../inc/header.inc.php'; ?>
 
                         </div>
                         <div class="col-sm-12 mt-4">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="msg" class="form-control">Salut,<?="\n"?>Je te recommande ce sondage de 2Choose dont la question est : <?=$sondage[0]->question?><?="\n"?>Clique sur ce lien pour y répondre : <?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?><?="\n"?>Répond y vite et donne moi ton avis ! <?="\n"?>Ton ami(e) <?= $_SESSION['user']['pseudo']?></textarea>
+                            <label  for="message">Message</label>
+                            <textarea form="partage" for="textarea" name="textarea"   class="form-control">Salut,<?="\n"?>Je te recommande ce sondage de 2Choose dont la question est : <?=$sondage[0]->question?>Clique sur ce lien pour y répondre :<?="\n"?><?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?> <?="\n"?>Répond y vite et donne moi ton avis ! <?="\n"?>Ton ami(e) <?= $_SESSION['user']['pseudo']?></textarea>
                         </div>
+                       
                         <div class="col-sm-12 mt-4 offset-ms-4">
+<<<<<<< HEAD
                             <?php var_dump($_GET['sondage']) ?>
+=======
+                            
+>>>>>>> 49387dbc023267b84e50adff04ccceb0b75717fd
                             <button type="submit" name="send" class="btn btn-info btn-block active">Envoyez</button>
+                            
                         </div>
-                        <?php echo $msg ?>
                     </div>
                 </div>
                 </form> 

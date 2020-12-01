@@ -1,6 +1,5 @@
 <?php 
 include '../inc/head.inc.php'; 
-
 include '../inc/header.inc.php'; ?>
 <main id="accueil">
     <section>
@@ -17,7 +16,7 @@ include '../inc/header.inc.php'; ?>
             <div class="boxsondage">
                 <a href="index.php?page=sondage&sondage=<?=$sondage->question_id?>">
                     <img src="<?= $sondage->image ?>" alt="Image de la question ' + <?= $sondage->question ?> + '">
-                    <span>Ecrit par : <?= $sondage->pseudo ?> <br> Date de fin : <?= $sondage->date_fin ?></span>
+                    <span>Posté par : <?= $sondage->pseudo ?> <br> Date de fin : <?= $sondage->date_fin ?></span>
                     <p><?= $sondage->question ?></p>
                 </a>
                 <br>
