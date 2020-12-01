@@ -30,6 +30,11 @@ class SondageModel extends Database {
         }else{
         //  return $msg = '<div class="alert"><i class="fas fa-exclamation-circle"></i>Merci de completer votre commentaire</div>';
         }
+      
+      
+      
+      
+      
       }
       return $sondage;
     }
@@ -61,13 +66,20 @@ class SondageModel extends Database {
             //envoi de l'email
             $to=$_POST['email'.$k]; //le destinataire
             $subject='Le sondage 2Choose';
-            $header='From: '. $membre_email . "\r\n". //de qui proviens l'email
-            'Reply-To: '. $membre_email . "\r\n". //répondre à l'envoyeur
-            'X-Mailer: PHP/'. phpversion();
-            $content=$_POST['textarea'];
+            $mail = $_POST['textarea'];
+            $link = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+            $content= "Tu as recu une invitation à un sondage, clique sur le message pour y accéder: <br> <br><a href='".$link."'>".$mail." </a>";
+            
+          
+            
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-type: text/html; charset=utf-8; Content-Transfer-Encoding: 7BIT';
 
-            if(isset($to, $subject, $content, $header)) {
-              if(mail($to, $subject, $content, $header)) {
+            $headers[]='From: '. $membre_email; //de qui proviens l'email
+            $headers[]='Reply-To: '. $membre_email; //répondre à l'envoyeur
+            $headers[]='X-Mailer: PHP/'. phpversion();
+            if(isset($to, $subject, $content, $headers)) {
+              if(mail($to, $subject, $content, implode("\r\n", $headers))) {
                 //message d'envoi email
                 unset($content);
                 unset($_POST['email'.$k]);

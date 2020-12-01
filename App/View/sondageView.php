@@ -89,7 +89,7 @@ include '../inc/header.inc.php'; ?>
                         </div>
                         <div class="col-sm-12 mt-4">
                             <label  for="message">Message</label>
-                            <textarea form="partage" for="textarea" name="textarea"   class="form-control">Salut,<?="\n"?>Je te recommande ce sondage de 2Choose dont la question est : <?=$sondage[0]->question?>Clique sur ce lien pour y répondre :<?="\n"?><?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?> <?="\n"?>Répond y vite et donne moi ton avis ! <?="\n"?>Ton ami(e) <?= $_SESSION['user']['pseudo']?></textarea>
+                            <textarea form="partage" for="textarea" name="textarea"   class="form-control">Salut c'est <?= $_SESSION['user']['pseudo']?>,<?="\n"?>Je te recommande ce sondage de 2Choose dont la question est : <?=$sondage[0]->question?><?="\n"?>Répond y vite et donne moi ton avis ! <?="\n"?>Ton ami(e) <?= $_SESSION['user']['pseudo']?></textarea>
                         </div>
                        
                         <div class="col-sm-12 mt-4 offset-ms-4">

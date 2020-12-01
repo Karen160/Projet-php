@@ -23,10 +23,6 @@ class newSondageModel extends Database {
       $enregistrementQuestion->bindParam(':date', $date, \PDO::PARAM_STR);
       $enregistrementQuestion->execute();
 
-
-
-
-
       // Défini id de la question
       $recup_question=$this->pdo->query("SELECT max(`question_id`) as question_id FROM question");
       $recupQ=$recup_question->fetch(\PDO::FETCH_ASSOC);
