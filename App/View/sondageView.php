@@ -20,8 +20,22 @@ include '../inc/header.inc.php'; ?>
     </section>
     <br>
     <section id="sondage">
+        <?php  
+        date_default_timezone_set('UTC'); 
+        $date = date("Y-m-d H:i:s");
+        if($date > $resultat[0]["date_fin"]){
+            $statut = "Sondage Terminé";
+        }else{
+            $date1 = date_create($resultat[0]["date_fin"]);
+            $date2 = date_create($date);
+            $temps = date_diff($date2,$date1);
+            var_dump($temps);
+            $statut = "Sondage en cour, il reste  avant la fin du sondage";
+        }
+        ?>
+        
         <h2>Résultat:</h2>
-        <P>Statut: <?php $date = 'NOW'; echo $date;?></P>
+        <P>Statut:<?= $statut ?> </P>
         <br><br>
         <h3><?= $resultat[0]["question"] ?></h3>
         <br><br>
