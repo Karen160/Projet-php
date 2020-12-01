@@ -79,7 +79,7 @@ include '../inc/header.inc.php'; ?>
 
         <section class="col-sm-7 mx-auto" id="shareSondage">
             <div class="card position-static">
-                <form method="post" enctype="multipart/form-data" id="partage" action="">
+                <form method="post" enctype="multipart/form-data" id="partage">
                 <i class="fas fa-times"></i>
                 <div class="card-body">
                     <h2 class="card-title">Partager le sondage<br>la question de folie</h2>
@@ -103,7 +103,7 @@ include '../inc/header.inc.php'; ?>
                         </div>
                         <div class="col-sm-12 mt-4">
                             <label  for="message">Message</label>
-                         <a><textarea form="partage" for="textarea" name="textarea"   class="form-control">Salut,<?="\n"?>Je te recommande ce sondage de 2Choose dont la question est : <?=$sondage[0]->question?>Clique sur ce lien pour y répondre :<?="\n"?><?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?> <?="\n"?>Répond y vite et donne moi ton avis ! <?="\n"?>Ton ami(e) <?= $_SESSION['user']['pseudo']?></textarea></a> 
+                            <textarea form="partage" for="textarea" name="textarea"   class="form-control">Salut,<?="\n"?>Je te recommande ce sondage de 2Choose dont la question est : <?=$sondage[0]->question?>Clique sur ce lien pour y répondre :<?="\n"?><?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?> <?="\n"?>Répond y vite et donne moi ton avis ! <?="\n"?>Ton ami(e) <?= $_SESSION['user']['pseudo']?></textarea>
                         </div>
                        
                         <div class="col-sm-12 mt-4 offset-ms-4">
