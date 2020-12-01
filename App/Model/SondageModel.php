@@ -15,20 +15,23 @@ class SondageModel extends Database{
       
       
       //select info d'un sondage
-      return $sondage = $this->query("SELECT q.`question`, q.`question_id`, a.`choix` FROM `question` as q INNER JOIN answer as a where `question_id` = `id_question_id` AND `question_id` = ' $sondage_id' ");
+      $sondage = $this->query("SELECT q.`question`, q.`question_id`, a.`choix` FROM `question` as q INNER JOIN answer as a where `question_id` = `id_question_id` AND `question_id` = ' $sondage_id' ");
+      
+      
       
       if(isset($_POST['sendcom'])){
-        if(!empty(trim($_POST['commentaire']))){
-          $IDUSER = $_SESSION['user']['id'];
-          $IDSOND = $_GET['sondage'];
-          $MESS   = $_POST['commentaire'];
-
-          $SendCom = $this->pdo->prepare("INSERT INTO user (nom, prenom, pseudo, email, mdp, `date`) VALUES (:nom, :prenom, :pseudo, :email, :mdp,  NOW() )");
+        
+        if(!empty($_POST['commentaire'])){
+          $iduser = $_SESSION['user']['id'];
+          $mess   = $_POST['commentaire'];
+          $enregistrementCom = $this->pdo->prepare("INSERT INTO user_comment (`user_id`, id_question_id, comment) VALUES ('$iduser', '$sondage_id', '$mess')");
+          $enregistrementCom->execute();
+          
         }else{
-         return $msg = '<div class="alert"><i class="fas fa-exclamation-circle"></i>Merci de completer votre commentaire</div>';
+        //  return $msg = '<div class="alert"><i class="fas fa-exclamation-circle"></i>Merci de completer votre commentaire</div>';
         }
       }
-       
+      return $sondage;
     }
 
     function share(){
