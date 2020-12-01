@@ -17,7 +17,24 @@ include '../inc/header.inc.php'; ?>
     </section>
     <br>
     <section id="sondage">
-        <h2>La question que tout le monde attend</h2>
+        <?php  
+        date_default_timezone_set('UTC'); 
+        $date = date("Y-m-d H:i:s");
+        if($date > $resultat[0]["date_fin"]){
+            $statut = "Sondage Terminé";
+        }else{
+            $date1 = date_create($resultat[0]["date_fin"]);
+            $date2 = date_create($date);
+            $temps = date_diff($date2,$date1);
+            var_dump($temps);
+            $statut = "Sondage en cour, il reste  avant la fin du sondage";
+        }
+        ?>
+        
+        <h2>Résultat:</h2>
+        <P>Statut:<?= $statut ?> </P>
+        <br><br>
+        <h3><?= $resultat[0]["question"] ?></h3>
         <br><br>
         <div class="sond">
             <h4>Oui</h4>
@@ -26,7 +43,7 @@ include '../inc/header.inc.php'; ?>
                     <p>70%</p>
                 </div>
             </div>
-            <p>70 votes</p>
+            <p> votes</p>
             <br><br>
             <h4>Non</h4>
             <div class="bar">

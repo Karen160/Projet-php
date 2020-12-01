@@ -53,7 +53,7 @@ class SignModel extends Database {
   function connexion() {
     $msgCo="";
 
-    if(isset($_POST['pseudoCo']) && isset($_POST['mdpCo'])) {
+    if(!empty($_POST['pseudoCo']) && !empty($_POST['mdpCo'])) {
 
       $pseudoCo=$_POST['pseudoCo'];
       $mdpCo=$_POST['mdpCo'];
