@@ -41,21 +41,21 @@ include '../inc/header.inc.php'; ?>
     <section id="com">
         <h2>Commentaire</h2>
         <br><br>
+        <?php foreach($commentaire as $com): ?>
         <div class="msg">
             <div>
                 <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
-                <p>Pseudo</p>
-                <p>27/10</p>
+                <p><?= $com->pseudo ?></p>
+                <p><?= $com->date ?></p>
             </div>
             <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates quidem ab accusamus
-                    modi cupiditate? Voluptas error ipsam repudiandae delectus amet consectetur impedit tempora neque
-                    libero? Aliquid magnam dignissimos nemo.</p>
+                <p><?= $com->comment ?></p>
             </div>
         </div>
+        <?php endforeach;?>
         <br>
         <button type="submit" class="btn btn-info com active" style="margin:0 auto; display:block">Ajouter un commentaire</button>
-        <form method="POST" class="monCom">
+        <form method="POST" action="<?php $_SERVER['PHP_SELF'] ?>" class="monCom">
             <textarea name="commentaire" id="commentaire" class="form-control" placeholder="Mon commentaire..."></textarea>
             <br>            
             <button name="sendcom" class="btn btn-info com2 active" type="submit" style="margin:0 auto; display:block">Envoyez</button>

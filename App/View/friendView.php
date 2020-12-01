@@ -30,7 +30,7 @@ include '../inc/header.inc.php'; ?>
             ?>
             <tr>
                 <td name="pseudo"> <?=$friendA['pseudo']?> </td>
-                <td><?php echo $co ?></td>
+                <td><?php echo 'connecté' // $co ?></td>
                 <td><button name="deleteA" > <a href="index.php?page=friend&id=<?= $friendA['id'] ?>" > Supprimer</a></button></td>            
             </tr>
             <?php 
@@ -39,7 +39,7 @@ include '../inc/header.inc.php'; ?>
             ?>
             <tr>
                 <td name="pseudo"> <?=$friendB['pseudo']?> </td>
-                <td><?php echo $co ?></td>
+                <td><?php echo 'connecté' // $co ?></td>
                 <td><button name="deleteB" > <a href="index.php?page=friend&id=<?= $friendB['id'] ?>"> Supprimer</a></button></td>            
             </tr>
             <?php 
