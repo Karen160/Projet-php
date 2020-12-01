@@ -93,11 +93,7 @@ include '../inc/header.inc.php'; ?>
                         </div>
                        
                         <div class="col-sm-12 mt-4 offset-ms-4">
-<<<<<<< HEAD
-                            <?php var_dump($_GET['sondage']) ?>
-=======
                             
->>>>>>> 49387dbc023267b84e50adff04ccceb0b75717fd
                             <button type="submit" name="send" class="btn btn-info btn-block active">Envoyez</button>
                             
                         </div>

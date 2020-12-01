@@ -34,8 +34,6 @@ class SondageModel extends Database {
       return $sondage;
     }
 
-  }
-
   function share() {
     $membre_email=$_SESSION['user']['email'];
     $msg="";
@@ -90,7 +88,6 @@ class SondageModel extends Database {
       return $msg;
     }
   }
-
-
+}
 
 ?>
