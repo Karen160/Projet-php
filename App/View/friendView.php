@@ -16,7 +16,7 @@ include '../inc/header.inc.php'; ?>
     <br><br>
     <h2>Mes amis</h2>
     <br>
-    <table>
+    <table id="friend">
         <thead>
             <tr>
                 <th>Pseudo</th>
@@ -30,8 +30,12 @@ include '../inc/header.inc.php'; ?>
             ?>
             <tr>
                 <td name="pseudo"> <?=$friendA['pseudo']?> </td>
-                <td><?php echo 'connecté' // $co ?></td>
-                <td><button name="deleteA" > <a href="index.php?page=friend&id=<?= $friendA['id'] ?>" > Supprimer</a></button></td>            
+                <td><?php if($friendA['statut']){
+                    echo 'Connecté';
+                }else{
+                    echo 'Hors ligne';
+                }  ?></td>
+                <th><button name="deleteA" > <a href="index.php?page=friend&id=<?= $friendA['id'] ?>" > Supprimer</a></button></th>            
             </tr>
             <?php 
              endforeach;
@@ -39,8 +43,13 @@ include '../inc/header.inc.php'; ?>
             ?>
             <tr>
                 <td name="pseudo"> <?=$friendB['pseudo']?> </td>
-                <td><?php echo 'connecté' // $co ?></td>
-                <td><button name="deleteB" > <a href="index.php?page=friend&id=<?= $friendB['id'] ?>"> Supprimer</a></button></td>            
+                <td><?php if($friendB['statut']){
+                    echo 'Connecté';
+                }else{
+                    echo 'Hors ligne';
+                }  ?></td>
+                </td>
+                <th><button name="deleteB" > <a href="index.php?page=friend&id=<?= $friendB['id'] ?>"> Supprimer</a></button></th>            
             </tr>
             <?php 
              endforeach ;?>
