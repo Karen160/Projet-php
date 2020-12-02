@@ -16,8 +16,8 @@ $('nav a').click(function(){ //Appuie sur le menu
 
 
 //Bouton ajout commentaire
-$('.com').click(function(){
-    $('#com .monCom').css('display', 'block');
+$('#commentaire .combutton').click(function(){
+    $('#commentaire .monCom').css('display', 'block');
     $(this).css('display', 'none');
 });
 
@@ -31,49 +31,52 @@ $('.com').click(function(){
 // xhr.send();
 
 
-$('#com .com2').click(function(e){
-    e.preventDefault();
-    let com = $(".monCom").serializeArray();
+// $('#com .com2').click(function(e){
+//     e.preventDefault();
+//     let com = $(".monCom").serializeArray();
 
-    $.ajax({
-        url:"index.php?page=sondage",
-        method:"POST",
-        dataType:"json",
-        data:com,
-        error:function(response){
-            console.log(response.statusText);
-        }
-    })
-    getCom();  
+//     $.ajax({
+//         url:"index.php?page=sondage",
+//         method:"POST",
+//         dataType:"json",
+//         data:com,
+//         error:function(response){
+//             console.log(response.statusText);
+//         }
+//     })
+//     getCom();  
     
-    // $('#com').load("load.php");
-    // setInterval(function(){
-    //     $('#com').load("load.php");
-    // }, 3000);
-});
+//     // $('#com').load("load.php");
+//     // setInterval(function(){
+//     //     $('#com').load("load.php");
+//     // }, 3000);
+// });
     
-function getCom(){
-    $.ajax({
-        url:"index.php?page=sondage",
-        method:"GET",
-        dataType:"json",
-        success:function(response){
-            $(".msg").html("");
-            let i = 0
-            response.forEach(com => {
-                $(".msg").append("<div><p>'" + com[0] + "'</p><p>'"+ com[1] +"'</p></div>");
-                i++
-            });
-        },
-        error:function(response){
-            console.log(response.statusText);
-        }
-    })
-}
+// function getCom(){
+//     $.ajax({
+//         url:"index.php?page=sondage",
+//         method:"GET",
+//         dataType:"json",
+//         success:function(response){
+//             $(".msg").html("");
+//             let i = 0
+//             response.forEach(com => {
+//                 $(".msg").append("<div><p>'" + com[0] + "'</p><p>'"+ com[1] +"'</p></div><div><p>'" + com[2] + "'</p></div>");
+//                 i++;
+//             });
+//         },
+//         error:function(response){
+//             console.log(response.statusText);
+//         }
+//     })
+// }
 
 
 
-
+setInterval('load_messages()', 500);
+    function load_messages(){
+        $('#com').load('#com .msg')
+};
 
 
 
@@ -114,25 +117,3 @@ $("#formNbPerson").change(function () {
         j++;
     }
 });
-
-// var notre = {};
-// notre.id = 5;
-// $("#boutonPropo").click(function(){
-    
-    // console.log(notre);
-// })
-
-// $.ajax({
-//     url:'../../index.php?page=newSondage',
-//     method: "POST",
-//     data: notre,
-//     success: function(){
-//         console.log("tu as géré")
-//     }
-// });
-
-//'../../index.php?page=newSondage'
-//'../../../root.php?function=newSondage'
-//'../../../App/Model/newSondageModel.php'
-//'../../../App/Controller/newSondageController.php'
-
