@@ -9,12 +9,12 @@ class NewFriendController {
     }
 
     public function render() {
+        //si connecté on lui demande une méthode et on require la vue
         if($_SESSION['connect']) {
             $var=$this->model->NewFriend();
             require ROOT."/App/View/newFriendView.php";
-        }
-
-        else {
+            
+        }else {//sinon on redirige vers la page d'inscription/connexion
             header('location:index.php?page=sign');
         }
     }
