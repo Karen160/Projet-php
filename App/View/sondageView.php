@@ -58,12 +58,12 @@ include '../inc/header.inc.php';
         } elseif($diff<0 && abs($diff)<3600) {
             // DEPUIS EN MINUTES
             $past = true;
-            $calcul = abs($diff) / 60;
+            $calcul = abs($diff/ 60);
             return array (ceil($calcul).' minute'.Pluriel($calcul).'</strong>.', $past);'</strong>.';
         } elseif($diff<0 && abs($diff)<=3600) {
             // DEPUIS EN HEURES
             $past = true;
-            $calcul = abs($diff) / 3600;
+            $calcul = abs($diff / 3600);
             return array (ceil($calcul).'heure'.Pluriel($calcul).'</strong>.', $past);       
         } else {
             // DEPUIS EN JOUR
@@ -73,6 +73,7 @@ include '../inc/header.inc.php';
         };
     }
     $dateFin = $resultat[0][0]["date_fin"];
+    
     list ($temps, $past) = TimeToFin($dateFin);
 ?>
 <main>
