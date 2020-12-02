@@ -4,7 +4,7 @@ use Core\Database;
 
 class ProfilModel extends Database{ 
     function profil(){
-
+        //Delete toutes les informations d'un USER, le profil, les commentaires, les questions.
         if(isset($_POST['delete'])){
             $iduser = $_SESSION['user']['id'];
             $userD = $this->pdo->prepare("DELETE FROM user WHERE id = '$iduser'");

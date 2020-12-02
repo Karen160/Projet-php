@@ -19,6 +19,7 @@ class HomeModel extends Database{
     }
 
     function statut(){
+        //Permets d'attribuer une valeur au statut pour savoir quand l'utilisateur est connecté ou non
         if($_SESSION['connect'])
         {
             $co =$this->pdo->prepare("UPDATE user SET statut= 1 WHERE id =" . $_SESSION['user']['id']);
