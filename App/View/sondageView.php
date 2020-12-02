@@ -71,7 +71,10 @@ include '../inc/header.inc.php';
     }
 ?>
 <main>
+
     <button class="btn btn-info active pop" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
+
+        <!-- Sondage -->
     <section id="sondage">
         <h2><?=$sondage[0]->question?></h2>
         <br><br>
@@ -84,13 +87,16 @@ include '../inc/header.inc.php';
             <?php endforeach ?>
         </div>
     </section>
+
     <br>
+    
     <section id="sondage">
         <?php  
         $dateFin = $resultat[0]["date_fin"];
         list ($temps, $past) = TimeToFin($dateFin);
         if($past){
             $statut = "Le sondage est terminé depuis ".$temps."Voici les résultats finaux";
+
         }else{
             $statut =  "Le sondage se termine dans ".$temps."Voici les résultats actuels";
         }
@@ -98,6 +104,7 @@ include '../inc/header.inc.php';
         ?>
 
         <h2>Résultat:</h2>
+        <!-- Indique le statut du sondage -->
         <P class="text-center">Statut: <?= $statut ?></P>
         <br><br>
         <h3  class="text-center"><?= $resultat[0]["question"] ?></h3>
@@ -120,7 +127,12 @@ include '../inc/header.inc.php';
             <p>30 votes</p>
         </div>
     </section>
+
+
     <br><br><br>
+
+        <!-- Afficher le commentaire -->
+
     <section id="commentaire">
         <div id="com">
             <h2>Commentaire</h2>
@@ -140,6 +152,11 @@ include '../inc/header.inc.php';
             <?php endforeach;?>
             <br>
         </div>
+
+
+
+        <!-- Ajouter un commentaire au sondage -->
+
         <button type="submit" class="btn btn-info combutton active" style="margin:0 auto; display:block">Ajouter un
             commentaire</button>
         <form method="POST" action="<?php $_SERVER['PHP_SELF'] ?>" class="monCom">
@@ -151,7 +168,7 @@ include '../inc/header.inc.php';
             <br>
         </form>
     </section>
-
+        <!-- Partager le Sondage -->
     <section class="col-sm-7 mx-auto" id="shareSondage">
         <div class="card position-static">
             <form method="post" enctype="multipart/form-data" id="partage">
