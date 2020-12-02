@@ -13,21 +13,20 @@ class SondageModel extends Database {
     //select tout les ids de sondage exitants
     //select info d'un sondage
     $sondage=$this->query("SELECT q.`question`, q.`question_id`,q.`user_id_author`, a.`choix`, a.`answer_id` FROM `question` as q INNER JOIN answer as a where `question_id` = `id_question_id` AND `question_id` = ' $sondage_id' ");
-    
-
-
+    //select tout les ids de sondage exitants
+    //select info d'un sondage
     $dtfin = $this->pdo->query("SELECT date_fin FROM question WHERE question_id = '$sondage_id'");
     $dtnow = date("Y-m-d H:i:s");
     $dtfin = $dtfin->fetchAll(\PDO::FETCH_ASSOC);
 
     if(strtotime($dtnow) > strtotime($dtfin[0]['date_fin'])){
-     $max = $this->pdo->query("SELECT MAX(`nombre`) AS nombre FROM `answer` WHERE id_question_id = '$sondage_id'");
+     $max = $this->pdo->query("SELECT MAX(nombre) AS nombre FROM answer WHERE id_question_id = '$sondage_id'");
      $max = $max->fetchAll(\PDO::FETCH_ASSOC);
      $max = $max[0]['nombre'];
      $pushresultT = $this->pdo->prepare("UPDATE answer SET resultat = 1 WHERE id_question_id = '$sondage_id' AND nombre = '$max'");
      $pushresultT->execute();
-     $pushresultF = $this->pdo->prepare("UPDATE answer SET resultat = 0 WHERE id_question_id = '$sondage_id' AND nombre <> '$max'");  
-     $pushresultF->execute();   
+     $pushresultF = $this->pdo->prepare("UPDATE answer SET resultat = 0 WHERE id_question_id = '$sondage_id' AND nombre <> '$max'");
+     $pushresultF->execute();
     }
     return $sondage; 
   }
