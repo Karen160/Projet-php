@@ -11,7 +11,6 @@ class NewFriendController {
     public function render() {
         if($_SESSION['connect']) {
             $var=$this->model->NewFriend();
-            $co=$this->model->statut();
             require ROOT."/App/View/newFriendView.php";
         }
 
