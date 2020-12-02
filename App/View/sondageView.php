@@ -1,8 +1,7 @@
 <?php 
 include '../inc/head.inc.php'; 
-include '../inc/header.inc.php'; ?>
-<main>
-    <?php   
+include '../inc/header.inc.php'; 
+  
     function Date_Convert($date) {
         $jour = substr($date, 8, 2);
         $mois = substr($date, 5, 2);
@@ -158,7 +157,7 @@ include '../inc/header.inc.php'; ?>
             <form method="post" enctype="multipart/form-data" id="partage">
                 <i class="fas fa-times"></i>
                 <div class="card-body">
-                    <h2 class="card-title">Partager le sondage<br>la question de folie</h2>
+                    <h2 class="card-title">Partager le sondage : <br><?=$sondage[0]->question?></h2>
                     <div class="row ">
                         <div class="col-sm-12 mt-4">
                             <label for="nbPerson">Nombre de personne</label>

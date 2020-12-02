@@ -74,7 +74,7 @@
     padding: 0 10px;
   }
 
-  #commentaire #com div:first-child p{
+  #commentaire #com .msg div:first-child p{
     color: white;
     margin: 0;
     padding: 0 10px;
@@ -123,7 +123,7 @@
     color: #7e1010;
 }
 
-#shareSondage form #message{
+#shareSondage form textarea{
   height: 200px;
 }
 
