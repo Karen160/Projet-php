@@ -38,7 +38,7 @@ include '../inc/header.inc.php'; ?>
         <div class="conteneur">
             <?php foreach( $requete[1] as $sondagePerso) : ?>
             <div class="boxsondage">
-                <a href="index.php?page=sondage&sondage=<?=$sondagePerso->question_id?>">
+                <a href="index.php?page=sondage&sondage=<?= $sondagePerso->question_id?>">
                     <img src="<?= $sondagePerso->image ?>"
                         alt="Image de la question ' + <?= $sondagePerso->question ?> + '">
                     <span>Date de fin : <?= $sondagePerso->date_fin ?></span>
