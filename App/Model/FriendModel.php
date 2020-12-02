@@ -6,7 +6,7 @@ class FriendModel extends Database {
         $msg="";//création du var message
         $idUser=$_SESSION['user']['id']; //stcokage de l'id de l'utilisateur en le récupérant de la session
 
-            //On récupère dans la bdd les informations des amis A et B
+        //On récupère dans la bdd les informations des amis A et B
         $colA=$this->pdo->query("SELECT u.`pseudo` as pseudo,u.`statut` as statut, f.`user_id_A` as id FROM friend as f INNER JOIN user as u  on f.`user_id_A` = u.`id` WHERE f.`user_id_B` = '$idUser'");
         $colB=$this->pdo->query("SELECT u.`pseudo` as pseudo,u.`statut` as statut, f.`user_id_B` as id FROM friend as f INNER JOIN user as u  on f.`user_id_B` = u.`id` WHERE f.`user_id_A` = '$idUser'");
 
@@ -28,7 +28,7 @@ class FriendModel extends Database {
             $msg="vous n'avez aucun amis";
         }
 
-        
+
         if(isset($_GET['id'])) {
             $idFriend=$_GET['id'];
             $idUser=$_SESSION['user']['id'];

@@ -7,6 +7,7 @@ class NewFriendModel extends Database {
         $Result=$this->query("SELECT * FROM user as u WHERE id <> ALL ( SELECT user_id_A FROM friend where user_id_A = '$idUser' OR user_id_B = '$idUser') AND id <> ALL ( SELECT user_id_B FROM friend where user_id_A = '$idUser' OR user_id_B = '$idUser') AND id <> '$idUser'");
         $msg="";
         
+        //Barre de reherche
         if(isset($_POST['button'])) {
             if( !empty($_POST['recherche'])) {
                 $recherche=htmlspecialchars(trim($_POST['recherche']));
