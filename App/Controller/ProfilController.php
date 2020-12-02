@@ -19,6 +19,5 @@ class ProfilController{
         }else{
          header('location:index.php?page=sign');
         }
-       
     }
 }

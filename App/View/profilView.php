@@ -11,7 +11,9 @@ include '../inc/header.inc.php';
     <section>
         <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
         <div class="info">
-            <?php foreach($user_infos as $userdata):?>
+            <?php foreach($user_infos[0] as $userdata):
+                foreach($user_infos[1] as $frienddata):
+                foreach($user_infos[2] as $sondagedata):?>
             <div>
                 <p>Nom :  <?= $userdata->nom  ?></p>
                 <p>Prénom :  <?= $userdata->prenom  ?></p>
@@ -19,12 +21,15 @@ include '../inc/header.inc.php';
                 <p>Mot de passe : *******</p>   
             </div>
             <div>
-                <p>Nombre d'amis : <?= $userdata->nom  ?></p>
-                <p>Nombre de mes sondages : <?= $userdata->nom  ?></p>
+                <p>Nombre d'amis : <?= $frienddata->nb_ami  ?></p>
+                <p>Nombre de mes sondages : <?= $sondagedata->nb_sond ?></p>
                 <p>Email : <?= $userdata->email  ?></p>
                 <p>Date d'inscription : <?= $userdata->date  ?></p>
             </div>
-            <?php endforeach ?>
+            <?php
+            endforeach;
+            endforeach;
+            endforeach;?>
         </div>
         
     </section>
