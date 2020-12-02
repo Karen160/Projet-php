@@ -2,6 +2,7 @@
 include '../inc/head.inc.php'; 
 include '../inc/header.inc.php'; ?>
 <main id="accueil">
+    <!-- Les sondages en cours (en dehors du membre) -->
     <section>
         <h2>Sondages en cours</h2>
         <div class="conteneur">
@@ -24,11 +25,15 @@ include '../inc/header.inc.php'; ?>
             <?php endforeach; ?>
         </div>
         <?php if($_SESSION['connect'] == false): ?>
-        <button onclick="alert('Pour pouvoir voir tous les sondages, veuillez-vous connecter'), window.location.href='index.php?page=sign'" class="btn btn-info active" style="margin:0 auto; display:block">Voir d'autres sondages</button>
+        <button
+            onclick="alert('Pour pouvoir voir tous les sondages, veuillez-vous connecter'), window.location.href='index.php?page=sign'"
+            class="btn btn-info active" style="margin:0 auto; display:block">Voir d'autres sondages</button>
         <br><br><br><br>
         <h2>Mes sondages</h2>
         <br><br>
-        <button onclick="alert('Pour pouvoir voir vos sondages, veuillez-vous connecter'), window.location.href='index.php?page=sign'" class="btn btn-info active" style="margin:0 auto; display:block">Voir mes sondages</button>
+        <button
+            onclick="alert('Pour pouvoir voir vos sondages, veuillez-vous connecter'), window.location.href='index.php?page=sign'"
+            class="btn btn-info active" style="margin:0 auto; display:block">Voir mes sondages</button>
         <?php endif; ?>
     </section>
 
@@ -48,7 +53,7 @@ include '../inc/header.inc.php'; ?>
             </div>
             <?php endforeach;?>
         </div>
-    </section>  
+    </section>
     <?php endif; ?>
 </main>
 
