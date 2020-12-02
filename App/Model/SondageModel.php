@@ -50,7 +50,7 @@ function result(){
 
     $commentaire =$this->query("SELECT u.`pseudo`, uc.`comment`, uc.`date` FROM user_comment as uc INNER JOIN user as u on uc.`user_id` = u.`id` WHERE id_question_id = '$sondage_id'");
     if(isset($_POST['sendcom'])) {
-      if( !empty($_POST['commentaire'])) {
+      if(!empty($_POST['commentaire'])) {
         $iduser=$_SESSION['user']['id'];
         $mess=$_POST['commentaire'];
         $enregistrementCom=$this->pdo->prepare("INSERT INTO user_comment (`user_id`, id_question_id, comment) VALUES ('$iduser', '$sondage_id', '$mess')");
@@ -131,31 +131,6 @@ function result(){
     }
   }
 }
-
-//   function saveCom($data)
-//   {
-//       return $com = $data["pseudo"].",".$data["date"].",".$data["comment"]."\n";
-//   }
-
-//   function getCom($return = false)
-//   {
-//       $dbb=$this->pdo->prepare("SELECT u.pseudo, c.date, c.comment FROM `user_comment`as c INNER JOIN user as u on c.`user_id`= u.id");
-//       $data = array();
-//       while(true){
-//           $com = $dbb;
-//           if ($com == false) {
-//               break;
-//           }else {
-//               $data[] = $com;
-//           }
-//       }
-
-//       if ($return) {
-//         return $data;
-//       }
-//       echo json_encode($data);
-//   }
-// }
 
 
 ?>

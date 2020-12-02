@@ -38,7 +38,7 @@ include '../inc/header.inc.php'; ?>
         <div class="conteneur">
             <?php foreach( $requete[1] as $sondagePerso) : ?>
             <div class="boxsondage">
-                <a href=>
+                <a href="index.php?page=sondage&sondage=<?=$sondagePerso->question_id?>">
                     <img src="<?= $sondagePerso->image ?>"
                         alt="Image de la question ' + <?= $sondagePerso->question ?> + '">
                     <span>Date de fin : <?= $sondagePerso->date_fin ?></span>
@@ -56,7 +56,7 @@ include '../inc/header.inc.php'; ?>
         <div class="conteneur">
             <?php foreach( $requete[2] as $sondageResult) : ?>
             <div class="boxsondage">
-                <a href=>
+                <a href="index.php?page=sondage&sondage=<?=$sondageResult->question_id?>">
                     <img src="<?= $sondageResult->image ?>"
                         alt="Image de la question <?= $sondageResult->question ?> ">
                     <span>Date de fin : Finit depuis le <?= $sondageResult->date_fin ?></span>
@@ -70,13 +70,13 @@ include '../inc/header.inc.php'; ?>
     <section id="mesSond">
         <h2>Les résultat de mes sondages</h2>
         <div class="conteneur">
-            <?php foreach( $requete[3] as $MesSondageResult) : ?>
+            <?php foreach( $requete[3] as $sondageResultPerso) : ?>
             <div class="boxsondage">
-                <a href=>
-                    <img src="<?= $MesSondageResult->image ?>"
-                        alt="Image de la question <?= $MesSondageResult->question ?> ">
-                    <span>Date de fin : Finit depuis le <?= $MesSondageResult->date_fin ?></span>
-                    <p><?= $MesSondageResult->question ?></p>
+                <a href="index.php?page=sondage&sondage=<?=$sondageResult->question_id?>">
+                    <img src="<?= $sondageResultPerso->image ?>"
+                        alt="Image de la question <?= $sondageResultPerso->question ?> ">
+                    <span>Date de fin : Finit depuis le <?= $sondageResultPerso->date_fin ?></span>
+                    <p><?= $sondageResultPerso->question ?></p>
                 </a>
                 <br>
             </div>

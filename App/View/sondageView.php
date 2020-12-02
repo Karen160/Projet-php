@@ -2,7 +2,7 @@
 include '../inc/head.inc.php'; 
 include '../inc/header.inc.php'; ?>
 <main>
-    <?php 
+    <?php   
     function Date_Convert($date) {
         $jour = substr($date, 8, 2);
         $mois = substr($date, 5, 2);
@@ -19,12 +19,12 @@ include '../inc/header.inc.php'; ?>
         return $tab_retour;
     }
 
-    function AuPluriel($chiffre) {
+    function Pluriel($chiffre) {
         if($chiffre>1) {
             return 's';
         };
     }
-    function TimeToJourJ($date) {
+    function TimeToFin($date) {
         $tab_date = Date_Convert($date);
         $mkt_jourj = mktime($tab_date['heure'],
                         $tab_date['minute'],
@@ -42,43 +42,36 @@ include '../inc/header.inc.php'; ?>
         if($diff>=$unjour) {
             // EN JOUR
             $calcul = $diff / $unjour;
-            return 'Il reste <strong>'.ceil($calcul).' jour'.AuPluriel($calcul).
-    '</strong>.';
+            return array (ceil($calcul).' jour'.Pluriel($calcul).'</strong>.', $past);
     
         } elseif($diff<$unjour && $diff>=0 && $diff>=3600) {
             // EN HEURE
             $calcul = $diff / 3600;
-            return 'Il reste <strong>'.ceil($calcul).' heure'.AuPluriel($calcul).
-    '</strong>.';
+            return array (ceil($calcul).' heure'.Pluriel($calcul).'</strong>.', $past);
     
         } elseif($diff<$unjour && $diff>=0 && $diff<3600) {
             // EN MINUTES
             $calcul = $diff / 60;
-            return 'Il reste <strong>'.ceil($calcul).' minute'.AuPluriel($calcul).
-    '</strong>.';
-    
+            return array (ceil($calcul).' minute'.Pluriel($calcul).'</strong>.', $past);'</strong>.';
         } elseif($diff<0 && abs($diff)<3600) {
             // DEPUIS EN MINUTES
+            $past = true;
             $calcul = abs($diff) / 60;
-            return 'Depuis <strong>'.ceil($calcul).' minute'.AuPluriel($calcul).
-    '</strong>.';
-    
+            return array (ceil($calcul).' minute'.Pluriel($calcul).'</strong>.', $past);'</strong>.';
         } elseif($diff<0 && abs($diff)<=3600) {
             // DEPUIS EN HEURES
+            $past = true;
             $calcul = abs($diff) / 3600;
-            return 'Depuis <strong>'.ceil($calcul).' heure'.AuPluriel($calcul).
-    '</strong>.';        
-    
+            return array (ceil($calcul).'heure'.Pluriel($calcul).'</strong>.', $past);       
         } else {
             // DEPUIS EN JOUR
             $past = true;
             $calcul = abs($diff) / $unjour;
-            return 'Depuis <strong>'.ceil($calcul).' jour'.AuPluriel($calcul).
-    '</strong>.';
-    
+            return  array(ceil($calcul).' jour'.Pluriel($calcul).'</strong>.',$past) ;
         };
     }
 ?>
+<main>
     <button class="btn btn-info active pop" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
     <section id="sondage">
         <h2><?=$sondage[0]->question?></h2>
@@ -96,19 +89,19 @@ include '../inc/header.inc.php'; ?>
     <section id="sondage">
         <?php  
         $dateFin = $resultat[0]["date_fin"];
-        $temps = TimeToJourJ($dateFin);
+        list ($temps, $past) = TimeToFin($dateFin);
         if($past){
-            $statut = "Le sondage est Terminé depuis ".$temps.". Voici les résultats finaux";
+            $statut = "Le sondage est terminé depuis ".$temps."Voici les résultats finaux";
         }else{
-            $statut =  "Le sondage se termine dans ".$temps.". Voici les résultats actuelle";
+            $statut =  "Le sondage se termine dans ".$temps."Voici les résultats actuels";
         }
        
         ?>
 
         <h2>Résultat:</h2>
-        <P>Statut: <?= $statut ?></P>
+        <P class="text-center">Statut: <?= $statut ?></P>
         <br><br>
-        <h3><?= $resultat[0]["question"] ?></h3>
+        <h3  class="text-center"><?= $resultat[0]["question"] ?></h3>
         <br><br>
         <div class="sond">
             <h4>Oui</h4>
@@ -117,7 +110,7 @@ include '../inc/header.inc.php'; ?>
                     <p>70%</p>
                 </div>
             </div>
-            <p> votes</p>
+            <p>votes</p>
             <br><br>
             <h4>Non</h4>
             <div class="bar">

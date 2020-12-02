@@ -117,25 +117,3 @@ $("#formNbPerson").change(function () {
         j++;
     }
 });
-
-// var notre = {};
-// notre.id = 5;
-// $("#boutonPropo").click(function(){
-    
-    // console.log(notre);
-// })
-
-// $.ajax({
-//     url:'../../index.php?page=newSondage',
-//     method: "POST",
-//     data: notre,
-//     success: function(){
-//         console.log("tu as géré")
-//     }
-// });
-
-//'../../index.php?page=newSondage'
-//'../../../root.php?function=newSondage'
-//'../../../App/Model/newSondageModel.php'
-//'../../../App/Controller/newSondageController.php'
-
