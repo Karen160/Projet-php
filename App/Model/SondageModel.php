@@ -130,6 +130,7 @@ function result(){
       return $msg;
     }
   }
+}
 
 //   function saveCom($data)
 //   {
