@@ -6,6 +6,8 @@ include '../inc/header.inc.php'; ?>
     <section>
         <h2>Sondages en cours</h2>
         <div class="conteneur">
+            <!-- Si l'internaute n'est pas connecté, seulement 3 sondages sont montrés, il faut qu'il se connect pour y avoir accès et en voir plus
+            Si l'internaute est connecté, il voit tous les sondages et peut y répondre -->
             <?php 
             if($_SESSION['connect']){
                 $sond =  $requete[0] ;
