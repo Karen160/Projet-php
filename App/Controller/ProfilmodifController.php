@@ -12,12 +12,13 @@ class ProfilmodifController{
 
     public function modifier()
     {
+        //sinon si connecté on demande la méthode et on passe une variable plus require la vue
         if($_SESSION['connect'] == true){  
             
             $message =  $this->model->modifier();
             $user_infos = $this->model->recup();
             require ROOT."/App/View/profilModifView.php";
-        }else{
+        }else{//si pas connecté on redirige
          header('location:index.php?page=sign');
         }
     }

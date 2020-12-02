@@ -35,46 +35,47 @@ class SondageModel extends Database {
     }
     return $sondage; 
   }
-function addAnswer(){
-  //permet de Hash les réponses dans l'url pour ainsi pallier les requetes de l'utilisateur via l'url
-  $sondage_id=$_GET['sondage'];
-  $idUser=$_SESSION['user']['id'];
-  $verif=$this->pdo->query("SELECT * FROM user_answer where `user_id` = '$idUser' AND id_question = '$sondage_id' ");
-    if(isset($_GET['answer'])){
-      //hash des valeurs des réponses
-      $idAnswerHash = $_GET['answer'];
-      $idAnswer = 0;
-      //tant que idanswer n'est pas égal à la valeur hash de la réponse on lui rajoute +1
-      while(password_verify($idAnswer, $idAnswerHash) == false){
-        $idAnswer++;  
+  function addAnswer(){
+    //permet de Hash les réponses dans l'url pour ainsi pallier les requetes de l'utilisateur via l'url
+    $sondage_id=$_GET['sondage'];
+    $idUser=$_SESSION['user']['id'];
+    $verif=$this->pdo->query("SELECT * FROM user_answer where `user_id` = '$idUser' AND id_question = '$sondage_id' ");
+      if(isset($_GET['answer'])){
+        //hash des valeurs des réponses
+        $idAnswerHash = $_GET['answer'];
+        $idAnswer = 0;
+        //tant que idanswer n'est pas égal à la valeur hash de la réponse on lui rajoute +1
+        while(password_verify($idAnswer, $idAnswerHash) == false){
+          $idAnswer++;  
+        }
+        if($verif->rowCount() == 0){
+          $addAnswer = $this->pdo->prepare("INSERT INTO user_answer (`user_id`,answer_id,id_question) VALUES ('$idUser','$idAnswer',' $sondage_id')");
+          $addAnswer->execute();  
+          $countAnswer= $this->pdo->prepare("UPDATE ANSWER SET nombre = nombre+1 WHERE answer_id = '$idAnswer' ");
+          $countAnswer->execute();
+          header('location:index.php?page=sondage&sondage='.$sondage_id); 
+        }else{
+        header('location:index.php?page=sondage&sondage='.$sondage_id); 
+        }
+      
       }
       if($verif->rowCount() == 0){
-        $addAnswer = $this->pdo->prepare("INSERT INTO user_answer (`user_id`,answer_id,id_question) VALUES ('$idUser','$idAnswer',' $sondage_id')");
-        $addAnswer->execute();  
-        $countAnswer= $this->pdo->prepare("UPDATE ANSWER SET nombre = nombre+1 WHERE answer_id = '$idAnswer' ");
-        $countAnswer->execute();
-        header('location:index.php?page=sondage&sondage='.$sondage_id); 
+        $vote = false;
       }else{
-       header('location:index.php?page=sondage&sondage='.$sondage_id); 
+        $vote = true;
       }
-     
-    }
-    if($verif->rowCount() == 0){
-      $vote = false;
-    }else{
-      $vote = true;
-    }
-    return $vote;
-}
+      return $vote;
+  }
 
-function result(){
-  $sondage_id=$_GET['sondage'];
-  $total = $this->pdo->query("SELECT SUM(nombre) as total from answer WHERE id_question_id = '$sondage_id'");
-  $total = $total->fetchAll(\PDO::FETCH_ASSOC);
-  $resultat = $this->pdo->query("SELECT q.`date_fin` as date_fin,q.`question` as question, a.`choix` as choix ,a.`nombre` as nombre, SUM(a.`nombre`) as total from question as q INNER JOIN answer as a on q.`question_id` = a.`id_question_id` WHERE q.`question_id` = '$sondage_id' GROUP BY answer_id ");
-  $resultat = $resultat->fetchAll(\PDO::FETCH_ASSOC);
-  return array($resultat, $total) ;
-}
+  function result(){
+    $sondage_id=$_GET['sondage'];
+    $total = $this->pdo->query("SELECT SUM(nombre) as total from answer WHERE id_question_id = '$sondage_id'");
+    $total = $total->fetchAll(\PDO::FETCH_ASSOC);
+    $resultat = $this->pdo->query("SELECT q.`date_fin` as date_fin,q.`question` as question, a.`choix` as choix ,a.`nombre` as nombre, SUM(a.`nombre`) as total from question as q INNER JOIN answer as a on q.`question_id` = a.`id_question_id` WHERE q.`question_id` = '$sondage_id' GROUP BY answer_id ");
+    $resultat = $resultat->fetchAll(\PDO::FETCH_ASSOC);
+    return array($resultat, $total) ;
+  }
+
   function comment() {
     $sondage_id=$_GET['sondage'];
 
@@ -93,8 +94,6 @@ function result(){
     }
     return $commentaire;
   }
-
-
 
   function share() {
     $membre_email=$_SESSION['user']['email'];
