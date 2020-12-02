@@ -82,43 +82,38 @@ include '../inc/header.inc.php';
             <a href="index.php?page=sondage&sondage=<?= $choix->question_id?>&answer=<?=$idHash?>"><h4><?=$choix->choix?></h4></a>
             </button>
             <br><br>
-            <?php endforeach ?>
+        <?php endforeach ?>
         </div>
     </section>
     <br>
     <section id="sondage">
         <?php  
-        $dateFin = $resultat[0]["date_fin"];
+        $dateFin = $resultat[0][0]["date_fin"];
         list ($temps, $past) = TimeToFin($dateFin);
         if($past){
             $statut = "Le sondage est terminé depuis ".$temps."Voici les résultats finaux";
         }else{
             $statut =  "Le sondage se termine dans ".$temps."Voici les résultats actuels";
         }
-       
+        $total = $resultat[1][0]['total'];
         ?>
 
         <h2>Résultat:</h2>
         <P class="text-center">Statut: <?= $statut ?></P>
         <br><br>
-        <h3 class="text-center"><?= $resultat[0]["question"] ?></h3>
+        <h3 class="text-center"><?= $resultat[0][0]["question"] ?></h3>
         <br><br>
         <div class="sond">
-            <h4>Oui</h4>
+            <?php foreach($resultat[0] as $result): ?>
+            <h4><?= $result['choix'] ?></h4>
             <div class="bar">
                 <div class="percentage" style="width: 70%">
-                    <p>70%</p>
+                <?php $nb = ($result['nombre']/$total) * 100?>
+                    <p><?=  $nb ?>%</p>
                 </div>
             </div>
-            <p>votes</p>
-            <br><br>
-            <h4>Non</h4>
-            <div class="bar">
-                <div class="percentage" style="width: 30%">
-                    <p>30%</p>
-                </div>
-            </div>
-            <p>30 votes</p>
+            <p><?= $result['nombre'] ?> votes</p>
+            <?php endforeach; ?>
         </div>
     </section>
     <br><br><br>
