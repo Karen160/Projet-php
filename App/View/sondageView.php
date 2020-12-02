@@ -90,9 +90,7 @@ include '../inc/header.inc.php';
             <br><br>
 
         <?php
-        var_dump($sondage[1]);
-        var_dump($sondage[2]);
-        var_dump($sondage[3]);
+
         
         endforeach ?>
         </div>
