@@ -12,7 +12,7 @@ class SondageModel extends Database {
 
     //select tout les ids de sondage exitants
     //select info d'un sondage
-    $sondage=$this->query("SELECT q.`question`, q.`question_id`, a.`choix`, a.`answer_id` FROM `question` as q INNER JOIN answer as a where `question_id` = `id_question_id` AND `question_id` = ' $sondage_id' ");
+    $sondage=$this->query("SELECT q.`question`, q.`question_id`,q.`user_id_author`, a.`choix`, a.`answer_id` FROM `question` as q INNER JOIN answer as a where `question_id` = `id_question_id` AND `question_id` = ' $sondage_id' ");
     return $sondage;
   }
 function addAnswer(){
@@ -37,6 +37,12 @@ function addAnswer(){
       }
      
     }
+    if($verif->rowCount() == 0){
+      $vote = false;
+    }else{
+      $vote = true;
+    }
+    return $vote;
 }
 
 function result(){
