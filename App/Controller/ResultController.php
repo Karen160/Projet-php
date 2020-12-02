@@ -12,6 +12,11 @@ class ResultController{
 
     public function render()
     {
-       
+        if($_SESSION['connect']){
+            $requete =  $this->model->resultat();
+            require ROOT."/App/View/resultView.php";
+        }else{
+            header('location:index.php?page=sign');
+        } 
     }
 }
