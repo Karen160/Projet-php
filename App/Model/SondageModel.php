@@ -21,10 +21,13 @@ class SondageModel extends Database {
     $dtnow = date("Y-m-d H:i:s");
     $dtfin = $dtfin->fetchAll(\PDO::FETCH_ASSOC);
 
+    //si l'heure actuelle est supérieur a celle de la fin du sondage
     if(strtotime($dtnow) > strtotime($dtfin[0]['date_fin'])){
+      //on trouve la réponse qui a eu le plus de vote
      $max = $this->pdo->query("SELECT MAX(nombre) AS nombre FROM answer WHERE id_question_id = '$sondage_id'");
      $max = $max->fetchAll(\PDO::FETCH_ASSOC);
      $max = $max[0]['nombre'];
+     // la valeur 1 dans la BDD est la réponse la plus votée, 0 sont les questions les moins votées
      $pushresultT = $this->pdo->prepare("UPDATE answer SET resultat = 1 WHERE id_question_id = '$sondage_id' AND nombre = '$max'");
      $pushresultT->execute();
      $pushresultF = $this->pdo->prepare("UPDATE answer SET resultat = 0 WHERE id_question_id = '$sondage_id' AND nombre <> '$max'");
@@ -33,13 +36,15 @@ class SondageModel extends Database {
     return $sondage; 
   }
 function addAnswer(){
- 
+  //permet de Hash les réponses dans l'url pour ainsi pallier les requetes de l'utilisateur via l'url
   $sondage_id=$_GET['sondage'];
   $idUser=$_SESSION['user']['id'];
   $verif=$this->pdo->query("SELECT * FROM user_answer where `user_id` = '$idUser' AND id_question = '$sondage_id' ");
     if(isset($_GET['answer'])){
+      //hash des valeurs des réponses
       $idAnswerHash = $_GET['answer'];
       $idAnswer = 0;
+      //tant que idanswer n'est pas égal à la valeur hash de la réponse on lui rajoute +1
       while(password_verify($idAnswer, $idAnswerHash) == false){
         $idAnswer++;  
       }
@@ -83,7 +88,7 @@ function result(){
       }
 
       else {
-        //  return $msg = '<div class="alert"><i class="fas fa-exclamation-circle"></i>Merci de completer votre commentaire</div>';
+  
       }
     }
     return $commentaire;
@@ -97,24 +102,21 @@ function result(){
 
     if(isset($_POST['send'])) {
 
-      //Vérifier le message
+      //Vérifier si le message fait plus de 20 caractères
       if(iconv_strlen(trim($_POST['textarea'])) >=20) {
-        // var_dump('je suis 1');
+        
         $i=0;
 
         while(isset($_POST['email'.($i+1)])) {
-          // var_dump(isset($_POST['email'.($i+1)]));
+    
           $i++;
-          // var_dump($i);
-          // var_dump('je suis while');
+
         }
 
         for($k=1; $k<=$i; $k++) {
 
-          // var_dump('je suis for');
           //Vérifie l'email
           if(filter_var($_POST['email'. $k], FILTER_VALIDATE_EMAIL)) {
-            // var_dump('je suis if email');
             //envoi de l'email
             $to=$_POST['email'.$k]; //le destinataire
             $subject='Le sondage 2Choose';
@@ -134,8 +136,6 @@ function result(){
                 //message d'envoi email
                 unset($content);
                 unset($_POST['email'.$k]);
-                // header('Location:' . $_SERVER['REQUEST_URI']);
-                // exit;
               }
 
               else {
@@ -145,6 +145,7 @@ function result(){
             }
 
             else {
+              //erreur si champs vide
               $msg='<div class="alert"><i class="fas fa-exclamation-circle"></i>Merci de remplir tous les champs. Le message doit avoir au moin 20 caractèregi</div>';
             }
 

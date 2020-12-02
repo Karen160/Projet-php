@@ -91,11 +91,7 @@ list ($temps, $past) = TimeToFin($dateFin);
         <h2><?=$sondage[0]->question?></h2>
         <br><br>
         <div class="sond">
-<<<<<<< HEAD
-        <?php foreach($sondage[0] as $choix): ?>
-=======
             <?php foreach($sondage as $choix): ?>
->>>>>>> 4dcd1254150b497415f6642067f3931ab53ae66f
             <button name="addAnswer">
                 <?php $idHash = password_hash($choix->answer_id, PASSWORD_DEFAULT); ?>
                 <a href="index.php?page=sondage&sondage=<?= $choix->question_id?>&answer=<?=$idHash?>">
@@ -103,15 +99,7 @@ list ($temps, $past) = TimeToFin($dateFin);
                 </a>
             </button>
             <br><br>
-<<<<<<< HEAD
-
-        <?php
-
-        
-        endforeach ?>
-=======
             <?php endforeach ?>
->>>>>>> 4dcd1254150b497415f6642067f3931ab53ae66f
         </div>
     </section>
 
@@ -152,12 +140,7 @@ list ($temps, $past) = TimeToFin($dateFin);
 
     <br><br><br>
 
-<<<<<<< HEAD
-        <!-- Afficher le commentaire -->
-
-=======
     <!-- Les commentaires du sondage -->
->>>>>>> 4dcd1254150b497415f6642067f3931ab53ae66f
     <section id="commentaire">
         <h2>Commentaire</h2>
         <br><br>
@@ -193,12 +176,8 @@ list ($temps, $past) = TimeToFin($dateFin);
             <br>
         </form>
     </section>
-<<<<<<< HEAD
-        <!-- Partager le Sondage -->
-=======
 
     <!-- Pop up du formulaire pour partager le sondage via les emails -->
->>>>>>> 4dcd1254150b497415f6642067f3931ab53ae66f
     <section class="col-sm-7 mx-auto" id="shareSondage">
         <div class="card position-static">
             <form method="post" enctype="multipart/form-data" id="partage">
