@@ -40,7 +40,7 @@ class SignModel extends Database {
         $_SESSION['user']['date']=$date;
 
         $_SESSION['connect']=true;
-        header("location:index.php");
+        header("location:index.php?page=home");
       }
 
       else {
@@ -81,7 +81,7 @@ class SignModel extends Database {
 
           $_SESSION['connect']=true;
           //rediriger
-          header("location=index.php");
+          header("location:index.php?page=home");
         }
 
         else {
