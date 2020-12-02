@@ -113,23 +113,25 @@ include '../inc/header.inc.php';
         <div class="sond">
             <?php foreach($resultat[0] as $result): ?>
             <h4><?= $result['choix'] ?></h4>
+            <div class="reload">
             <div class="bar">
-                <div class="percentage" style="width: 70%">
-                <?php $nb = ($result['nombre']/$total) * 100?>
+            <?php $nb = round(($result['nombre']/$total) * 100, 1)?>
+                <div class="percentage" style="width:<?= $nb?>%">
                     <p><?=  $nb ?>%</p>
                 </div>
             </div>
             <p><?= $result['nombre'] ?> votes</p>
             <?php endforeach; ?>
+            </div>
         </div>
     </section>
   <?php  } ?>
    
     <br><br><br>
     <section id="commentaire">
-        <div id="com">
             <h2>Commentaire</h2>
             <br><br>
+            <div id="com">
             <?php foreach($commentaire as $com): ?>
             <div class="msg">
                 <div>

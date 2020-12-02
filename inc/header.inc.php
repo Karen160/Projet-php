@@ -2,7 +2,11 @@
     <div style="width:100px">
 
     </div>
+    <div>
+        <a href="../public/index.php?page=home">
         <img src="..\Public\Asset\img\logo.png">
+        </a>
+        </div>
     <div>
         
     <a 
