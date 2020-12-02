@@ -76,16 +76,22 @@ include '../inc/header.inc.php';
 
         <!-- Sondage -->
     <section id="sondage">
-        <h2><?=$sondage[0]->question?></h2>
+        <h2><?=$sondage[0][0]->question?></h2>
         <br><br>
         <div class="sond">
-        <?php foreach($sondage as $choix): ?>
+        <?php foreach($sondage[0] as $choix): ?>
             <button name="addAnswer">
             <?php $idHash = password_hash($choix->answer_id, PASSWORD_DEFAULT); ?> 
             <a href="index.php?page=sondage&sondage=<?= $choix->question_id?>&answer=<?=$idHash?>"><h4><?=$choix->choix?></h4></a>
             </button>
             <br><br>
-        <?php endforeach ?>
+
+        <?php
+        var_dump($sondage[1]);
+        var_dump($sondage[2]);
+        var_dump($sondage[3]);
+        
+        endforeach ?>
         </div>
     </section>
 
@@ -170,7 +176,7 @@ include '../inc/header.inc.php';
             <form method="post" enctype="multipart/form-data" id="partage">
                 <i class="fas fa-times"></i>
                 <div class="card-body">
-                    <h2 class="card-title">Partager le sondage : <br><?=$sondage[0]->question?></h2>
+                    <h2 class="card-title">Partager le sondage : <br><?=$sondage[0][0]->question?></h2>
                     <div class="row ">
                         <div class="col-sm-12 mt-4">
                             <label for="nbPerson">Nombre de personne</label>
