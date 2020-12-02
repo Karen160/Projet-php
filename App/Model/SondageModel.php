@@ -41,9 +41,11 @@ function addAnswer(){
 
 function result(){
   $sondage_id=$_GET['sondage'];
-  $resultat = $this->pdo->query("SELECT q.`date_fin` as date_fin,q.`question` as question, a.`choix` as choix ,a.`nombre` as nombre from question as q INNER JOIN answer as a on q.`question_id` = a.`id_question_id` WHERE q.`question_id` = '$sondage_id' ");
+  $total = $this->pdo->query("SELECT SUM(nombre) as total from answer WHERE id_question_id = '$sondage_id'");
+  $total = $total->fetchAll(\PDO::FETCH_ASSOC);
+  $resultat = $this->pdo->query("SELECT q.`date_fin` as date_fin,q.`question` as question, a.`choix` as choix ,a.`nombre` as nombre, SUM(a.`nombre`) as total from question as q INNER JOIN answer as a on q.`question_id` = a.`id_question_id` WHERE q.`question_id` = '$sondage_id' GROUP BY answer_id ");
   $resultat = $resultat->fetchAll(\PDO::FETCH_ASSOC);
-  return $resultat;
+  return array($resultat, $total) ;
 }
   function comment() {
     $sondage_id=$_GET['sondage'];

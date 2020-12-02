@@ -37,8 +37,7 @@ class NewFriendModel extends Database {
                 $FriendAdd->execute();
                 header('location:index.php?page=NewFriend', true, 303);
             } else {
-                $msg2='vous êtes déjà amis';
-
+                $msg2='';
             }
         }
         return $var=array($Result, $msg, $msg2);

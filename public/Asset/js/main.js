@@ -1,31 +1,31 @@
 //Menu burger
 $('.fa-bars').click(function(){ //Ouvre le menu en appuyant sur les traits
-     $('nav').show("slow");
-     $('main').css('display', 'none');
+    $('nav').show("slow");
+    $('main').css('display', 'none');
 });
-                       
+                      
 $('nav i').click(function(){ //Appuie sur la croix
-    $('nav').hide("slow");
-    $('main').css('display', 'block');
+   $('nav').hide("slow");
+   $('main').css('display', 'block');
 });
 
 $('nav a').click(function(){ //Appuie sur le menu
-    $('nav').hide("slow");
-    $('main').css('display', 'block');
+   $('nav').hide("slow");
+   $('main').css('display', 'block');
 });
 
 
 //Bouton ajout commentaire
 $('#commentaire .combutton').click(function(){
-    $('#commentaire .monCom').css('display', 'block');
-    $(this).css('display', 'none');
+   $('#commentaire .monCom').css('display', 'block');
+   $(this).css('display', 'none');
 });
 
 
 //Rechargement de la page sondage pour mise à jour des commentaires
 setInterval('load_messages()', 500);
-    function load_messages(){
-        $('#com').load('#com .msg')
+   function load_messages(){
+       $('#com').load('#com .msg')
 };
 
 
@@ -34,14 +34,17 @@ setInterval('load_messages()', 500);
 
 //Pop up partage
 $(".pop").click(function(){
-    $("#shareSondage").show("slow");
+   $("#shareSondage").show("slow");
 });
 
 $('#shareSondage i').click(function(){ //Appuie sur la croix
-    $('#shareSondage').hide("slow");
+   $('#shareSondage').hide("slow");
 });
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5eb884beed29c756b4c81cae3588c280fc4a1807
 //Nombre de reponse
 //Permet d'afficher le bon nombre de champ a remplir pour le choix de proposition de réponse que souhaite mettre l'internaute sur sa question
 $("#reponseNb").change(function () {
