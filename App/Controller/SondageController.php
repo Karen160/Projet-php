@@ -17,6 +17,8 @@ class SondageController {
                 $sondage=$this->model->sondage();
                 $resultat = $this->model->result();
                 $commentaire = $this->model->comment();
+                // $com = $this->model->saveCom();
+                // $data = $this->model->getCom();
                 $this->model->addAnswer();
                 require ROOT."/App/View/sondageView.php";
             }else {

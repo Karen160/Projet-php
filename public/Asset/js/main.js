@@ -31,45 +31,45 @@ $('.com').click(function(){
 // xhr.send();
 
 
-$('#com .com2').click(function(e){
-    e.preventDefault();
-    let com = $(".monCom").serializeArray();
+// $('#com .com2').click(function(e){
+//     e.preventDefault();
+//     let com = $(".monCom").serializeArray();
 
-    $.ajax({
-        url:"index.php?page=sondage",
-        method:"POST",
-        dataType:"json",
-        data:com,
-        error:function(response){
-            console.log(response.statusText);
-        }
-    })
-    getCom();  
+//     $.ajax({
+//         url:"index.php?page=sondage",
+//         method:"POST",
+//         dataType:"json",
+//         data:com,
+//         error:function(response){
+//             console.log(response.statusText);
+//         }
+//     })
+//     getCom();  
     
-    // $('#com').load("load.php");
-    // setInterval(function(){
-    //     $('#com').load("load.php");
-    // }, 3000);
-});
+//     // $('#com').load("load.php");
+//     // setInterval(function(){
+//     //     $('#com').load("load.php");
+//     // }, 3000);
+// });
     
-function getCom(){
-    $.ajax({
-        url:"index.php?page=sondage",
-        method:"GET",
-        dataType:"json",
-        success:function(response){
-            $(".msg").html("");
-            let i = 0
-            response.forEach(com => {
-                $(".msg").append("<div><p>'" + com[0] + "'</p><p>'"+ com[1] +"'</p></div>");
-                i++
-            });
-        },
-        error:function(response){
-            console.log(response.statusText);
-        }
-    })
-}
+// function getCom(){
+//     $.ajax({
+//         url:"index.php?page=sondage",
+//         method:"GET",
+//         dataType:"json",
+//         success:function(response){
+//             $(".msg").html("");
+//             let i = 0
+//             response.forEach(com => {
+//                 $(".msg").append("<div><p>'" + com[0] + "'</p><p>'"+ com[1] +"'</p></div><div><p>'" + com[2] + "'</p></div>");
+//                 i++;
+//             });
+//         },
+//         error:function(response){
+//             console.log(response.statusText);
+//         }
+//     })
+// }
 
 
 
@@ -107,8 +107,6 @@ $("#reponseNb").change(function () {
 
 $("#formNbPerson").change(function () {
     let nbPerson = $(this).val();
-
-
     var j = 0;
     $("#email").html("");
     while (j < nbPerson) {

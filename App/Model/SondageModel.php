@@ -97,8 +97,6 @@ function result(){
             $link=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
             $content="Tu as recu une invitation à un sondage, clique sur le message pour y accéder: <br> <br><a href='".$link."'>".$mail." </a>";
 
-
-
             $headers[]='MIME-Version: 1.0';
             $headers[]='Content-type: text/html; charset=utf-8 ';
 
@@ -133,37 +131,30 @@ function result(){
     }
   }
 
-  
-      public function saveCom($data)
-      {
-          $com = $data["titre"].",".$data["desc"].",".$data["urgence"].",".$data["date"]."\n";
-          $file = fopen("tasks.csv", 'a+');
-          fwrite($file,$com);
-  
-          fclose($file);
-      }
-  
-      public function getCom($return = false)
-      {
-          $filename = "tasks.csv";
-          $file = fopen($filename, 'r');
-          $data = array();
-          while(true){
-              $task = fgetcsv($file);
-              if ($task == false) {
-                  break;
-              }else {
-                  $data[] = $task;
-              }
-          }
-          fclose($file);
-  
-          if ($return) {
-            return $data;
-          }
-          echo json_encode($data);
-      }
-  }
+//   function saveCom($data)
+//   {
+//       return $com = $data["pseudo"].",".$data["date"].",".$data["comment"]."\n";
+//   }
+
+//   function getCom($return = false)
+//   {
+//       $dbb=$this->pdo->prepare("SELECT u.pseudo, c.date, c.comment FROM `user_comment`as c INNER JOIN user as u on c.`user_id`= u.id");
+//       $data = array();
+//       while(true){
+//           $com = $dbb;
+//           if ($com == false) {
+//               break;
+//           }else {
+//               $data[] = $com;
+//           }
+//       }
+
+//       if ($return) {
+//         return $data;
+//       }
+//       echo json_encode($data);
+//   }
+// }
 
 
 ?>
