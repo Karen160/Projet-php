@@ -5,20 +5,17 @@ use Core\Database;
 class HomeModel extends Database{
     function home(){
         $_SESSION['connect'] == true;
-       return $allSondage = $this->query(" SELECT q.`question`, u.`pseudo`, q.`image`, q.`date_fin` FROM `question` as q INNER JOIN `user` as u on q.`user_id_author` = u.`id` WHERE date_fin >= CURDATE() ORDER BY date_fin ASC limit 3");
+      return $allSondage = $this->query(" SELECT q.`question`, u.`pseudo`, q.`image`, q.`date_fin` FROM `question` as q INNER JOIN `user` as u on q.`user_id_author` = u.`id` WHERE date_fin >= NOW() ORDER BY date_fin ASC limit 3");
     }
     function homeConnect(){
         $this->pdo->exec('SET time_zone = "+01:00"');
         $membre_id = $_SESSION['user']['id'];
         $sond = $this->query(" SELECT q.`question_id`, q.`question`, u.`pseudo`, q.`image`, q.`date_fin` FROM `question` as q INNER JOIN `user` as u on q.`user_id_author` = u.`id` WHERE date_fin >= NOW() AND q.`user_id_author` <> ' $membre_id'  ORDER BY date_fin ASC");
         
-        $sondPerso = $this->query("SELECT question, `image`, date_fin FROM question WHERE date_fin >= CURDATE() and `user_id_author` = '$membre_id' "); 
+        $sondPerso = $this->query("SELECT question_id, question, `image`, date_fin FROM question WHERE date_fin >= NOW() and `user_id_author` = '$membre_id' "); 
         
-        $sondFin = $this->query(" SELECT q.`question_id`, q.`question`, u.`pseudo`, q.`image`, q.`date_fin` FROM `question` as q INNER JOIN `user` as u on q.`user_id_author` = u.`id` WHERE date_fin < NOW() AND q.`user_id_author` <> ' $membre_id'  ORDER BY date_fin ASC");
-        
-        $sondPersoFin = $this->query("SELECT question, `image`, date_fin FROM question WHERE date_fin < CURDATE() and `user_id_author` = '$membre_id' ");   
-       
-        return $requete = array($sond, $sondPerso, $sondFin, $sondPersoFin);
+      
+        return $requete = array($sond, $sondPerso);
     }
 
     function statut(){

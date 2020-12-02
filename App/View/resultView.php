@@ -1,44 +1,47 @@
 <?php 
-include '../../inc/head.inc.php'; 
-include '../../inc/header.inc.php'; ?>
+include '../inc/head.inc.php'; 
+include '../inc/header.inc.php'; ?>
 <main>
-    <form class="form-inline">
-        <input class="form-control mr-sm-0" type="search" placeholder="Rechercher" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0 active" type="submit">
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="white"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                    d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
-                <path fill-rule="evenodd"
-                    d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
-            </svg>
-        </button>
-    </form>
-    <br><br>
-    <h2>Les résultats</h2>
-    <br>
-    <table>
-        <thead>
-            <tr>
-                <th class="pp">Photo du sondage</th>
-                <th>Question</th>
-                <th>Publié par</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="pp"><img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg"></td>
-                <td>Paul</td>
-                <td>Connecté</td>
-                <td>ddd</td>
-            </tr>
-        </tbody>
-    </table>
+    <section id="mesSond">
+        <h2>Résultat global</h2>
+        <div class="conteneur">
+            <?php foreach( $requete[0] as $sondageResult) : ?>
+            <div class="boxsondage">
+                <a href="index.php?page=sondage&sondage=<?=$sondageResult->question_id?>">
+                    <img src="<?= $sondageResult->image ?>"
+                        alt="Image de la question <?= $sondageResult->question ?> ">
+                    <span>Date de fin : Finit depuis<?= $sondageResult->date_fin ?></span>
+                    <p><?= $sondageResult->question ?></p>
+                </a>
+                <br>
+            </div>
+            <?php endforeach;?>
+        </div>
+    </section>
+    <section id="mesSond">
+        <h2>Les résultat de mes sondages</h2>
+        <div class="conteneur">
+            <?php foreach( $requete[1] as $sondageResultPerso) : ?>
+            <div class="boxsondage">
+                <a href="index.php?page=sondage&sondage=<?=$sondageResultPerso->question_id?>">
+                    <img src="<?= $sondageResultPerso->image ?>"
+                        alt="Image de la question <?= $sondageResultPerso->question ?> ">
+                    <span>Date de fin : Finit depuis le <?= $sondageResultPerso->date_fin ?></span>
+                    <p><?= $sondageResultPerso->question ?></p>
+                </a>
+                <br>
+            </div>
+            <?php endforeach;?>
+        </div>
+    </section>
 </main>
+<<<<<<< HEAD
 <?php include '../../inc/footer.inc.php' ?>
 
 
 
 
 
+=======
+<?php include '../inc/footer.inc.php' ?>
+>>>>>>> f0ed97e2dc53309530f5e432086451f44e81552d
