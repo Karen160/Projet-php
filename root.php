@@ -43,6 +43,9 @@ if (array_key_exists("page", $_GET)) {
             $controller = new NewFriendController();
             $controller->render();
         break;
+        case 'Résultat':
+            
+        break;
         default:
             $controller = new HomeController();
             $controller->render();

@@ -14,26 +14,37 @@ include '../../inc/header.inc.php'; ?>
             </svg>
         </button>
     </form>
-    <br><br>
-    <h2>Les résultats</h2>
-    <br>
-    <table>
-        <thead>
-            <tr>
-                <th class="pp">Photo du sondage</th>
-                <th>Question</th>
-                <th>Publié par</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="pp"><img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg"></td>
-                <td>Paul</td>
-                <td>Connecté</td>
-                <td>ddd</td>
-            </tr>
-        </tbody>
-    </table>
+    <section id="mesSond">
+        <h2>Résultat global</h2>
+        <div class="conteneur">
+            <?php foreach( $requete[2] as $sondageResult) : ?>
+            <div class="boxsondage">
+                <a href="index.php?page=sondage&sondage=<?=$sondageResult->question_id?>">
+                    <img src="<?= $sondageResult->image ?>"
+                        alt="Image de la question <?= $sondageResult->question ?> ">
+                    <span>Date de fin : Finit depuis le <?= $sondageResult->date_fin ?></span>
+                    <p><?= $sondageResult->question ?></p>
+                </a>
+                <br>
+            </div>
+            <?php endforeach;?>
+        </div>
+    </section>
+    <section id="mesSond">
+        <h2>Les résultat de mes sondages</h2>
+        <div class="conteneur">
+            <?php foreach( $requete[3] as $sondageResultPerso) : ?>
+            <div class="boxsondage">
+                <a href="index.php?page=sondage&sondage=<?=$sondageResult->question_id?>">
+                    <img src="<?= $sondageResultPerso->image ?>"
+                        alt="Image de la question <?= $sondageResultPerso->question ?> ">
+                    <span>Date de fin : Finit depuis le <?= $sondageResultPerso->date_fin ?></span>
+                    <p><?= $sondageResultPerso->question ?></p>
+                </a>
+                <br>
+            </div>
+            <?php endforeach;?>
+        </div>
+    </section>
 </main>
 <?php include '../../inc/footer.inc.php' ?>
