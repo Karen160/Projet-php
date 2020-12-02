@@ -4,18 +4,11 @@ include '../inc/header.inc.php';
 
 ?>
 <main id="profil">
-<<<<<<< HEAD
     <button onclick="window.location.href = 'index.php?page=profilModif'" class="btn btn-info active"
         style="float:right; margin-right:40px">Modifier mon profil</button><br><br>
     <button onclick="window.location.href = 'index.php?page=friend'" class="btn btn-info active"
         style="float:right; margin-right:70px">Mes amis</button>
-
-=======
-    <button onclick="window.location.href = 'index.php?page=profilModif'" class="btn btn-info active" style="float:right; margin-right:40px">Modifier mon profil</button><br><br> 
-    <button onclick="window.location.href = 'index.php?page=friend'" class="btn btn-info active" style="float:right; margin-right:70px">Mes amis</button>
-    
-   
->>>>>>> 075929a7953b77922ac663d71eaac8c5ca7d07c5
+        
     <section>
         <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
         <div class="info">
