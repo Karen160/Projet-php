@@ -34,8 +34,9 @@ class FriendModel extends Database {
             $idUser=$_SESSION['user']['id'];
             //verif présence amis dans col A 
             $colA=$this->pdo->query("SELECT user_id_A FROM friend where user_id_A = '$idFriend'  AND user_id_B = '$idUser' ");
+            //verif présence amis dans col B 
             $colB=$this->pdo->query("SELECT user_id_B FROM friend where user_id_A = '$idUser'  AND user_id_B = '$idFriend' ");
-
+            //Vérifier si l'amis n'est pas déjà présent dans les amis
             if($colA->rowCount()==1 || $colB->rowCount()==1) {
                 $colA=$this->pdo->prepare("DELETE FROM friend where user_id_A = '$idFriend'  AND user_id_B = '$idUser' ");
                 $colB=$this->pdo->prepare("DELETE FROM friend where user_id_A = '$idUser'  AND user_id_B = '$idFriend' ");
@@ -43,7 +44,7 @@ class FriendModel extends Database {
                 $colB->execute();
                 header("location:index.php?page=friend");
             }
-
+            //si l'amis est déjà dans la liste d'amis alors on affiche
             else {
                 $msg2='vous êtes déjà amis';
             }

@@ -27,11 +27,11 @@ class SignModel extends Database {
         $enregistrement->bindParam(':email', $email, \PDO::PARAM_STR);
         $enregistrement->bindParam(':mdp', $mdp, \PDO::PARAM_STR);
         $enregistrement->execute();
-        //
+      
         $recup_infos=$this->pdo->query("SELECT * FROM user  where pseudo = '$pseudo' ");
         $infos_membre=$recup_infos->fetch(\PDO::FETCH_ASSOC);
         $date=date('d-m-Y', strtotime($infos_membre['date']));
-
+        //Stock les informations dans la bdd afin de les réutiliser plus tard
         $_SESSION['user']['id']=$infos_membre['id'];
         $_SESSION['user']['nom']=$infos_membre['nom'];
         $_SESSION['user']['prenom']=$infos_membre['prenom'];
