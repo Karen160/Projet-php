@@ -23,9 +23,15 @@ $('#commentaire .combutton').click(function(){
 
 
 //Rechargement de la page sondage pour mise à jour des commentaires
-setInterval('load_messages()', 500);
-   function load_messages(){
+setInterval('load_commentaire()', 500);
+   function load_commentaire(){
        $('#com').load('#com .msg')
+};
+
+//Rechargement de la page sondage pour mise à jour des résultats des sondages
+setInterval('load_resultat()', 500);
+   function load_resultat(){
+       $('#sondage .sond .reload').load('#sondage .sond .reload')
 };
 
 
@@ -37,7 +43,6 @@ $(".pop").click(function(){
 $('#shareSondage i').click(function(){ //Appuie sur la croix
    $('#shareSondage').hide("slow");
 });
-
 
 //Nombre de reponse
 //Permet d'afficher le bon nombre de champ a remplir pour le choix de proposition de réponse que souhaite mettre l'internaute sur sa question

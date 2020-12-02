@@ -2,7 +2,11 @@
     <div style="width:100px">
 
     </div>
+    <div>
+        <a href="../public/index.php?page=home">
         <img src="..\Public\Asset\img\logo.png">
+        </a>
+        </div>
     <div>
         
     <a 
@@ -17,6 +21,8 @@
 
     </div>
     <?php
+   
+   
         if(isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
         session_destroy();
         header('location:index.php?page=home');
@@ -35,7 +41,7 @@
         <a href="../public/index.php?page=friend">Amis</a>
         <?php if($_SESSION['connect'] == true) { ?>
         <hr>
-        <a href="index.php?action=deconnexion">Deconnexion</a>
+        <a href="index.php?page=home&action=deconnexion">Deconnexion</a>
         <?php } ?>
     </nav>
 </header>

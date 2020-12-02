@@ -69,11 +69,15 @@ include '../inc/header.inc.php';
             return  array(ceil($calcul).' jour'.Pluriel($calcul).'</strong>.',$past) ;
         };
     }
+    $dateFin = $resultat[0][0]["date_fin"];
+    list ($temps, $past) = TimeToFin($dateFin);
 ?>
 <main>
     <button class="btn btn-info active pop" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
-    
-    <section id="sondage">
+    <?php 
+    if($past == false && $_SESSION['user']['id'] != $sondage[0]->user_id_author && $vote == false){
+        ?>
+        <section id="sondage">
         <h2><?=$sondage[0]->question?></h2>
         <br><br>
         <div class="sond">
@@ -85,12 +89,11 @@ include '../inc/header.inc.php';
             <br><br>
         <?php endforeach ?>
         </div>
-    </section>
-    <br>
-    <section id="sondage">
+        </section>
+
+    <?php }else{ ?>
+        <section id="sondage">
         <?php  
-        $dateFin = $resultat[0][0]["date_fin"];
-        list ($temps, $past) = TimeToFin($dateFin);
         if($past){
             $statut = "Le sondage est terminé depuis ".$temps."Voici les résultats finaux";
         }else{
@@ -107,21 +110,25 @@ include '../inc/header.inc.php';
         <div class="sond">
             <?php foreach($resultat[0] as $result): ?>
             <h4><?= $result['choix'] ?></h4>
+            <div class="reload">
             <div class="bar">
-                <div class="percentage" style="width: 70%">
-                <?php $nb = ($result['nombre']/$total) * 100?>
+            <?php $nb = round(($result['nombre']/$total) * 100, 1)?>
+                <div class="percentage" style="width:<?= $nb?>%">
                     <p><?=  $nb ?>%</p>
                 </div>
             </div>
             <p><?= $result['nombre'] ?> votes</p>
             <?php endforeach; ?>
+            </div>
         </div>
     </section>
+  <?php  } ?>
+   
     <br><br><br>
     <section id="commentaire">
-        <div id="com">
             <h2>Commentaire</h2>
             <br><br>
+            <div id="com">
             <?php foreach($commentaire as $com): ?>
             <div class="msg">
                 <div>

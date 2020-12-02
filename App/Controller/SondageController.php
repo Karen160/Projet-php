@@ -13,13 +13,13 @@ class SondageController {
         if(($_SESSION['connect'])) {
             $id=$this->model->verif();
             $msg =$this->model->share();
-            if( !empty($id) &&  !empty($_GET['sondage'])) {
+            if( !empty($id) && !empty($_GET['sondage'])) {
                 $sondage=$this->model->sondage();
                 $resultat = $this->model->result();
                 $commentaire = $this->model->comment();
                 // $com = $this->model->saveCom();
                 // $data = $this->model->getCom();
-                $this->model->addAnswer();
+               $vote = $this->model->addAnswer();
                 require ROOT."/App/View/sondageView.php";
             }else {
                 header('location:index.php?page=home');

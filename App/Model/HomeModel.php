@@ -26,13 +26,10 @@ class HomeModel extends Database{
             $co =$this->pdo->prepare("UPDATE user SET statut= 1 WHERE id =" . $_SESSION['user']['id']);
             $co->execute();
         }
-        else
-        {
-            $co =$this->pdo->prepare("UPDATE user SET statut = 0 WHERE id =" . $_SESSION['user']['id']);
+        if(isset($_GET['action']) && $_GET['action'] == 'deconnexion'){
+            $co =$this->pdo->prepare("UPDATE user SET statut= 0 WHERE id =" . $_SESSION['user']['id']);
             $co->execute();
         }
-
-        return $co;
     }
     
 }   
