@@ -2,7 +2,7 @@
 include '../inc/head.inc.php'; 
 include '../inc/header.inc.php'; ?>
 <main>
-    Affichage des sondages 
+    <!-- Affichage des résultats des sondages  -->
     <section id="mesSond">
         <h2>Résultat global</h2>
         <div class="conteneur">
@@ -18,6 +18,8 @@ include '../inc/header.inc.php'; ?>
             <?php endforeach;?>
         </div>
     </section>
+
+    <!-- Affichage des résultats de mes sondages fini -->
     <section id="mesSond">
         <h2>Les résultat de mes sondages</h2>
         <div class="conteneur">
