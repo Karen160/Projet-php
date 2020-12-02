@@ -4,12 +4,14 @@ include '../inc/header.inc.php';
 ?>
 <main id="profil">
     <section>
+        <!-- Formulaire de modification du profil -->
         <form method="post">
             <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
             <div class="info">
                 <?php foreach($user_infos as $userdata):?>
                 <div>
                     <label for="nom">Nom :</label>
+                    <!-- Met dans la valeur des boutons les informations actuelles du profil -->
                     <input type="text" name="nom" class="form-control" value="<?= $userdata->nom ?>">
 
                     <label for="prenom">Prénom :</label>
@@ -18,7 +20,7 @@ include '../inc/header.inc.php';
                     <label for="pseudo">Pseudo :</label>
                     <input type="text" name="pseudo" class="form-control" value="<?= $userdata->pseudo?>">
 
-                    <label for="Nmdp">Nouveau Mot de passe :</label>
+                    <label for="Nmdp">Nouveau mot de passe :</label>
                     <input type="password" name="Nmdp" class="form-control">
                 </div>
                 <div>
@@ -30,17 +32,16 @@ include '../inc/header.inc.php';
                     <label style="margin-top: 1%;" for="mdp">Mdp actuel :</label>
                     <input type="password" name="mdp" class="form-control" placeholder="veuillez remplir le champ"
                         required>
-
                 </div>
                 <?php endforeach ?>
             </div>
             <input type="submit" class="btn btn-info btn-block active" value="Envoyez" name="bouton">
             <?php  
-        if($message[0] == true){
-            echo $message[1];
-        }
-        ?>
+            if($message[0] == true){
+                echo $message[1];
+            }
+            ?>
         </form>
     </section>
 </main>
-<?php  include '../inc/footer.inc.php';?>
+<?php include '../inc/footer.inc.php';?>

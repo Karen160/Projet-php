@@ -81,6 +81,7 @@ $dateFin = $resultat[0][0]["date_fin"];
 list ($temps, $past) = TimeToFin($dateFin);
 ?>
 <main>
+
     <button class="btn btn-info active pop" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
     <?php 
     if($past == false && $_SESSION['user']['id'] != $sondage[0]->user_id_author && $vote == false){
@@ -90,7 +91,11 @@ list ($temps, $past) = TimeToFin($dateFin);
         <h2><?=$sondage[0]->question?></h2>
         <br><br>
         <div class="sond">
+<<<<<<< HEAD
+        <?php foreach($sondage[0] as $choix): ?>
+=======
             <?php foreach($sondage as $choix): ?>
+>>>>>>> 4dcd1254150b497415f6642067f3931ab53ae66f
             <button name="addAnswer">
                 <?php $idHash = password_hash($choix->answer_id, PASSWORD_DEFAULT); ?>
                 <a href="index.php?page=sondage&sondage=<?= $choix->question_id?>&answer=<?=$idHash?>">
@@ -98,7 +103,15 @@ list ($temps, $past) = TimeToFin($dateFin);
                 </a>
             </button>
             <br><br>
+<<<<<<< HEAD
+
+        <?php
+
+        
+        endforeach ?>
+=======
             <?php endforeach ?>
+>>>>>>> 4dcd1254150b497415f6642067f3931ab53ae66f
         </div>
     </section>
 
@@ -108,6 +121,7 @@ list ($temps, $past) = TimeToFin($dateFin);
         <?php  
         if($past){
             $statut = "Le sondage est terminé depuis ".$temps."Voici les résultats finaux";
+
         }else{
             $statut =  "Le sondage se termine dans ".$temps."Voici les résultats actuels";
         }
@@ -138,7 +152,12 @@ list ($temps, $past) = TimeToFin($dateFin);
 
     <br><br><br>
 
+<<<<<<< HEAD
+        <!-- Afficher le commentaire -->
+
+=======
     <!-- Les commentaires du sondage -->
+>>>>>>> 4dcd1254150b497415f6642067f3931ab53ae66f
     <section id="commentaire">
         <h2>Commentaire</h2>
         <br><br>
@@ -158,6 +177,11 @@ list ($temps, $past) = TimeToFin($dateFin);
             <?php endforeach;?>
             <br>
         </div>
+
+
+
+        <!-- Ajouter un commentaire au sondage -->
+
         <button type="submit" class="btn btn-info combutton active" style="margin:0 auto; display:block">Ajouter un
             commentaire</button>
         <form method="POST" action="<?php $_SERVER['PHP_SELF'] ?>" class="monCom">
@@ -169,14 +193,18 @@ list ($temps, $past) = TimeToFin($dateFin);
             <br>
         </form>
     </section>
+<<<<<<< HEAD
+        <!-- Partager le Sondage -->
+=======
 
     <!-- Pop up du formulaire pour partager le sondage via les emails -->
+>>>>>>> 4dcd1254150b497415f6642067f3931ab53ae66f
     <section class="col-sm-7 mx-auto" id="shareSondage">
         <div class="card position-static">
             <form method="post" enctype="multipart/form-data" id="partage">
                 <i class="fas fa-times"></i>
                 <div class="card-body">
-                    <h2 class="card-title">Partager le sondage : <br><?=$sondage[0]->question?></h2>
+                    <h2 class="card-title">Partager le sondage : <br><?=$sondage[0][0]->question?></h2>
                     <div class="row ">
                         <div class="col-sm-12 mt-4">
                             <label for="nbPerson">Nombre de personne</label>
