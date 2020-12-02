@@ -8,6 +8,7 @@ class HomeModel extends Database{
       return $allSondage = $this->query(" SELECT q.`question`, u.`pseudo`, q.`image`, q.`date_fin` FROM `question` as q INNER JOIN `user` as u on q.`user_id_author` = u.`id` WHERE date_fin >= NOW() ORDER BY date_fin ASC limit 3");
     }
     function homeConnect(){
+        //quand l'utilisateur est connecté on récupère ses sondages et on les affiches
         $this->pdo->exec('SET time_zone = "+01:00"');
         $membre_id = $_SESSION['user']['id'];
         $sond = $this->query(" SELECT q.`question_id`, q.`question`, u.`pseudo`, q.`image`, q.`date_fin` FROM `question` as q INNER JOIN `user` as u on q.`user_id_author` = u.`id` WHERE date_fin >= NOW() AND q.`user_id_author` <> ' $membre_id'  ORDER BY date_fin ASC");
@@ -24,7 +25,7 @@ class HomeModel extends Database{
         {
             $co =$this->pdo->prepare("UPDATE user SET statut= 1 WHERE id =" . $_SESSION['user']['id']);
             $co->execute();
-        }
+        } //si l'utilisateur appuie sur le bouton déconnexion alors on push un 0 dans la table user statut
         if(isset($_GET['action']) && $_GET['action'] == 'deconnexion'){
             $co =$this->pdo->prepare("UPDATE user SET statut= 0 WHERE id =" . $_SESSION['user']['id']);
             $co->execute();
