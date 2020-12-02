@@ -3,6 +3,7 @@ use Core\Database;
 
 class SondageModel extends Database {
   function verif() {
+    //recup info a return dans le controller pour une verification
     $sondage_id=$_GET['sondage'];
     return $id=$this->query("SELECT `question_id` FROM `question` where  `question_id` =  '$sondage_id'  ");
   }
@@ -58,27 +59,30 @@ class SondageModel extends Database {
         header('location:index.php?page=sondage&sondage='.$sondage_id); 
         }
       
-      }
+      }//verifion que nous ne retournons auccune ligne, si c'est le cas l'utilisateur n'a pas voté
       if($verif->rowCount() == 0){
         $vote = false;
-      }else{
+      }else{//sinon il a déjà voté
         $vote = true;
-      }
+      }//return de la variable pour l'utiliser dans la vue et 
+      //savoir s'il faut lui afficher les résultats ou les proposition de réponse
       return $vote;
   }
 
   function result(){
+    //function permettant de récupérer les informations des résultats d'un sondage
     $sondage_id=$_GET['sondage'];
-    $total = $this->pdo->query("SELECT SUM(nombre) as total from answer WHERE id_question_id = '$sondage_id'");
+    $total = $this->pdo->query("SELECT SUM(nombre) as total from answer WHERE id_question_id = '$sondage_id'"); //le total est le nombre total pour les %
     $total = $total->fetchAll(\PDO::FETCH_ASSOC);
+    //requete permettant de récupéré les info d'une réponse
     $resultat = $this->pdo->query("SELECT q.`date_fin` as date_fin,q.`question` as question, a.`choix` as choix ,a.`nombre` as nombre, SUM(a.`nombre`) as total from question as q INNER JOIN answer as a on q.`question_id` = a.`id_question_id` WHERE q.`question_id` = '$sondage_id' GROUP BY answer_id ");
     $resultat = $resultat->fetchAll(\PDO::FETCH_ASSOC);
-    return array($resultat, $total) ;
+    return array($resultat, $total) ; //return un tableau de var a la vue
   }
 
   function comment() {
     $sondage_id=$_GET['sondage'];
-
+//function permettant de recup et afficher les commentaire et les info lié
     $commentaire =$this->query("SELECT u.`pseudo`, uc.`comment`, uc.`date` FROM user_comment as uc INNER JOIN user as u on uc.`user_id` = u.`id` WHERE id_question_id = '$sondage_id'");
     if(isset($_POST['sendcom'])) {
       if(!empty($_POST['commentaire'])) {
@@ -86,9 +90,7 @@ class SondageModel extends Database {
         $mess=$_POST['commentaire'];
         $enregistrementCom=$this->pdo->prepare("INSERT INTO user_comment (`user_id`, id_question_id, comment) VALUES ('$iduser', '$sondage_id', '$mess')");
         $enregistrementCom->execute();
-      }
-
-      else {
+      }else {
   
       }
     }
@@ -98,21 +100,21 @@ class SondageModel extends Database {
   function share() {
     $membre_email=$_SESSION['user']['email'];
     $msg="";
-
-    if(isset($_POST['send'])) {
+//fucntion de partage de sondage
+    if(isset($_POST['send'])) { //si le bouton send est cliqué
 
       //Vérifier si le message fait plus de 20 caractères
-      if(iconv_strlen(trim($_POST['textarea'])) >=20) {
+      if(iconv_strlen(trim($_POST['textarea'])) >=20) { //si le stextarea sans espace au début et à la fin fait au moins 20 caractère
         
-        $i=0;
+        $i=0; //on initialise i a 0
 
-        while(isset($_POST['email'.($i+1)])) {
+        while(isset($_POST['email'.($i+1)])) { //tant que l'élément au name email$i existe on fait i++(retourne le nombre choisit)
     
           $i++;
 
         }
 
-        for($k=1; $k<=$i; $k++) {
+        for($k=1; $k<=$i; $k++) { //tant que k est inférieur a i k++
 
           //Vérifie l'email
           if(filter_var($_POST['email'. $k], FILTER_VALIDATE_EMAIL)) {
