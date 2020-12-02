@@ -6,8 +6,7 @@ class NewFriendModel extends Database {
         $idUser=$_SESSION['user']['id'];
         $Result=$this->query("SELECT * FROM user as u WHERE id <> ALL ( SELECT user_id_A FROM friend where user_id_A = '$idUser' OR user_id_B = '$idUser') AND id <> ALL ( SELECT user_id_B FROM friend where user_id_A = '$idUser' OR user_id_B = '$idUser') AND id <> '$idUser'");
         $msg="";
-        $msg2="";
-
+        
         if(isset($_POST['button'])) {
             if( !empty($_POST['recherche'])) {
                 $recherche=htmlspecialchars(trim($_POST['recherche']));
@@ -37,10 +36,9 @@ class NewFriendModel extends Database {
                 $FriendAdd->execute();
                 header('location:index.php?page=NewFriend', true, 303);
             } else {
-                $msg2='';
             }
         }
-        return $var=array($Result, $msg, $msg2);
+        return $var=array($Result, $msg);
     }
 
 }

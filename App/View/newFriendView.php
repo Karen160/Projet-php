@@ -29,14 +29,17 @@ include '../inc/header.inc.php';
         <tbody>
         
             <?php 
-        echo $var[2];
             foreach($var[0] as $user):
                 
             ?>
             <tr>
                 
                 <td name="pseudo"> <?= $user->pseudo ?> </td>
-                <td>Connecté</td>
+                <td><?php if($user->statut == 1){
+                    echo 'connecté';
+                }else{
+                    echo 'Hors ligne';
+                }  ?></td>
                 <?php
                 $idFriendHash = password_hash($user->id, PASSWORD_DEFAULT);
                 ?> 
