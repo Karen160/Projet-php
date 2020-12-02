@@ -19,4 +19,20 @@ class HomeModel extends Database{
        
         return $requete = array($sond, $sondPerso, $sondFin, $sondPersoFin);
     }
+
+    function statut(){
+        if($_SESSION['connect'])
+        {
+            $co =$this->pdo->prepare("UPDATE user SET statut= 1 WHERE id =" . $_SESSION['user']['id']);
+            $co->execute();
+        }
+        else
+        {
+            $co =$this->pdo->prepare("UPDATE user SET statut = 0 WHERE id =" . $_SESSION['user']['id']);
+            $co->execute();
+        }
+
+        return $co;
+    }
+    
 }   

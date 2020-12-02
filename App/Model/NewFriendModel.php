@@ -44,16 +44,20 @@ class NewFriendModel extends Database {
         return $var=array($Result, $msg, $msg2);
     }
 
-    // function statut(){
-    //     if($_SESSION['connect'] == true)
-    //     {
-    //         return $co = 'connecté';
-    //     }
-    //     else
-    //     {
-    //         return $co = 'hors ligne';
-    //     }
-    // }
+    function statut(){
+        if($_SESSION['connect'])
+        {
+            $co =$this->pdo->prepare("UPDATE user SET statut= 1 WHERE id =" . $_SESSION['user']['id']);
+            $co->execute();
+        }
+        else
+        {
+            $co =$this->pdo->prepare("UPDATE user SET statut = 0 WHERE id =" . $_SESSION['user']['id']);
+            $co->execute();
+        }
+
+        return $co;
+    }
 
 
 
