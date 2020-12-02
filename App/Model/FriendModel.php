@@ -3,12 +3,13 @@ use Core\Database;
 
 class FriendModel extends Database {
     function friend() {
-        $msg="";
-        $idUser=$_SESSION['user']['id'];
+        $msg="";//création du var message
+        $idUser=$_SESSION['user']['id']; //stcokage de l'id de l'utilisateur en le récupérant de la session
 
+            //
         $colA=$this->pdo->query("SELECT u.`pseudo` as pseudo,u.`statut` as statut, f.`user_id_A` as id FROM friend as f INNER JOIN user as u  on f.`user_id_A` = u.`id` WHERE f.`user_id_B` = '$idUser'");
-        $colB=$this->pdo->query("SELECT u.`pseudo` as pseudo,u.`statut` as statut,git a f.`user_id_B` as id FROM friend as f INNER JOIN user as u  on f.`user_id_B` = u.`id` WHERE f.`user_id_A` = '$idUser'");
-        
+        $colB=$this->pdo->query("SELECT u.`pseudo` as pseudo,u.`statut` as statut, f.`user_id_B` as id FROM friend as f INNER JOIN user as u  on f.`user_id_B` = u.`id` WHERE f.`user_id_A` = '$idUser'");
+
         if(isset($_POST['button'])) {
             if( !empty($_POST['recherche'])) {
                 $recherche=htmlspecialchars(trim($_POST['recherche']));
@@ -20,8 +21,10 @@ class FriendModel extends Database {
         //Permet de récuperer la liste des amis
         if($colA->rowCount()==1 || $colB->rowCount()==1) {
             $colA=$colA->fetchAll(\PDO::FETCH_ASSOC);
-            $colB=$colB->fetchAll(\PDO::FETCH_ASSOC); 
-        }else {
+            $colB=$colB->fetchAll(\PDO::FETCH_ASSOC);
+        }
+
+        else {
             $msg="vous n'avez aucun amis";
         }
 
@@ -31,7 +34,7 @@ class FriendModel extends Database {
             //verif présence amis dans col A 
             $colA=$this->pdo->query("SELECT user_id_A FROM friend where user_id_A = '$idFriend'  AND user_id_B = '$idUser' ");
             $colB=$this->pdo->query("SELECT user_id_B FROM friend where user_id_A = '$idUser'  AND user_id_B = '$idFriend' ");
-            
+
             if($colA->rowCount()==1 || $colB->rowCount()==1) {
                 $colA=$this->pdo->prepare("DELETE FROM friend where user_id_A = '$idFriend'  AND user_id_B = '$idUser' ");
                 $colB=$this->pdo->prepare("DELETE FROM friend where user_id_A = '$idUser'  AND user_id_B = '$idFriend' ");
@@ -39,13 +42,15 @@ class FriendModel extends Database {
                 $colB->execute();
                 header("location:index.php?page=friend");
             }
+
             else {
-               $msg2 = 'vous êtes déjà amis';
+                $msg2='vous êtes déjà amis';
             }
 
 
         }
-        return $var = array($msg, $colA, $colB);
-        
+
+        return $var=array($msg, $colA, $colB);
+
     }
 }

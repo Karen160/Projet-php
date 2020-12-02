@@ -2,12 +2,13 @@
 
 use App\Controller\HomeController;
 use App\Controller\SignController;
-use App\Controller\ProfilController;
-use App\Controller\newSondageController;
-use App\Controller\SondageController;
-use App\Controller\ProfilmodifController;
 use App\Controller\FriendController;
+use App\Controller\ProfilController;
+use App\Controller\ResultController;
+use App\Controller\SondageController;
 use App\Controller\NewFriendController;
+use App\Controller\newSondageController;
+use App\Controller\ProfilmodifController;
 
 if (array_key_exists("page", $_GET)) {
     switch ($_GET["page"]) {
@@ -41,6 +42,10 @@ if (array_key_exists("page", $_GET)) {
         break;
         case 'NewFriend':
             $controller = new NewFriendController();
+            $controller->render();
+        break;
+        case 'resultats':
+            $controller = new ResultController();
             $controller->render();
         break;
         default:

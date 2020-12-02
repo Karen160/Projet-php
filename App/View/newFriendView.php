@@ -18,7 +18,7 @@ include '../inc/header.inc.php';
     <br><br>
     <h2>Les membres</h2>
     <br>
-    <table>
+    <table id="newFriend">
         <thead>
             <tr>
                 <th>Pseudo</th>
@@ -33,21 +33,19 @@ include '../inc/header.inc.php';
                 
             ?>
             <tr>
-                
                 <td name="pseudo"> <?= $user->pseudo ?> </td>
+                <!-- <div class="statut"> -->
                 <td><?php if($user->statut == 1){
-                    echo 'connecté';
+                    echo 'Connecté';
                 }else{
                     echo 'Hors ligne';
                 }  ?></td>
+                <!-- </div> -->
                 <?php
                 $idFriendHash = password_hash($user->id, PASSWORD_DEFAULT);
                 ?> 
-                <td><button name="add" > <a href="index.php?page=NewFriend&id=<?= $idFriendHash ?> " > Ajouter</a></button></td>    
-               
-                       
+                <th><button name="add" > <a href="index.php?page=NewFriend&id=<?= $idFriendHash ?> " > Ajouter</a></button></th>        
             </tr>
-           
             <?php 
              endforeach ;?>
             <div style="margin-left:25.5%;text-align: center; background-color : orange; width : 49%"><?php echo $var[1]; ?></div>

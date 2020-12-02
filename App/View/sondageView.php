@@ -112,8 +112,7 @@ include '../inc/header.inc.php';
         $total = $resultat[1][0]['total'];
         ?>
 
-        <h2>Résultat:</h2>
-        <!-- Indique le statut du sondage -->
+        <h2>Résultat:<?php ?></h2>
         <P class="text-center">Statut: <?= $statut ?></P>
         <br><br>
         <h3 class="text-center"><?= $resultat[0][0]["question"] ?></h3>
