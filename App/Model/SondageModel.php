@@ -119,7 +119,7 @@ class SondageModel extends Database {
           //Vérifie l'email
           if(filter_var($_POST['email'. $k], FILTER_VALIDATE_EMAIL)) {
             //envoi de l'email
-            $to=$_POST['email'.$k]; //le destinataire
+            $to=$_POST['email'.$k]; //le destinataire c'est a dire le contenu de l'élément au name email$K
             $subject='Le sondage 2Choose';
             $mail=$_POST['textarea'];
             $link=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
