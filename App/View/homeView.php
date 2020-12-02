@@ -16,6 +16,7 @@ include '../inc/header.inc.php'; ?>
             }
             foreach($sond as $sondage) :
            ?>
+           <!-- Affichage des sondages -->
             <div class="boxsondage">
                 <a href="index.php?page=sondage&sondage=<?=$sondage->question_id?>">
                     <img src="<?= $sondage->image ?>" alt="Image de la question ' + <?= $sondage->question ?> + '">
@@ -26,6 +27,7 @@ include '../inc/header.inc.php'; ?>
             </div>
             <?php endforeach; ?>
         </div>
+        <!-- Affichage des boutons lorsque l'internaute n'est pas connecté -->
         <?php if($_SESSION['connect'] == false): ?>
         <button
             onclick="alert('Pour pouvoir voir tous les sondages, veuillez-vous connecter'), window.location.href='index.php?page=sign'"
@@ -39,6 +41,7 @@ include '../inc/header.inc.php'; ?>
         <?php endif; ?>
     </section>
 
+    <!-- Affichage des sondages du membre lorsqu'il est connecté -->
     <?php if($_SESSION['connect']): ?>
     <section id="mesSond">
         <h2>Mes sondages</h2>

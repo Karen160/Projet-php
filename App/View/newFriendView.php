@@ -20,9 +20,11 @@ include '../inc/header.inc.php';
             </svg>
         </button>
     </form>
+    
     <br><br>
     <h2>Les membres</h2>
     <br>
+
     <!-- Liste des membres inscrit qui ne sont pas encore ami avec l'utilisateur -->
     <table id="newFriend">
         <thead>
