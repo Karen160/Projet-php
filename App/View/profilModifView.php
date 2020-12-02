@@ -4,7 +4,8 @@ include '../inc/header.inc.php';
 ?>
 <main id="profil">
     <section>
-        <form method="post" >
+        <!-- Formulaire de modification du profil -->
+        <form method="post">
             <img src="https://www.tbstat.com/wp/uploads/2019/07/20190724_Blockchain-Gaming.jpg">
             <div class="info">
                 <?php foreach($user_infos[0] as $userdata):
@@ -12,13 +13,14 @@ include '../inc/header.inc.php';
                     foreach($user_infos[2] as $sondagedata):?>
                 <div>
                     <label for="nom">Nom :</label>
+                    <!-- Met dans la valeur des boutons les informations actuelles du profil -->
                     <input type="text" name="nom" class="form-control" value="<?= $userdata->nom ?>">
 
-                <label for="prenom">Prénom :</label>
-                <input type="text" name="prenom" class="form-control" value="<?= $userdata->prenom?>">
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" name="prenom" class="form-control" value="<?= $userdata->prenom?>">
 
-                <label for="pseudo">Pseudo :</label>
-                <input type="text" name="pseudo" class="form-control" value="<?= $userdata->pseudo?>">
+                    <label for="pseudo">Pseudo :</label>
+                    <input type="text" name="pseudo" class="form-control" value="<?= $userdata->pseudo?>">
 
                 <label for="Nmdp">Nouveau Mot de passe :</label>
                 <input type="password" name="Nmdp" class="form-control" >    
@@ -47,4 +49,4 @@ include '../inc/header.inc.php';
         </form> 
     </section>
 </main>
-<?php  include '../inc/footer.inc.php';?>
+<?php include '../inc/footer.inc.php';?>
