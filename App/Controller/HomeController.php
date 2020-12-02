@@ -10,15 +10,16 @@ class HomeController{
         $this->model = new HomeModel();
     }
     public function render()
-    {               
+    {    
         if(!isset($_SESSION['connect'])){
             $_SESSION['connect'] = false;
         }
         if($_SESSION['connect'] == true){
             $requete = $this->model->homeConnect();
+           $this->model->statut(); 
         }else{
             $allSondage = $this->model->home();
-        }
+        }         
         require ROOT."/App/View/homeView.php";
     }
 }

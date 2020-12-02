@@ -6,8 +6,8 @@ class FriendModel extends Database {
         $msg="";
         $idUser=$_SESSION['user']['id'];
 
-        $colA=$this->pdo->query("SELECT u.`pseudo` as pseudo, f.`user_id_A` as id FROM friend as f INNER JOIN user as u  on f.`user_id_A` = u.`id` WHERE f.`user_id_B` = '$idUser'");
-        $colB=$this->pdo->query("SELECT u.`pseudo` as pseudo, f.`user_id_B` as id FROM friend as f INNER JOIN user as u  on f.`user_id_B` = u.`id` WHERE f.`user_id_A` = '$idUser'");
+        $colA=$this->pdo->query("SELECT u.`pseudo` as pseudo,u.`statut` as statut, f.`user_id_A` as id FROM friend as f INNER JOIN user as u  on f.`user_id_A` = u.`id` WHERE f.`user_id_B` = '$idUser'");
+        $colB=$this->pdo->query("SELECT u.`pseudo` as pseudo,u.`statut` as statut, f.`user_id_B` as id FROM friend as f INNER JOIN user as u  on f.`user_id_B` = u.`id` WHERE f.`user_id_A` = '$idUser'");
         
         if(isset($_POST['button'])) {
             if( !empty($_POST['recherche'])) {
@@ -47,15 +47,5 @@ class FriendModel extends Database {
         }
         return $var = array($msg, $colA, $colB);
         
-    }
-    function statut(){
-        if($_SESSION['connect'] == true)
-        {
-            return $co = 'connecté';
-        }
-        else
-        {
-            return $co = 'hors ligne';
-        }
     }
 }

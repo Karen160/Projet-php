@@ -69,14 +69,17 @@ include '../inc/header.inc.php';
             return  array(ceil($calcul).' jour'.Pluriel($calcul).'</strong>.',$past) ;
         };
     }
+    $dateFin = $resultat[0][0]["date_fin"];
+    list ($temps, $past) = TimeToFin($dateFin);
 ?>
 <main>
 
     <button class="btn btn-info active pop" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
-
-        <!-- Sondage -->
-    <section id="sondage">
-        <h2><?=$sondage[0][0]->question?></h2>
+    <?php 
+    if($past == false && $_SESSION['user']['id'] != $sondage[0]->user_id_author && $vote == false){
+        ?>
+        <section id="sondage">
+        <h2><?=$sondage[0]->question?></h2>
         <br><br>
         <div class="sond">
         <?php foreach($sondage[0] as $choix): ?>
@@ -93,14 +96,11 @@ include '../inc/header.inc.php';
         
         endforeach ?>
         </div>
-    </section>
+        </section>
 
-    <br>
-    
-    <section id="sondage">
+    <?php }else{ ?>
+        <section id="sondage">
         <?php  
-        $dateFin = $resultat[0][0]["date_fin"];
-        list ($temps, $past) = TimeToFin($dateFin);
         if($past){
             $statut = "Le sondage est terminé depuis ".$temps."Voici les résultats finaux";
 
@@ -129,8 +129,8 @@ include '../inc/header.inc.php';
             <?php endforeach; ?>
         </div>
     </section>
-
-
+  <?php  } ?>
+   
     <br><br><br>
 
         <!-- Afficher le commentaire -->
