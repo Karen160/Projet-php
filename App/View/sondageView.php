@@ -76,9 +76,10 @@ include '../inc/header.inc.php';
         <h2><?=$sondage[0]->question?></h2>
         <br><br>
         <div class="sond">
-            <?php foreach($sondage as $choix): ?>
-            <button>
-                <h4><?=$choix->choix?></h4>
+        <?php foreach($sondage as $choix): ?>
+            <button name="addAnswer">
+            <?php $idHash = password_hash($choix->answer_id, PASSWORD_DEFAULT); ?> 
+            <a href="index.php?page=sondage&sondage=<?= $choix->question_id?>&answer=<?=$idHash?>"><h4><?=$choix->choix?></h4></a>
             </button>
             <br><br>
             <?php endforeach ?>
@@ -100,7 +101,7 @@ include '../inc/header.inc.php';
         <h2>Résultat:</h2>
         <P class="text-center">Statut: <?= $statut ?></P>
         <br><br>
-        <h3  class="text-center"><?= $resultat[0]["question"] ?></h3>
+        <h3 class="text-center"><?= $resultat[0]["question"] ?></h3>
         <br><br>
         <div class="sond">
             <h4>Oui</h4>
