@@ -16,8 +16,8 @@ $('nav a').click(function(){ //Appuie sur le menu
 
 
 //Bouton ajout commentaire
-$('.com').click(function(){
-    $('#com .monCom').css('display', 'block');
+$('#commentaire .combutton').click(function(){
+    $('#commentaire .monCom').css('display', 'block');
     $(this).css('display', 'none');
 });
 
@@ -73,7 +73,10 @@ $('.com').click(function(){
 
 
 
-
+setInterval('load_messages()', 500);
+    function load_messages(){
+        $('#com').load('#com .msg')
+};
 
 
 

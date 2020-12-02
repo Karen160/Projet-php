@@ -53,44 +53,44 @@
   }
 
 
-  #com .msg{
+  #commentaire .msg{
     width: 800px;
     margin: auto;
   }
  
-  #com .msg div:first-child{
+  #commentaire .msg div:first-child{
     background-color: #106B7e;
     display: flex;
     align-items: center;
   }
 
-  #com .msg div{
+  #commentaire .msg div{
     padding: 5px;
     border: #106B7e 1px solid;
   }
 
-  #com .msg img{
+  #commentaire .msg img{
     height: 50px;
     padding: 0 10px;
   }
 
-  #com div:first-child p{
+  #commentaire div:first-child p{
     color: white;
     margin: 0;
     padding: 0 10px;
   }
 
-  #com div:last-child p{
+  #commentaire div:last-child p{
     margin: 0;
     padding: 0 20px;
     font-size: 0.8em;
   }
 
-#com .monCom{
+  #commentaire .monCom{
   display: none;
 }
 
-#com textarea.form-control {
+#commentaire textarea.form-control {
     height: 100px;
     width: 60%;
     border: 1px #106B7e solid;
