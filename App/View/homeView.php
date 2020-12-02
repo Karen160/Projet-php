@@ -2,9 +2,12 @@
 include '../inc/head.inc.php'; 
 include '../inc/header.inc.php'; ?>
 <main id="accueil">
+    <!-- Les sondages en cours (en dehors du membre) -->
     <section>
         <h2>Sondages en cours</h2>
         <div class="conteneur">
+            <!-- Si l'internaute n'est pas connecté, seulement 3 sondages sont montrés, il faut qu'il se connect pour y avoir accès et en voir plus
+            Si l'internaute est connecté, il voit tous les sondages et peut y répondre -->
             <?php 
             if($_SESSION['connect']){
                 $sond =  $requete[0] ;
@@ -13,6 +16,7 @@ include '../inc/header.inc.php'; ?>
             }
             foreach($sond as $sondage) :
            ?>
+           <!-- Affichage des sondages -->
             <div class="boxsondage">
                 <a href="index.php?page=sondage&sondage=<?=$sondage->question_id?>">
                     <img src="<?= $sondage->image ?>" alt="Image de la question ' + <?= $sondage->question ?> + '">
@@ -23,15 +27,21 @@ include '../inc/header.inc.php'; ?>
             </div>
             <?php endforeach; ?>
         </div>
+        <!-- Affichage des boutons lorsque l'internaute n'est pas connecté -->
         <?php if($_SESSION['connect'] == false): ?>
-        <button onclick="alert('Pour pouvoir voir tous les sondages, veuillez-vous connecter'), window.location.href='index.php?page=sign'" class="btn btn-info active" style="margin:0 auto; display:block">Voir d'autres sondages</button>
+        <button
+            onclick="alert('Pour pouvoir voir tous les sondages, veuillez-vous connecter'), window.location.href='index.php?page=sign'"
+            class="btn btn-info active" style="margin:0 auto; display:block">Voir d'autres sondages</button>
         <br><br><br><br>
         <h2>Mes sondages</h2>
         <br><br>
-        <button onclick="alert('Pour pouvoir voir vos sondages, veuillez-vous connecter'), window.location.href='index.php?page=sign'" class="btn btn-info active" style="margin:0 auto; display:block">Voir mes sondages</button>
+        <button
+            onclick="alert('Pour pouvoir voir vos sondages, veuillez-vous connecter'), window.location.href='index.php?page=sign'"
+            class="btn btn-info active" style="margin:0 auto; display:block">Voir mes sondages</button>
         <?php endif; ?>
     </section>
 
+    <!-- Affichage des sondages du membre lorsqu'il est connecté -->
     <?php if($_SESSION['connect']): ?>
     <section id="mesSond">
         <h2>Mes sondages</h2>
@@ -48,7 +58,7 @@ include '../inc/header.inc.php'; ?>
             </div>
             <?php endforeach;?>
         </div>
-    </section>  
+    </section>
     <?php endif; ?>
 </main>
 
