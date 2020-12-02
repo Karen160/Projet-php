@@ -19,4 +19,5 @@ class HomeModel extends Database{
        
         return $requete = array($sond, $sondPerso, $sondFin, $sondPersoFin);
     }
+    
 }   
