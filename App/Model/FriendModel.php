@@ -7,7 +7,7 @@ class FriendModel extends Database {
         $idUser=$_SESSION['user']['id'];
 
         $colA=$this->pdo->query("SELECT u.`pseudo` as pseudo,u.`statut` as statut, f.`user_id_A` as id FROM friend as f INNER JOIN user as u  on f.`user_id_A` = u.`id` WHERE f.`user_id_B` = '$idUser'");
-        $colB=$this->pdo->query("SELECT u.`pseudo` as pseudo,u.`statut` as statut,git a f.`user_id_B` as id FROM friend as f INNER JOIN user as u  on f.`user_id_B` = u.`id` WHERE f.`user_id_A` = '$idUser'");
+        $colB=$this->pdo->query("SELECT u.`pseudo` as pseudo,u.`statut` as statut, f.`user_id_B` as id FROM friend as f INNER JOIN user as u  on f.`user_id_B` = u.`id` WHERE f.`user_id_A` = '$idUser'");
         
         if(isset($_POST['button'])) {
             if( !empty($_POST['recherche'])) {
