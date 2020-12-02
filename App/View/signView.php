@@ -7,6 +7,7 @@ include '../inc/header.inc.php';
     <div class="row">
         <div class="col-sm-1">
         </div>
+        <!-- Formulaire d'inscription -->
         <section class="col-sm-5 position-static" id="inscription">
             <div class="card ">
                 <div class="card-body">
@@ -41,12 +42,13 @@ include '../inc/header.inc.php';
                         <div class="col-sm-12 mt-4 position-static offset-ms-4">
                             <button type="submit" class="btn btn-info btn-block active" name="bouton">Envoyez</button>
                         </div>
-                        <?php  echo $msg;?>
+                        <?php echo $msg;?>
                     </form>
                 </div>
-                </form>
-
+            </div>
         </section>
+
+        <!-- Formulaire de connexion -->
         <section class="col-sm-5 mx-auto mt-5 position-static">
             <div class="card ">
                 <div class="card-body  position-static " id="connexion">
@@ -60,18 +62,15 @@ include '../inc/header.inc.php';
                         <div class="col-sm-12 mt-4">
                             <label for="mdpCo">Password</label>
                             <input type="password" name="mdpCo" class="form-control"
-                                placeholder="Entrez votre mot de passe" 
-                               >
+                                placeholder="Entrez votre mot de passe">
                         </div>
                         <div class="col-sm-12 mt-4 offset-ms-4">
                             <button type="submit" class="btn btn-info btn-block active">Envoyez</button>
-                            <?php
-                             echo $msgCo;
-                            ?>
+                            <?php echo $msgCo; ?>
                         </div>
                     </form>
                 </div>
-                </form>
+            </div>
         </section>
     </div>
 </main>
