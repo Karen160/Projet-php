@@ -7,7 +7,10 @@ class ProfilModel extends Database{
 
     }
     function recup(){ 
-        return $this->query("SELECT * FROM `user` WHERE id = ".$_SESSION['user']['id']);
+    $id = $_SESSION['user']['id'];
+    $user =  $this->query("SELECT * FROM `user` WHERE id = '$id'");
+    $friend =  $this->query("SELECT count(friend_id) as nb_ami from friend where user_id_A ='$id' OR user_id_B = '$id'");
+    $sondage = $this->query("SELECT count(friend_id) as nb_ami from friend where user_id_A = '$id' OR user_id_B = '$id'");
+    return array($user,$friend,$sondage);
     }
- 
 }
