@@ -107,8 +107,6 @@ $("#reponseNb").change(function () {
 
 $("#formNbPerson").change(function () {
     let nbPerson = $(this).val();
-
-
     var j = 0;
     $("#email").html("");
     while (j < nbPerson) {

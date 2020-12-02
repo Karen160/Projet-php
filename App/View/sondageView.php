@@ -2,6 +2,83 @@
 include '../inc/head.inc.php'; 
 include '../inc/header.inc.php'; ?>
 <main>
+<?php 
+    function Date_Convert($date) {
+        $jour = substr($date, 8, 2);
+        $mois = substr($date, 5, 2);
+        $annee = substr($date, 0, 4);
+        $heure = substr($date, 11, 2);
+        $minute = substr($date, 14, 2);
+        $seconde = substr($date, 17, 2);
+        
+        $key = array('annee', 'mois', 'jour', 'heure', 'minute', 'seconde');
+        $value = array($annee, $mois, $jour, $heure, $minute, $seconde);
+        
+        $tab_retour = array_combine($key, $value);
+        
+        return $tab_retour;
+    }
+
+    function AuPluriel($chiffre) {
+        if($chiffre>1) {
+            return 's';
+        };
+    }
+    function TimeToJourJ($date) {
+        $tab_date = Date_Convert($date);
+        $mkt_jourj = mktime($tab_date['heure'],
+                        $tab_date['minute'],
+                        $tab_date['seconde'],
+                        $tab_date['mois'],
+                        $tab_date['jour'],
+                        $tab_date['annee']);
+    
+        $mkt_now = time();
+        
+        $diff = $mkt_jourj - $mkt_now;
+        
+        $unjour = 3600 * 24;
+        $past = false;
+        if($diff>=$unjour) {
+            // EN JOUR
+            $calcul = $diff / $unjour;
+            return 'Il reste <strong>'.ceil($calcul).' jour'.AuPluriel($calcul).
+    '</strong>.';
+    
+        } elseif($diff<$unjour && $diff>=0 && $diff>=3600) {
+            // EN HEURE
+            $calcul = $diff / 3600;
+            return 'Il reste <strong>'.ceil($calcul).' heure'.AuPluriel($calcul).
+    '</strong>.';
+    
+        } elseif($diff<$unjour && $diff>=0 && $diff<3600) {
+            // EN MINUTES
+            $calcul = $diff / 60;
+            return 'Il reste <strong>'.ceil($calcul).' minute'.AuPluriel($calcul).
+    '</strong>.';
+    
+        } elseif($diff<0 && abs($diff)<3600) {
+            // DEPUIS EN MINUTES
+            $calcul = abs($diff) / 60;
+            return 'Depuis <strong>'.ceil($calcul).' minute'.AuPluriel($calcul).
+    '</strong>.';
+    
+        } elseif($diff<0 && abs($diff)<=3600) {
+            // DEPUIS EN HEURES
+            $calcul = abs($diff) / 3600;
+            return 'Depuis <strong>'.ceil($calcul).' heure'.AuPluriel($calcul).
+    '</strong>.';        
+    
+        } else {
+            // DEPUIS EN JOUR
+            $past = true;
+            $calcul = abs($diff) / $unjour;
+            return 'Depuis <strong>'.ceil($calcul).' jour'.AuPluriel($calcul).
+    '</strong>.';
+    
+        };
+    }
+?>
     <button class="btn btn-info active pop" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
     <section id="sondage">
         <h2><?=$sondage[0]->question?></h2>
@@ -18,21 +95,18 @@ include '../inc/header.inc.php'; ?>
     <br>
     <section id="sondage">
         <?php  
-        date_default_timezone_set('UTC'); 
-        $date = date("Y-m-d H:i:s");
-        if($date > $resultat[0]["date_fin"]){
-            $statut = "Sondage Terminé";
+        $dateFin = $resultat[0]["date_fin"];
+        $temps = TimeToJourJ($dateFin);
+        if($past){
+            $statut = "Le sondage est Terminé depuis ".$temps.". Voici les résultats finaux";
         }else{
-            $date1 = date_create($resultat[0]["date_fin"]);
-            $date2 = date_create($date);
-            $temps = date_diff($date2,$date1);
-            var_dump($temps);
-            $statut = "Sondage en cour, il reste  avant la fin du sondage";
+            $statut =  "Le sondage se termine dans ".$temps.". Voici les résultats actuelle";
         }
+       
         ?>
         
         <h2>Résultat:</h2>
-        <P>Statut:<?= $statut ?> </P>
+        <P>Statut: <?= $statut ?></P>
         <br><br>
         <h3><?= $resultat[0]["question"] ?></h3>
         <br><br>
