@@ -27,12 +27,9 @@ class newSondageModel extends Database {
       $recup_question=$this->pdo->query("SELECT max(`question_id`) as question_id FROM question");
       $recupQ=$recup_question->fetch(\PDO::FETCH_ASSOC);
       $question_id = $recupQ['question_id'];
-      // var_dump($question_id);
         $i=0;
         while(isset($_POST['proposition'.($i+1)])) {
-          // var_dump(isset($_POST['proposition'.($i+1)]));
           $i++;
-          // var_dump($i);
         }
         for($k=1; $k<=$i; $k++) {
           $proposition=trim($_POST['proposition'.$k]);

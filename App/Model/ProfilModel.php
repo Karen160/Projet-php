@@ -27,6 +27,7 @@ class ProfilModel extends Database{
         
     }
     function recup(){ 
+        //recuperer des information afin de les utiliser dans la view
     $id = $_SESSION['user']['id'];
     $user =  $this->query("SELECT * FROM `user` WHERE id = '$id'");
     $friend =  $this->query("SELECT count(friend_id) as nb_ami from friend where user_id_A ='$id' OR user_id_B = '$id'");
