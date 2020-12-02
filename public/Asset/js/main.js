@@ -21,58 +21,8 @@ $('#commentaire .combutton').click(function(){
     $(this).css('display', 'none');
 });
 
-// var xhr = new XMLHttpRequest();
 
-// xhr.onreadystatechange = function(){
-//     console.log(this);
-// };
-
-// xhr.open("GET", "async/text", true); //requete
-// xhr.send();
-
-
-// $('#com .com2').click(function(e){
-//     e.preventDefault();
-//     let com = $(".monCom").serializeArray();
-
-//     $.ajax({
-//         url:"index.php?page=sondage",
-//         method:"POST",
-//         dataType:"json",
-//         data:com,
-//         error:function(response){
-//             console.log(response.statusText);
-//         }
-//     })
-//     getCom();  
-    
-//     // $('#com').load("load.php");
-//     // setInterval(function(){
-//     //     $('#com').load("load.php");
-//     // }, 3000);
-// });
-    
-// function getCom(){
-//     $.ajax({
-//         url:"index.php?page=sondage",
-//         method:"GET",
-//         dataType:"json",
-//         success:function(response){
-//             $(".msg").html("");
-//             let i = 0
-//             response.forEach(com => {
-//                 $(".msg").append("<div><p>'" + com[0] + "'</p><p>'"+ com[1] +"'</p></div><div><p>'" + com[2] + "'</p></div>");
-//                 i++;
-//             });
-//         },
-//         error:function(response){
-//             console.log(response.statusText);
-//         }
-//     })
-// }
-
-
-
+//Rechargement de la page sondage pour mise à jour des commentaires
 setInterval('load_messages()', 500);
     function load_messages(){
         $('#com').load('#com .msg')
@@ -92,7 +42,7 @@ $('#shareSondage i').click(function(){ //Appuie sur la croix
 });
 
 
-//Nombre de reponse / email
+//Nombre de reponse
 //Permet d'afficher le bon nombre de champ a remplir pour le choix de proposition de réponse que souhaite mettre l'internaute sur sa question
 $("#reponseNb").change(function () {
  
@@ -108,6 +58,7 @@ $("#reponseNb").change(function () {
     }
 });
 
+//Nombre email
 $("#formNbPerson").change(function () {
     let nbPerson = $(this).val();
     var j = 0;
