@@ -46,7 +46,41 @@ include '../inc/header.inc.php'; ?>
                 </a>
                 <br>
             </div>
-            <?php endforeach; ?>
+            <?php endforeach;
+
+            ?>
+        </div>
+    </section>
+    <section id="mesSond">
+        <h2>Résultat global</h2>
+        <div class="conteneur">
+            <?php foreach( $requete[2] as $sondageResult) : ?>
+            <div class="boxsondage">
+                <a href=>
+                    <img src="<?= $sondageResult->image ?>"
+                        alt="Image de la question <?= $sondageResult->question ?> ">
+                    <span>Date de fin : Finit depuis le <?= $sondageResult->date_fin ?></span>
+                    <p><?= $sondageResult->question ?></p>
+                </a>
+                <br>
+            </div>
+            <?php endforeach;?>
+        </div>
+    </section>
+    <section id="mesSond">
+        <h2>Les résultat de mes sondages</h2>
+        <div class="conteneur">
+            <?php foreach( $requete[3] as $MesSondageResult) : ?>
+            <div class="boxsondage">
+                <a href=>
+                    <img src="<?= $MesSondageResult->image ?>"
+                        alt="Image de la question <?= $MesSondageResult->question ?> ">
+                    <span>Date de fin : Finit depuis le <?= $MesSondageResult->date_fin ?></span>
+                    <p><?= $MesSondageResult->question ?></p>
+                </a>
+                <br>
+            </div>
+            <?php endforeach;?>
         </div>
     </section>
     <?php endif; ?>
