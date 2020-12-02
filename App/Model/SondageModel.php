@@ -133,7 +133,7 @@ function result(){
     }
   }
 
-  function ajax(){
+  
       public function saveCom($data)
       {
           $com = $data["titre"].",".$data["desc"].",".$data["urgence"].",".$data["date"]."\n";
@@ -164,6 +164,6 @@ function result(){
           echo json_encode($data);
       }
   }
-}
+
 
 ?>
