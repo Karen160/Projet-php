@@ -34,6 +34,12 @@ setInterval('load_resultat()', 500);
        $('#sondage .sond .reload').load('#sondage .sond .reload')
 };
 
+//Rechargement de la friend pour mise à jour des status
+setInterval('load_statut()', 500);
+   function load_statut(){
+       $('#friend tbody').load('#friend tbody')
+};
+
 
 //Pop up partage
 $(".pop").click(function(){

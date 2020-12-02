@@ -16,7 +16,7 @@ include '../inc/header.inc.php'; ?>
     <br><br>
     <h2>Mes amis</h2>
     <br>
-    <table>
+    <table id="friend">
         <thead>
             <tr>
                 <th>Pseudo</th>
