@@ -48,7 +48,11 @@ Projet réalisé par:
                             id_question_id->clé étrangère de question 
                             le choix en varchar,nombre correspond au nombre de foix qu'une réponse s'est fait voté
                             résultat, NULL d'origin prend une valeur booléenne de 0 si elle n'est pas la réponse gagnante sinon 1
-    -user
+    -user-answer: id de  la table, 
+                                user_id->clé étrangère de user
+                                answer_id->clé étrangère de answer
+                                id_question->clé étrangère de question
+-user_comment: id de la table, user_id clé étrangère user, id_question_id clé étrangère question, le commenatire en varchar et la date du post
 
 
 
