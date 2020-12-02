@@ -31,4 +31,10 @@ Projet réalisé par:
     Partager le Sondage : Se connecter -> se rendre sur le sondage -> PARTAGER le sondage.
 
 
+Les utilisateurs :
+Nous vous avons exporté notre base de donnée et nous avons créé 3 membres avec comme pseudo et mdp :
+- alex 
+- karen
+- benji
+
 
