@@ -29,9 +29,6 @@ setInterval('load_messages()', 500);
 };
 
 
-
-
-
 //Pop up partage
 $(".pop").click(function(){
    $("#shareSondage").show("slow");
@@ -40,11 +37,8 @@ $(".pop").click(function(){
 $('#shareSondage i').click(function(){ //Appuie sur la croix
    $('#shareSondage').hide("slow");
 });
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 5eb884beed29c756b4c81cae3588c280fc4a1807
 //Nombre de reponse
 //Permet d'afficher le bon nombre de champ a remplir pour le choix de proposition de réponse que souhaite mettre l'internaute sur sa question
 $("#reponseNb").change(function () {

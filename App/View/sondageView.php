@@ -72,6 +72,7 @@ include '../inc/header.inc.php';
 ?>
 <main>
     <button class="btn btn-info active pop" style="float:right; margin-right:40px">Partager ce sondage</button><br><br>
+    
     <section id="sondage">
         <h2><?=$sondage[0]->question?></h2>
         <br><br>
